@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>stata下载报错解决方案合集</title>
+    <link href="/2022/06/12/stata%E4%B8%8B%E8%BD%BD/"/>
+    <url>/2022/06/12/stata%E4%B8%8B%E8%BD%BD/</url>
+    
+    <content type="html"><![CDATA[<p>解决stata安装外部命令报错</p><p>cannot write in directory C:�ƿ���_</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">ssc</span> install diff<br></code></pre></td></tr></table></figure><p>安装出现cannot write in directory C:����：</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysdir</span> <span class="hljs-keyword">set</span> PLUS <span class="hljs-string">&quot;.\ado\plus&quot;</span><br><span class="hljs-keyword">sysdir</span> <span class="hljs-keyword">set</span> <span class="hljs-keyword">PERSONAL</span> <span class="hljs-string">&quot;.\ado\personal&quot;</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>你好，我是司徒东博同学啊！</title>
     <link href="/2022/06/03/%E6%88%91%E6%98%AF%E5%8F%B8%E5%BE%92%E4%B8%9C%E5%8D%9A%E5%90%8C%E5%AD%A6%EF%BC%81/"/>
     <url>/2022/06/03/%E6%88%91%E6%98%AF%E5%8F%B8%E5%BE%92%E4%B8%9C%E5%8D%9A%E5%90%8C%E5%AD%A6%EF%BC%81/</url>
