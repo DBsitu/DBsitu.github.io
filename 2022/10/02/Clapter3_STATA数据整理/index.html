@@ -17,20 +17,25 @@
   <meta name="author" content="Devin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="解决stata安装外部命令报错 cannot write in directory C:\Users\�ƿ���\ado\plus_ 1ssc install diff 安装出现cannot write in directory C:\Users\����\ado\plus\d解决方案： 12sysdir set PLUS &quot;.\ado\plus&quot;sysdir set PERS">
+    <meta name="description" content="Chapter3——STATA数据整理  0. 数据整理关键命令    命令 命令解释 用法示例     drop 删除变量或观察值 drop math   keep 保留变量或观察值 keep math   append 将两个数据集拼接(观察值拼接) append using math   merge 将两个数据集合并（变量合并） merge id using math   reshape 将">
 <meta property="og:type" content="article">
-<meta property="og:title" content="stata下载报错解决方案合集">
-<meta property="og:url" content="http://example.com/2022/06/12/stata%E4%B8%8B%E8%BD%BD/index.html">
+<meta property="og:title" content="Chapter3——STATA数据整理">
+<meta property="og:url" content="http://example.com/2022/10/02/Clapter3_STATA%E6%95%B0%E6%8D%AE%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="解决stata安装外部命令报错 cannot write in directory C:\Users\�ƿ���\ado\plus_ 1ssc install diff 安装出现cannot write in directory C:\Users\����\ado\plus\d解决方案： 12sysdir set PLUS &quot;.\ado\plus&quot;sysdir set PERS">
+<meta property="og:description" content="Chapter3——STATA数据整理  0. 数据整理关键命令    命令 命令解释 用法示例     drop 删除变量或观察值 drop math   keep 保留变量或观察值 keep math   append 将两个数据集拼接(观察值拼接) append using math   merge 将两个数据集合并（变量合并） merge id using math   reshape 将">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-12T10:20:12.000Z">
-<meta property="article:modified_time" content="2022-06-15T09:07:22.608Z">
+<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002212201513.png">
+<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002224306422.png">
+<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002224520106.png">
+<meta property="article:published_time" content="2022-10-02T15:06:26.000Z">
+<meta property="article:modified_time" content="2022-10-02T15:08:16.973Z">
 <meta property="article:author" content="Devin">
+<meta property="article:tag" content="Econometric">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002212201513.png">
   
   
-  <title>stata下载报错解决方案合集 - Hexo</title>
+  <title>Chapter3——STATA数据整理 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -73,7 +78,119 @@
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 6.1.0"></head>
+<meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -187,7 +304,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="stata下载报错解决方案合集"></span>
+            <span id="subtitle" data-typed-text="Chapter3——STATA数据整理"></span>
           
         </div>
 
@@ -203,8 +320,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-12 18:20" pubdate>
-          2022年6月12日 晚上
+        <time datetime="2022-10-02 23:06" pubdate>
+          2022年10月2日 晚上
         </time>
       </span>
     
@@ -216,7 +333,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          211 字
+          2k 字
         
       </span>
     
@@ -228,7 +345,7 @@
         
         
           <!-- compatible with older versions-->
-          2 分钟
+          17 分钟
         
       </span>
     
@@ -266,15 +383,128 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">stata下载报错解决方案合集</h1>
+            <h1 style="display: none">Chapter3——STATA数据整理</h1>
             
             <div class="markdown-body">
               
-              <p>解决stata安装外部命令报错</p>
-<p>cannot write in directory C:\Users\�ƿ���\ado\plus_</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">ssc</span> install diff<br></code></pre></td></tr></table></figure>
-<p>安装出现cannot write in directory C:\Users\����\ado\plus\d解决方案：</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysdir</span> <span class="hljs-keyword">set</span> PLUS <span class="hljs-string">&quot;.\ado\plus&quot;</span><br><span class="hljs-keyword">sysdir</span> <span class="hljs-keyword">set</span> <span class="hljs-keyword">PERSONAL</span> <span class="hljs-string">&quot;.\ado\personal&quot;</span><br></code></pre></td></tr></table></figure>
+              <h1 align="center">Chapter3——STATA数据整理</h1>
+
+<h4 id="0-数据整理关键命令"><a href="#0-数据整理关键命令" class="headerlink" title="0. 数据整理关键命令"></a>0. 数据整理关键命令</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">命令解释</th>
+<th style="text-align:center">用法示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">drop</td>
+<td style="text-align:center">删除变量或观察值</td>
+<td style="text-align:center">drop math</td>
+</tr>
+<tr>
+<td style="text-align:center">keep</td>
+<td style="text-align:center">保留变量或观察值</td>
+<td style="text-align:center">keep math</td>
+</tr>
+<tr>
+<td style="text-align:center">append</td>
+<td style="text-align:center">将两个数据集拼接(观察值拼接)</td>
+<td style="text-align:center">append using math</td>
+</tr>
+<tr>
+<td style="text-align:center">merge</td>
+<td style="text-align:center">将两个数据集合并（变量合并）</td>
+<td style="text-align:center">merge id using math</td>
+</tr>
+<tr>
+<td style="text-align:center">reshape</td>
+<td style="text-align:center">将数据重整</td>
+<td style="text-align:center">reshape long inc,i(id) j(yr)</td>
+</tr>
+<tr>
+<td style="text-align:center">stack</td>
+<td style="text-align:center">将多列数据转换成一列数据</td>
+<td style="text-align:center">stack a b c d, into(e f)</td>
+</tr>
+<tr>
+<td style="text-align:center">xpose</td>
+<td style="text-align:center">数据转置</td>
+<td style="text-align:center">xpose,clear</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>流程图解释：</em></p>
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002212201513.png" srcset="/img/loading.gif" lazyload alt="image-20221002212201513" style="zoom:50%;"></p>
+<h4 id="1-拆分数据"><a href="#1-拆分数据" class="headerlink" title="1. 拆分数据"></a>1. 拆分数据</h4><p>对于数据的拆分主要分成横向拆分和纵向拆分两种类型，横向拆分主要是通过保留和删除数据实现的，而纵向拆分主要是用过<code>append</code>和<code>merge</code>来实现不同纵向行间的合并与拆分。</p>
+<ol>
+<li>横向拆分数据</li>
+</ol>
+<p>案例：将 mydata 数据分成三个数据文件，分别为学生基本信息文件student.dta, 经济学成绩文件 economy.dta 和数学成绩文件 math.dta。 </p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">cd</span> <span class="hljs-keyword">d</span>:/mydata/     <span class="hljs-comment">//导入数据</span><br><span class="hljs-keyword">use</span> mydata,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">drop</span> economy math     <span class="hljs-comment">//删除economy和math的变量</span><br><span class="hljs-keyword">save</span> student,<span class="hljs-keyword">replace</span>   <span class="hljs-comment">//保存删除变量后的文件为student</span><br><span class="hljs-keyword">use</span> mydata,<span class="hljs-keyword">clear</span>  <br><span class="hljs-keyword">keep</span> id economy    <span class="hljs-comment">//仅仅保持id和economy两个变量</span><br><span class="hljs-keyword">save</span> economy,<span class="hljs-keyword">clear</span>  <span class="hljs-comment">//保存删除变量后的文件为economy</span><br><span class="hljs-keyword">use</span> mydata,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">keep</span> id math<br><span class="hljs-keyword">save</span> math,<span class="hljs-keyword">replace</span><br></code></pre></td></tr></table></figure>
+<ol>
+<li>纵向拆分数据</li>
+</ol>
+<p>案例：将 mydata 数据分成二个数据文件，分别为女生数据集 female.dta 和男生数据集 male.dta。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*讲mydata拆分成仅有女生数据集female.dta</span><br><span class="hljs-keyword">use</span> mydata,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">keep</span> <span class="hljs-keyword">if</span> gender==0<br><span class="hljs-keyword">save</span> female,<span class="hljs-keyword">replace</span><br><span class="hljs-comment">*将mydata拆分成仅有男生数据集male.dta</span><br><span class="hljs-keyword">use</span> mydata,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">if</span> gender==0<br><span class="hljs-keyword">save</span> male,<span class="hljs-keyword">replace</span><br></code></pre></td></tr></table></figure>
+<h4 id="2-连接数据集"><a href="#2-连接数据集" class="headerlink" title="2. 连接数据集"></a>2. 连接数据集</h4><ol>
+<li>纵向合并数据集</li>
+</ol>
+<p>案例：将女生数据集 female.dta 和男生数据集 male.dta 合并为新的数据集 mydata1 原始数据同上。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> male.dta<br><span class="hljs-keyword">append</span> using female     <span class="hljs-comment">//使用female的数据集并入male中</span><br><span class="hljs-keyword">save</span> mydata1,<span class="hljs-keyword">replace</span><br></code></pre></td></tr></table></figure>
+<ol>
+<li>横向合并数据集</li>
+</ol>
+<p>案例：将学生基本信息数据集 student.dta 和数学成绩 math.dta,经济学成绩economy.dta 合并为新的数据集 mydata2. 原始数据同上。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> economy,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">sort</span> id    <span class="hljs-comment">//对economy的数据id进行sort</span><br><span class="hljs-keyword">save</span> economy,<span class="hljs-keyword">replace</span>  <br><span class="hljs-keyword">use</span> student,<span class="hljs-keyword">clear</span> <br><span class="hljs-keyword">sort</span> id<br><span class="hljs-keyword">merge</span> id using economy     <span class="hljs-comment">//使用economy的数据集匹配student数据集中的id,以id作为关联，将学生的信息和成绩一一对接</span><br><span class="hljs-keyword">tab</span> _merge    <span class="hljs-comment">//显示对接情况，_merge显示为3表示对接成功，显示1和2则为为成功对接</span><br><span class="hljs-keyword">drop</span> _merge   <span class="hljs-comment">//删除数据集中的表示对接是否成功的变量_merge</span><br><span class="hljs-keyword">sort</span> id<br><span class="hljs-keyword">save</span> mydata2,<span class="hljs-keyword">replace</span><br><span class="hljs-keyword">use</span> math,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">sort</span> id<br><span class="hljs-keyword">save</span> math,<span class="hljs-keyword">replace</span><br><span class="hljs-keyword">use</span> mydata2,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">merge</span> id using math<br><span class="hljs-keyword">drop</span> _merge<br><span class="hljs-keyword">save</span> mydata2,<span class="hljs-keyword">replace</span><br></code></pre></td></tr></table></figure>
+<h4 id="3-数据重整"><a href="#3-数据重整" class="headerlink" title="3. 数据重整"></a>3. 数据重整</h4><ol>
+<li>关键命令</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">命令解释</th>
+<th style="text-align:center">用法示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">reshape</td>
+<td style="text-align:center">将数据重整</td>
+<td style="text-align:center">reshape long inc,i(id) j(yr)</td>
+</tr>
+<tr>
+<td style="text-align:center">stack</td>
+<td style="text-align:center">将多列数据转换成一列数据</td>
+<td style="text-align:center">stack a b c d, into(e f)</td>
+</tr>
+<tr>
+<td style="text-align:center">xpose</td>
+<td style="text-align:center">数据转置</td>
+<td style="text-align:center">xpose, clear</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li>面板数据重整</li>
+</ol>
+<p>案例：数据集 mywide.dta 共有六个变量，其中后四个变量分别为 2003 年和2004 年的数据成绩和经济学成绩，现要求将数据转化为 mylong.dta 的格式，将年份单独做成变量，数学和经济学成绩则成为两个单独变量的面板数据集。 </p>
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002224306422.png" srcset="/img/loading.gif" lazyload alt="image-20221002224306422" style="zoom:67%;"></p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> mywide,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">reshape</span> long math economy,<span class="hljs-built_in">i</span>(id name) <span class="hljs-built_in">j</span>(year)<br><span class="hljs-keyword">save</span> mylong,repalce<br><span class="hljs-keyword">reshape</span> wide<br></code></pre></td></tr></table></figure>
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002224520106.png" srcset="/img/loading.gif" lazyload alt="image-20221002224520106" style="zoom: 67%;"></p>
+<ol>
+<li>多列数据转成少数几列数据</li>
+</ol>
+<p>案例：以下的mystack数据集分成8行6列，但实际上只有一个变量x，将该数据恢复成只有一列的var被into到x变量的数据。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> mystack,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">stack</span> var1-var6,into(x),<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">drop</span> _stack<br></code></pre></td></tr></table></figure>
+<h4 id="4-数据转置"><a href="#4-数据转置" class="headerlink" title="4. 数据转置"></a>4. 数据转置</h4><p>案例：将math数据集中的数据进行行列互换</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> math,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">xpose</span>,<span class="hljs-keyword">clear</span><br></code></pre></td></tr></table></figure>
 
               
             </div>
@@ -282,6 +512,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Econometric/">#Econometric</a>
+      
+    </div>
   
 </div>
 
@@ -293,18 +530,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/09/DID1/" title="双重差分模型（一）">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">双重差分模型（一）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/03/%E6%88%91%E6%98%AF%E5%8F%B8%E5%BE%92%E4%B8%9C%E5%8D%9A%E5%90%8C%E5%AD%A6%EF%BC%81/" title="你好，我是司徒东博同学啊！">
-                        <span class="hidden-mobile">你好，我是司徒东博同学啊！</span>
+                      <a href="/2022/09/28/Chapter2_STATA%E6%95%B0%E6%8D%AE/" title="Chapter2——STATA数据">
+                        <span class="hidden-mobile">Chapter2——STATA数据</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
