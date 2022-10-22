@@ -17,12 +17,12 @@
   <meta name="author" content="Devin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Chapter3——STATA数据整理  0. 数据整理关键命令    命令 命令解释 用法示例     drop 删除变量或观察值 drop math   keep 保留变量或观察值 keep math   append 将两个数据集拼接(观察值拼接) append using math   merge 将两个数据集合并（变量合并） merge id using math   reshape 将">
+    <meta name="description" content="Chapter3——STATA数据整理  0. 数据整理关键命令     命令 命令解释 用法示例     drop 删除变量或观察值 drop math   keep 保留变量或观察值 keep math   append 将两个数据集拼接(观察值拼接) append using math   merge 将两个数据集合并（变量合并">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chapter3——STATA数据整理">
 <meta property="og:url" content="http://example.com/2022/10/02/Chapter3_STATA%E6%95%B0%E6%8D%AE%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Chapter3——STATA数据整理  0. 数据整理关键命令    命令 命令解释 用法示例     drop 删除变量或观察值 drop math   keep 保留变量或观察值 keep math   append 将两个数据集拼接(观察值拼接) append using math   merge 将两个数据集合并（变量合并） merge id using math   reshape 将">
+<meta property="og:description" content="Chapter3——STATA数据整理  0. 数据整理关键命令     命令 命令解释 用法示例     drop 删除变量或观察值 drop math   keep 保留变量或观察值 keep math   append 将两个数据集拼接(观察值拼接) append using math   merge 将两个数据集合并（变量合并">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/stata.png">
 <meta property="article:published_time" content="2022-10-02T15:06:26.000Z">
@@ -397,123 +397,134 @@ mjx-container[display="true"] + br {
             
             <div class="markdown-body">
               
-              <h1 align="center">Chapter3——STATA数据整理</h1>
-
-<h4 id="0-数据整理关键命令"><a href="#0-数据整理关键命令" class="headerlink" title="0. 数据整理关键命令"></a>0. 数据整理关键命令</h4><div class="table-container">
+              <h1 align="center">
+Chapter3——STATA数据整理
+</h1>
+<h4 id="数据整理关键命令">0. 数据整理关键命令</h4>
 <table>
+
 <thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:center">命令解释</th>
-<th style="text-align:center">用法示例</th>
+<tr class="header">
+<th style="text-align: center;">命令</th>
+<th style="text-align: center;">命令解释</th>
+<th style="text-align: center;">用法示例</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">drop</td>
-<td style="text-align:center">删除变量或观察值</td>
-<td style="text-align:center">drop math</td>
+<tr class="odd">
+<td style="text-align: center;">drop</td>
+<td style="text-align: center;">删除变量或观察值</td>
+<td style="text-align: center;">drop math</td>
 </tr>
-<tr>
-<td style="text-align:center">keep</td>
-<td style="text-align:center">保留变量或观察值</td>
-<td style="text-align:center">keep math</td>
+<tr class="even">
+<td style="text-align: center;">keep</td>
+<td style="text-align: center;">保留变量或观察值</td>
+<td style="text-align: center;">keep math</td>
 </tr>
-<tr>
-<td style="text-align:center">append</td>
-<td style="text-align:center">将两个数据集拼接(观察值拼接)</td>
-<td style="text-align:center">append using math</td>
+<tr class="odd">
+<td style="text-align: center;">append</td>
+<td style="text-align: center;">将两个数据集拼接(观察值拼接)</td>
+<td style="text-align: center;">append using math</td>
 </tr>
-<tr>
-<td style="text-align:center">merge</td>
-<td style="text-align:center">将两个数据集合并（变量合并）</td>
-<td style="text-align:center">merge id using math</td>
+<tr class="even">
+<td style="text-align: center;">merge</td>
+<td style="text-align: center;">将两个数据集合并（变量合并）</td>
+<td style="text-align: center;">merge id using math</td>
 </tr>
-<tr>
-<td style="text-align:center">reshape</td>
-<td style="text-align:center">将数据重整</td>
-<td style="text-align:center">reshape long inc,i(id) j(yr)</td>
+<tr class="odd">
+<td style="text-align: center;">reshape</td>
+<td style="text-align: center;">将数据重整</td>
+<td style="text-align: center;">reshape long inc,i(id) j(yr)</td>
 </tr>
-<tr>
-<td style="text-align:center">stack</td>
-<td style="text-align:center">将多列数据转换成一列数据</td>
-<td style="text-align:center">stack a b c d, into(e f)</td>
+<tr class="even">
+<td style="text-align: center;">stack</td>
+<td style="text-align: center;">将多列数据转换成一列数据</td>
+<td style="text-align: center;">stack a b c d, into(e f)</td>
 </tr>
-<tr>
-<td style="text-align:center">xpose</td>
-<td style="text-align:center">数据转置</td>
-<td style="text-align:center">xpose,clear</td>
+<tr class="odd">
+<td style="text-align: center;">xpose</td>
+<td style="text-align: center;">数据转置</td>
+<td style="text-align: center;">xpose,clear</td>
 </tr>
 </tbody>
 </table>
-</div>
 <p><em>流程图解释：</em></p>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002212201513.png" srcset="/img/loading.gif" lazyload alt="image-20221002212201513" style="zoom:50%;"></p>
-<h4 id="1-拆分数据"><a href="#1-拆分数据" class="headerlink" title="1. 拆分数据"></a>1. 拆分数据</h4><p>对于数据的拆分主要分成横向拆分和纵向拆分两种类型，横向拆分主要是通过保留和删除数据实现的，而纵向拆分主要是用过<code>append</code>和<code>merge</code>来实现不同纵向行间的合并与拆分。</p>
-<ol>
+<h4 id="拆分数据">1. 拆分数据</h4>
+<p>对于数据的拆分主要分成横向拆分和纵向拆分两种类型，横向拆分主要是通过保留和删除数据实现的，而纵向拆分主要是用过<code>append</code>和<code>merge</code>来实现不同纵向行间的合并与拆分。</p>
+<ol type="1">
 <li>横向拆分数据</li>
 </ol>
-<p>案例：将 mydata 数据分成三个数据文件，分别为学生基本信息文件student.dta, 经济学成绩文件 economy.dta 和数学成绩文件 math.dta。 </p>
+<p>案例：将 mydata
+数据分成三个数据文件，分别为学生基本信息文件student.dta, 经济学成绩文件
+economy.dta 和数学成绩文件 math.dta。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">cd</span> <span class="hljs-keyword">d</span>:/mydata/     <span class="hljs-comment">//导入数据</span><br><span class="hljs-keyword">use</span> mydata,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">drop</span> economy math     <span class="hljs-comment">//删除economy和math的变量</span><br><span class="hljs-keyword">save</span> student,<span class="hljs-keyword">replace</span>   <span class="hljs-comment">//保存删除变量后的文件为student</span><br><span class="hljs-keyword">use</span> mydata,<span class="hljs-keyword">clear</span>  <br><span class="hljs-keyword">keep</span> id economy    <span class="hljs-comment">//仅仅保持id和economy两个变量</span><br><span class="hljs-keyword">save</span> economy,<span class="hljs-keyword">clear</span>  <span class="hljs-comment">//保存删除变量后的文件为economy</span><br><span class="hljs-keyword">use</span> mydata,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">keep</span> id math<br><span class="hljs-keyword">save</span> math,<span class="hljs-keyword">replace</span><br></code></pre></td></tr></table></figure>
-<ol>
+<ol start="2" type="1">
 <li>纵向拆分数据</li>
 </ol>
-<p>案例：将 mydata 数据分成二个数据文件，分别为女生数据集 female.dta 和男生数据集 male.dta。</p>
+<p>案例：将 mydata 数据分成二个数据文件，分别为女生数据集 female.dta
+和男生数据集 male.dta。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*讲mydata拆分成仅有女生数据集female.dta</span><br><span class="hljs-keyword">use</span> mydata,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">keep</span> <span class="hljs-keyword">if</span> gender==0<br><span class="hljs-keyword">save</span> female,<span class="hljs-keyword">replace</span><br><span class="hljs-comment">*将mydata拆分成仅有男生数据集male.dta</span><br><span class="hljs-keyword">use</span> mydata,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">if</span> gender==0<br><span class="hljs-keyword">save</span> male,<span class="hljs-keyword">replace</span><br></code></pre></td></tr></table></figure>
-<h4 id="2-连接数据集"><a href="#2-连接数据集" class="headerlink" title="2. 连接数据集"></a>2. 连接数据集</h4><ol>
+<h4 id="连接数据集">2. 连接数据集</h4>
+<ol type="1">
 <li>纵向合并数据集</li>
 </ol>
-<p>案例：将女生数据集 female.dta 和男生数据集 male.dta 合并为新的数据集 mydata1 原始数据同上。</p>
+<p>案例：将女生数据集 female.dta 和男生数据集 male.dta 合并为新的数据集
+mydata1 原始数据同上。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> male.dta<br><span class="hljs-keyword">append</span> using female     <span class="hljs-comment">//使用female的数据集并入male中</span><br><span class="hljs-keyword">save</span> mydata1,<span class="hljs-keyword">replace</span><br></code></pre></td></tr></table></figure>
-<ol>
+<ol start="2" type="1">
 <li>横向合并数据集</li>
 </ol>
-<p>案例：将学生基本信息数据集 student.dta 和数学成绩 math.dta,经济学成绩economy.dta 合并为新的数据集 mydata2. 原始数据同上。</p>
+<p>案例：将学生基本信息数据集 student.dta 和数学成绩
+math.dta,经济学成绩economy.dta 合并为新的数据集 mydata2.
+原始数据同上。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> economy,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">sort</span> id    <span class="hljs-comment">//对economy的数据id进行sort</span><br><span class="hljs-keyword">save</span> economy,<span class="hljs-keyword">replace</span>  <br><span class="hljs-keyword">use</span> student,<span class="hljs-keyword">clear</span> <br><span class="hljs-keyword">sort</span> id<br><span class="hljs-keyword">merge</span> id using economy     <span class="hljs-comment">//使用economy的数据集匹配student数据集中的id,以id作为关联，将学生的信息和成绩一一对接</span><br><span class="hljs-keyword">tab</span> _merge    <span class="hljs-comment">//显示对接情况，_merge显示为3表示对接成功，显示1和2则为为成功对接</span><br><span class="hljs-keyword">drop</span> _merge   <span class="hljs-comment">//删除数据集中的表示对接是否成功的变量_merge</span><br><span class="hljs-keyword">sort</span> id<br><span class="hljs-keyword">save</span> mydata2,<span class="hljs-keyword">replace</span><br><span class="hljs-keyword">use</span> math,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">sort</span> id<br><span class="hljs-keyword">save</span> math,<span class="hljs-keyword">replace</span><br><span class="hljs-keyword">use</span> mydata2,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">merge</span> id using math<br><span class="hljs-keyword">drop</span> _merge<br><span class="hljs-keyword">save</span> mydata2,<span class="hljs-keyword">replace</span><br></code></pre></td></tr></table></figure>
-<h4 id="3-数据重整"><a href="#3-数据重整" class="headerlink" title="3. 数据重整"></a>3. 数据重整</h4><ol>
+<h4 id="数据重整">3. 数据重整</h4>
+<ol type="1">
 <li>关键命令</li>
 </ol>
-<div class="table-container">
 <table>
 <thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:center">命令解释</th>
-<th style="text-align:center">用法示例</th>
+<tr class="header">
+<th style="text-align: center;">命令</th>
+<th style="text-align: center;">命令解释</th>
+<th style="text-align: center;">用法示例</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">reshape</td>
-<td style="text-align:center">将数据重整</td>
-<td style="text-align:center">reshape long inc,i(id) j(yr)</td>
+<tr class="odd">
+<td style="text-align: center;">reshape</td>
+<td style="text-align: center;">将数据重整</td>
+<td style="text-align: center;">reshape long inc,i(id) j(yr)</td>
 </tr>
-<tr>
-<td style="text-align:center">stack</td>
-<td style="text-align:center">将多列数据转换成一列数据</td>
-<td style="text-align:center">stack a b c d, into(e f)</td>
+<tr class="even">
+<td style="text-align: center;">stack</td>
+<td style="text-align: center;">将多列数据转换成一列数据</td>
+<td style="text-align: center;">stack a b c d, into(e f)</td>
 </tr>
-<tr>
-<td style="text-align:center">xpose</td>
-<td style="text-align:center">数据转置</td>
-<td style="text-align:center">xpose, clear</td>
+<tr class="odd">
+<td style="text-align: center;">xpose</td>
+<td style="text-align: center;">数据转置</td>
+<td style="text-align: center;">xpose, clear</td>
 </tr>
 </tbody>
 </table>
-</div>
-<ol>
+<ol start="2" type="1">
 <li>面板数据重整</li>
 </ol>
-<p>案例：数据集 mywide.dta 共有六个变量，其中后四个变量分别为 2003 年和2004 年的数据成绩和经济学成绩，现要求将数据转化为 mylong.dta 的格式，将年份单独做成变量，数学和经济学成绩则成为两个单独变量的面板数据集。 </p>
+<p>案例：数据集 mywide.dta 共有六个变量，其中后四个变量分别为 2003
+年和2004 年的数据成绩和经济学成绩，现要求将数据转化为 mylong.dta
+的格式，将年份单独做成变量，数学和经济学成绩则成为两个单独变量的面板数据集。</p>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002224306422.png" srcset="/img/loading.gif" lazyload alt="image-20221002224306422" style="zoom:67%;"></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> mywide,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">reshape</span> long math economy,<span class="hljs-built_in">i</span>(id name) <span class="hljs-built_in">j</span>(year)<br><span class="hljs-keyword">save</span> mylong,repalce<br><span class="hljs-keyword">reshape</span> wide<br></code></pre></td></tr></table></figure>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002224520106.png" srcset="/img/loading.gif" lazyload alt="image-20221002224520106" style="zoom: 67%;"></p>
-<ol>
+<ol start="3" type="1">
 <li>多列数据转成少数几列数据</li>
 </ol>
 <p>案例：以下的mystack数据集分成8行6列，但实际上只有一个变量x，将该数据恢复成只有一列的var被into到x变量的数据。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> mystack,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">stack</span> var1-var6,into(x),<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">drop</span> _stack<br></code></pre></td></tr></table></figure>
-<h4 id="4-数据转置"><a href="#4-数据转置" class="headerlink" title="4. 数据转置"></a>4. 数据转置</h4><p>案例：将math数据集中的数据进行行列互换</p>
+<h4 id="数据转置">4. 数据转置</h4>
+<p>案例：将math数据集中的数据进行行列互换</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> math,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">xpose</span>,<span class="hljs-keyword">clear</span><br></code></pre></td></tr></table></figure>
 
               
