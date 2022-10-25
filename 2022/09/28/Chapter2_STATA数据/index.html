@@ -17,12 +17,12 @@
   <meta name="author" content="Devin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Chapter2——STATA数据  0. 打开示例数据和网络数据use 当前路径下打开use  非当前路径下打开sysuse   1sysuse auto.dta,clear  从网络获取数据webuse  12use http:&#x2F;&#x2F;www.stata-press.com&#x2F;data&#x2F;r9&#x2F;nlsworkwebuse nlswork,clear 1. 数据类型STATA通常会把变量划分为三类，分别">
+    <meta name="description" content="Chapter2——STATA数据  0. 打开示例数据和网络数据use  当前路径下打开use 非当前路径下打开sysuse  1sysuse auto.dta,clear  从网络获取数据webuse  12use http:&#x2F;&#x2F;www.stata-press.com&#x2F;data&#x2F;r9&#x2F;nlsworkwebuse nlswork,clear 1. 数据类型 STA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chapter2——STATA数据">
 <meta property="og:url" content="http://example.com/2022/09/28/Chapter2_STATA%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Chapter2——STATA数据  0. 打开示例数据和网络数据use 当前路径下打开use  非当前路径下打开sysuse   1sysuse auto.dta,clear  从网络获取数据webuse  12use http:&#x2F;&#x2F;www.stata-press.com&#x2F;data&#x2F;r9&#x2F;nlsworkwebuse nlswork,clear 1. 数据类型STATA通常会把变量划分为三类，分别">
+<meta property="og:description" content="Chapter2——STATA数据  0. 打开示例数据和网络数据use  当前路径下打开use 非当前路径下打开sysuse  1sysuse auto.dta,clear  从网络获取数据webuse  12use http:&#x2F;&#x2F;www.stata-press.com&#x2F;data&#x2F;r9&#x2F;nlsworkwebuse nlswork,clear 1. 数据类型 STA">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927203256955.png">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927154418535.png">
@@ -402,247 +402,269 @@ mjx-container[display="true"] + br {
             
             <div class="markdown-body">
               
-              <h1 align="center">Chapter2——STATA数据</h1>
-
-<h4 id="0-打开示例数据和网络数据use"><a href="#0-打开示例数据和网络数据use" class="headerlink" title="0. 打开示例数据和网络数据use"></a>0. 打开示例数据和网络数据<code>use</code></h4><ul>
-<li><p>当前路径下打开<code>use</code></p>
-</li>
-<li><p>非当前路径下打开<code>sysuse</code></p>
-</li>
+              <h1 align="center">
+Chapter2——STATA数据
+</h1>
+<h4 id="打开示例数据和网络数据use">0.
+打开示例数据和网络数据<code>use</code></h4>
+<ul>
+<li><p>当前路径下打开<code>use</code></p></li>
+<li><p>非当前路径下打开<code>sysuse</code></p></li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto.dta,<span class="hljs-keyword">clear</span><br></code></pre></td></tr></table></figure>
 <ul>
 <li>从网络获取数据<code>webuse</code></li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> http:<span class="hljs-comment">//www.stata-press.com/data/r9/nlswork</span><br><span class="hljs-keyword">webuse</span> nlswork,<span class="hljs-keyword">clear</span><br></code></pre></td></tr></table></figure>
-<h4 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1. 数据类型"></a>1. 数据类型</h4><p>STATA通常会把变量划分为三类，分别是数值型，字符型和日期型</p>
-<ol>
+<h4 id="数据类型">1. 数据类型</h4>
+<p>STATA通常会把变量划分为三类，分别是数值型，字符型和日期型</p>
+<ol type="1">
 <li>数值变量</li>
 </ol>
-<div class="table-container">
-<table>
+<table style="width:100%;">
+
 <thead>
-<tr>
-<th style="text-align:center">存储类型</th>
-<th style="text-align:center">最小</th>
-<th style="text-align:center">最大</th>
-<th style="text-align:center">0-领域</th>
-<th style="text-align:center">字节</th>
+<tr class="header">
+<th style="text-align: center;">存储类型</th>
+<th style="text-align: center;">最小</th>
+<th style="text-align: center;">最大</th>
+<th style="text-align: center;">0-领域</th>
+<th style="text-align: center;">字节</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">byte</td>
-<td style="text-align:center">-127</td>
-<td style="text-align:center">100</td>
-<td style="text-align:center">+/-1</td>
-<td style="text-align:center">1</td>
+<tr class="odd">
+<td style="text-align: center;">byte</td>
+<td style="text-align: center;">-127</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">+/-1</td>
+<td style="text-align: center;">1</td>
 </tr>
-<tr>
-<td style="text-align:center">int</td>
-<td style="text-align:center">-32,767</td>
-<td style="text-align:center">32,740</td>
-<td style="text-align:center">+/-1</td>
-<td style="text-align:center">2</td>
+<tr class="even">
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-32,767</td>
+<td style="text-align: center;">32,740</td>
+<td style="text-align: center;">+/-1</td>
+<td style="text-align: center;">2</td>
 </tr>
-<tr>
-<td style="text-align:center">long</td>
-<td style="text-align:center">-2,147,483,647</td>
-<td style="text-align:center">2,147,483,620</td>
-<td style="text-align:center">+/-1</td>
-<td style="text-align:center">4</td>
+<tr class="odd">
+<td style="text-align: center;">long</td>
+<td style="text-align: center;">-2,147,483,647</td>
+<td style="text-align: center;">2,147,483,620</td>
+<td style="text-align: center;">+/-1</td>
+<td style="text-align: center;">4</td>
 </tr>
-<tr>
-<td style="text-align:center">float</td>
-<td style="text-align:center">-1.70141173319*10^38</td>
-<td style="text-align:center">1.70141173319*10^36</td>
-<td style="text-align:center">+/-10^-36</td>
-<td style="text-align:center">4</td>
+<tr class="even">
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">-1.70141173319*10^38</td>
+<td style="text-align: center;">1.70141173319*10^36</td>
+<td style="text-align: center;">+/-10^-36</td>
+<td style="text-align: center;">4</td>
 </tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center">-8.9884656743*10^307</td>
-<td style="text-align:center">8.9884656743*10^307</td>
-<td style="text-align:center">+/-10^-323</td>
-<td style="text-align:center">8</td>
+<tr class="odd">
+<td style="text-align: center;">double</td>
+<td style="text-align: center;">-8.9884656743*10^307</td>
+<td style="text-align: center;">8.9884656743*10^307</td>
+<td style="text-align: center;">+/-10^-323</td>
+<td style="text-align: center;">8</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>当运算时对于运算结果的精度要求很高，需要将变量设置成浮点型或者是双精度型，另注意 1 和 1.0000 的精度是不同的,前者在 (0.5,1.5) 区间内近似,而后者在 (0.99995,1.00005) 区间内近似。若多次运算反复取四舍五入，精度较低时将使计算误差迅速变大，然而，精度高时占用的内存资源较多。</p>
+<p>当运算时对于运算结果的精度要求很高，需要将变量设置成浮点型或者是双精度型，另注意
+1 和 1.0000 的精度是不同的,前者在 (0.5,1.5) 区间内近似,而后者在
+(0.99995,1.00005)
+区间内近似。若多次运算反复取四舍五入，精度较低时将使计算误差迅速变大，然而，精度高时占用的内存资源较多。</p>
 <p>以下例子有助于理解变量存贮类型变换：</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span><br><span class="hljs-comment">*设置一个观察值单位，其实是生成了一个矩阵表格</span><br><span class="hljs-keyword">set</span> obs 1<br><span class="hljs-comment">*为这个观察单位中添加一个数值变量a</span><br><span class="hljs-keyword">gen</span> a=1<br><span class="hljs-keyword">describe</span><br><span class="hljs-comment">*因为stata默认的存储类型是float，所以输出的是float</span><br><span class="hljs-comment">*compress在不损害信息的基础上压缩，使数据占用空间尽可能小，因为a数值&lt;100，所以a储存最小是byte</span><br><span class="hljs-keyword">compress</span> <br><span class="hljs-keyword">d</span>   <span class="hljs-comment">//输出的是a经过compress压缩后类型byte</span><br><span class="hljs-keyword">replace</span> a=101  <span class="hljs-comment">//替换a的数值为101&gt;100，最小存储内存为int</span><br><span class="hljs-keyword">d</span><br><span class="hljs-keyword">replace</span> a=100    <span class="hljs-comment">//替换a的数值为100=100，最小存储内存为byte</span><br><span class="hljs-keyword">compress</span><br><span class="hljs-keyword">d</span><br><span class="hljs-keyword">replace</span> a=32741  <span class="hljs-comment">//替换a的数值为32741&gt;327441，最小存储内容为long</span><br><span class="hljs-keyword">gen</span> double b=1   <span class="hljs-comment">//生成一个数值为1的变量b，其存储内存为double</span><br><span class="hljs-keyword">recast</span> double a  <span class="hljs-comment">//对a的储存内存修改为double</span><br><span class="hljs-keyword">d</span><br></code></pre></td></tr></table></figure>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927203256955.png" srcset="/img/loading.gif" lazyload alt="image-20220927203256955" style="zoom:50%;"></p>
-<ol>
+<ol start="2" type="1">
 <li>字符串变量</li>
 </ol>
 <p>字符串变量由字母或一些特殊的符号组成（如地名〈籍贯〉变量，迁出地，住址，职业等等）。字符串变量也可以由数字来组成，但数字在这里仅代表一些符号而不再是数字。字符串变量通常以引号“”注标，而且引号一般不被视同为字符的一部分，注意这里的引号必须是英文输入状态下的引号。</p>
-<p>字符串最多可以达 244 个字符。一般用 <code>str#</code>来表示字符的多少，如 str20表示将有 20 个字符。一般三个中文字的姓名需要 6 个字符，即是一个汉字占2个字符。</p>
+<p>字符串最多可以达 244 个字符。一般用
+<code>str#</code>来表示字符的多少，如 str20表示将有 20
+个字符。一般三个中文字的姓名需要 6 个字符，即是一个汉字占2个字符。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*在使用命令导入数据时,把字符型数据的字符规定为10个字符，一个汉字占2个字符</span><br><span class="hljs-keyword">input</span> id str10 name economy<br></code></pre></td></tr></table></figure>
-<p>对于“125.27”这样的数值型的字符串，可以用<code>real()</code>函数或者 <code>destring</code> 命令转化成数值型变量。</p>
-<ol>
+<p>对于“125.27”这样的数值型的字符串，可以用<code>real()</code>函数或者
+<code>destring</code> 命令转化成数值型变量。</p>
+<ol start="3" type="1">
 <li>日期型变量</li>
 </ol>
-<p>在 STATA 中，1960 年 1 月 1 日被认为是第 0 天，因此 1959 年 12 月 31 日为第-1 天，2001 年 1 月 25 日为 15000 天。</p>
-<ol>
+<p>在 STATA 中，1960 年 1 月 1 日被认为是第 0 天，因此 1959 年 12 月 31
+日为第-1 天，2001 年 1 月 25 日为 15000 天。</p>
+<ol start="4" type="1">
 <li>缺失值</li>
 </ol>
 <p>没有意义的计算结果显示为”.”。在另外一种情况中，当数据集中含有缺失值，STATA不是采用默认的“.”表示，而是采用空来表示，或者是-9996等来表示。如果要将其全部缺失值替换为“.”的命令是：</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*将缺失值表示为-9996的转换为"."</span><br><span class="hljs-keyword">mvdecode</span> age,mv(1996)<br><span class="hljs-comment">*将缺失值表示为"."的转换成-9996</span><br><span class="hljs-keyword">mvencode</span> age,mv(9996)<br></code></pre></td></tr></table></figure>
-<h4 id="2-数据类型的转换"><a href="#2-数据类型的转换" class="headerlink" title="2. 数据类型的转换"></a>2. 数据类型的转换</h4><ol>
+<h4 id="数据类型的转换">2. 数据类型的转换</h4>
+<ol type="1">
 <li>将字符型数字转换成数值型数据 <code>destring</code></li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*将destring网络数据集中的全字符数据，转换程数值型数据进行运算和储存</span><br><span class="hljs-keyword">webuse</span> destring1,<span class="hljs-keyword">clear</span>    <span class="hljs-comment">//利用webuse导入的string数据</span><br><span class="hljs-keyword">describe</span>         <br><span class="hljs-keyword">sum</span>     <br><span class="hljs-keyword">gen</span> nincome=income+10   <br><span class="hljs-comment">//描述所有变量的储存类型，发现都是string；因为所有的变量都是字符型的，所以sum出来的结果都是0，并且由于字符型变量无法进行四则运算，所以gen出来会报错type mismatch</span><br><span class="hljs-keyword">destring</span>,<span class="hljs-keyword">replace</span>    <span class="hljs-comment">//可以将上述的字符型数据转化成数值型数据</span><br><span class="hljs-keyword">sum</span><br><span class="hljs-keyword">gen</span> nincom=income*1.3<br><span class="hljs-keyword">list</span> nincom income<br></code></pre></td></tr></table></figure>
 <ul>
-<li>对字符型数据进行数值型转换时，由于字符型数据存在各种的类型，比如说是date数据之间会存在空格(“ “)，price数据会有单位(“$”)，percent数据会有符号(“%”)。但是我们在对其进行数值型数据转换前需要把这些非数值性的符号去除</li>
+<li>对字符型数据进行数值型转换时，由于字符型数据存在各种的类型，比如说是date数据之间会存在空格("
+")，price数据会有单位("$")，percent数据会有符号("%")。但是我们在对其进行数值型数据转换前需要把这些非数值性的符号去除</li>
 </ul>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927154418535.png" srcset="/img/loading.gif" lazyload alt="image-20220927154418535" style="zoom: 50%;"></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*当数据中的某个变量中有空格、符号等被识别为字符型数据时，需要剔除后destring转换成数值型数据</span><br><span class="hljs-keyword">webuse</span> destring2,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">describe</span><br><span class="hljs-keyword">list</span> date<br><span class="hljs-comment">//尝试用destring对存在空格的字符型变量date进行数值型转换，但是会失败，因为没有剔除字符间的空格</span><br><span class="hljs-keyword">destring</span> dete,<span class="hljs-keyword">replace</span>  <span class="hljs-comment">//提示：date: contains nonnumeric characters; no replace</span><br><span class="hljs-keyword">destring</span> date,<span class="hljs-keyword">replace</span> ignore(<span class="hljs-string">" "</span>)  <span class="hljs-comment">//提示：date: character space removed; replaced as long</span><br><span class="hljs-keyword">des</span><br><span class="hljs-keyword">list</span> date<br><span class="hljs-keyword">destring</span> price percent,<span class="hljs-keyword">gen</span>(price2 percent2) igonre(<span class="hljs-string">"$,%"</span>)<br><span class="hljs-keyword">list</span>  <span class="hljs-comment">//此时price前的$和percent后面的%不见了</span><br><span class="hljs-keyword">d</span>    <span class="hljs-comment">//此时新生成的price2和percent2军编成数值型变量double和byte</span><br></code></pre></td></tr></table></figure>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927203544224.png" srcset="/img/loading.gif" lazyload alt="image-20220927203544224" style="zoom:50%;"></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*其实可以一句代码把全部都改好</span><br><span class="hljs-keyword">webuse</span> destring2,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">list</span><br><span class="hljs-keyword">d</span><br><span class="hljs-keyword">destring</span> date price percent,<span class="hljs-keyword">replace</span> ignore(<span class="hljs-string">" ,$,%"</span>)<br><span class="hljs-keyword">list</span> <br><span class="hljs-keyword">d</span><br></code></pre></td></tr></table></figure>
-<ol>
+<ol start="2" type="1">
 <li>将数值型转换为字符型<code>tostring</code></li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*该数据中年月日的数据类型不一样，不能直接相加生成一个反映日期的新变量</span><br><span class="hljs-keyword">webuse</span> <span class="hljs-keyword">tostring</span>,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">d</span>   <span class="hljs-comment">//发现month是字符型，而day和year是数值型</span><br><span class="hljs-keyword">list</span>    <br><span class="hljs-keyword">gen</span> date1=month+<span class="hljs-string">"/"</span>+day+<span class="hljs-string">"/"</span>+year   <br><span class="hljs-comment">//报错：type mismatch，由于 month 为字符型,年和日为数值型,不同类型不能相加</span><br><span class="hljs-keyword">tostring</span> day year, <span class="hljs-keyword">replace</span>   <span class="hljs-comment">//将year和day转化成字符型变量</span><br><span class="hljs-keyword">d</span>    <span class="hljs-comment">//month,day,year三个变量都是字符型变量</span><br><span class="hljs-keyword">gen</span> date1=month+<span class="hljs-string">"/"</span>+day+<span class="hljs-string">"/"</span>+year    <span class="hljs-comment">//month,day,year三个字符型变量相加</span><br><span class="hljs-keyword">list</span><br><span class="hljs-comment">*STATA可以通过mdy命令计算某一天距离1960年1月1日为第0天，计算从那天起直到括号中指定的某天date1一共过了多少天</span><br><span class="hljs-keyword">gen</span> date2=<span class="hljs-built_in">date</span>(date1,<span class="hljs-string">"MDY"</span>)    <br><span class="hljs-keyword">list</span><br><span class="hljs-keyword">di</span> <span class="hljs-built_in">date</span>(<span class="hljs-string">"2001/09/30"</span>,<span class="hljs-string">"YMD"</span>)      <span class="hljs-comment">//计算出生日记距离今天日期一共过了多少天</span><br></code></pre></td></tr></table></figure>
-<h4 id="3-数据显示格式format"><a href="#3-数据显示格式format" class="headerlink" title="3. 数据显示格式format"></a>3. 数据显示格式<code>format</code></h4><p><code>format</code>只控制数据的显示格式(display format)，并不改变内存中数据的大小。以下以美国人口普查数据为例：</p>
+<h4 id="数据显示格式format">3. 数据显示格式<code>format</code></h4>
+<p><code>format</code>只控制数据的显示格式(display
+format)，并不改变内存中数据的大小。以下以美国人口普查数据为例：</p>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927202327188.png" srcset="/img/loading.gif" lazyload alt="image-20220927202327188" style="zoom: 50%;"></p>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927202407151.png" srcset="/img/loading.gif" lazyload alt="image-20220927202407151" style="zoom:50%;"></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">webuse</span> census10,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">d</span><br><span class="hljs-keyword">list</span> <span class="hljs-keyword">in</span> 1/4  <br><span class="hljs-comment">//发现此时state的变量的format为%14s,表示右对齐，共 14 个字符,%为固定用法</span><br><span class="hljs-keyword">format</span> state %-14s    <span class="hljs-comment">//14s前面加了一个负号修改state变量的显示格式由右对齐变为左对齐</span><br><span class="hljs-keyword">list</span> <span class="hljs-keyword">in</span> 1/4<br><span class="hljs-keyword">format</span> region %-8.0g   <span class="hljs-comment">//region变量是数值型变量，在8.0g前添加负号修改其显示格式由右对齐变为左对齐</span><br><span class="hljs-keyword">list</span> <span class="hljs-keyword">in</span> 1/4<br><span class="hljs-keyword">format</span> pop %11.0gc   <span class="hljs-comment">//pop变量的显示格式为%11.0g，在后面加上c，则每三位数间用逗号分开，c意为comma</span><br><span class="hljs-keyword">list</span> <span class="hljs-keyword">in</span> 1/5       <span class="hljs-comment">//发现第五个观察值没有任何变化（隔三位加逗号）</span><br><span class="hljs-keyword">format</span> pop %12.0gc   <span class="hljs-comment">//把把pop显示总长度数增加到12位</span><br><span class="hljs-keyword">list</span> <span class="hljs-keyword">in</span> 5<br><span class="hljs-keyword">format</span> medage %8.1f  <span class="hljs-comment">//要求全部的medage都显示一位小数</span><br><span class="hljs-keyword">list</span> <span class="hljs-keyword">in</span> 1/4   <br><span class="hljs-keyword">gen</span> id=_n    <span class="hljs-comment">//生成一个新的变量id，取值依次为1，2，3</span><br><span class="hljs-keyword">replace</span> id=9842 <span class="hljs-keyword">in</span> 3     <span class="hljs-comment">//把id的第三个变量的id值更换为9842</span><br><span class="hljs-keyword">list</span> <span class="hljs-keyword">in</span> 1/3<br><span class="hljs-keyword">format</span> id %05.0f   <span class="hljs-comment">//对于id值，使得前面用零把位数对齐</span><br><span class="hljs-keyword">list</span> <span class="hljs-keyword">in</span> 1/3<br></code></pre></td></tr></table></figure>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927203007094.png" srcset="/img/loading.gif" lazyload alt="image-20220927203007094" style="zoom:50%;"></p>
-<h4 id="4-在STATA中直接录入数据input"><a href="#4-在STATA中直接录入数据input" class="headerlink" title="4. 在STATA中直接录入数据input"></a>4. 在STATA中直接录入数据<code>input</code></h4><ol>
+<h4 id="在stata中直接录入数据input">4.
+在STATA中直接录入数据<code>input</code></h4>
+<ol type="1">
 <li>菜单式操作，打开数据编辑器，然后把数据复制黏贴</li>
 <li>命令操作</li>
 </ol>
-<div class="table-container">
 <table>
 <thead>
-<tr>
-<th style="text-align:center">id</th>
-<th style="text-align:center">name</th>
-<th style="text-align:center">economy</th>
+<tr class="header">
+<th style="text-align: center;">id</th>
+<th style="text-align: center;">name</th>
+<th style="text-align: center;">economy</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">John</td>
-<td style="text-align:center">40</td>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">John</td>
+<td style="text-align: center;">40</td>
 </tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Chris</td>
-<td style="text-align:center">80</td>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Chris</td>
+<td style="text-align: center;">80</td>
 </tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Jack</td>
-<td style="text-align:center">90</td>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Jack</td>
+<td style="text-align: center;">90</td>
 </tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Huang</td>
-<td style="text-align:center">43</td>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Huang</td>
+<td style="text-align: center;">43</td>
 </tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">Tom</td>
-<td style="text-align:center">70</td>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Tom</td>
+<td style="text-align: center;">70</td>
 </tr>
 </tbody>
 </table>
-</div>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span><br><span class="hljs-keyword">input</span> id str10 name economy   <span class="hljs-comment">//输入变量名，注意姓名前的str10</span><br>1 John 40<br>2 Chris 80 <span class="hljs-comment">//录入第二个学生的学号和成绩</span><br>3 Jack 90 <br>4 Huang 70 <br>5 Tom 53<br>end<br><span class="hljs-keyword">save</span> economy<br></code></pre></td></tr></table></figure>
-<h4 id="5-导入其他数据格式insheet"><a href="#5-导入其他数据格式insheet" class="headerlink" title="5. 导入其他数据格式insheet"></a>5. 导入其他数据格式<code>insheet</code></h4><p>当我们有其他格式的数据，需要导入到 STATA 中进行分析，建议大家此时将其他格式数据复制到分析数据的文件目录下，然后直接用 STATA 的导入数据文件命令导入原始数据，用程序模式进行处理，然后导出处理结果。这样做的最大好处是：既不会破坏最原始的数据文件，又使我们的每一 步数据处理和分析过程都有迹可循。</p>
-<p>打开csv或者txt格式的数据时，可以使用<code>insheet</code>命令实现导入，当数据中某个变量的位数特别长或者对导入数据的精度要求很高的时候，需要在该命令后面加 double 选项。</p>
+<h4 id="导入其他数据格式insheet">5.
+导入其他数据格式<code>insheet</code></h4>
+<p>当我们有其他格式的数据，需要导入到 STATA
+中进行分析，建议大家此时将其他格式数据复制到分析数据的文件目录下，然后直接用
+STATA
+的导入数据文件命令导入原始数据，用程序模式进行处理，然后导出处理结果。这样做的最大好处是：既不会破坏最原始的数据文件，又使我们的每一
+步数据处理和分析过程都有迹可循。</p>
+<p>打开csv或者txt格式的数据时，可以使用<code>insheet</code>命令实现导入，当数据中某个变量的位数特别长或者对导入数据的精度要求很高的时候，需要在该命令后面加
+double 选项。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">insheet</span> using 3origin.csv, <span class="hljs-keyword">clear</span> <br><span class="hljs-keyword">insheet</span> using 3origin.txt, <span class="hljs-keyword">clear</span><br><span class="hljs-keyword">insheet</span> using 3origin.txt, double <span class="hljs-keyword">clear</span><br></code></pre></td></tr></table></figure>
-<h4 id="6-标签数据label"><a href="#6-标签数据label" class="headerlink" title="6. 标签数据label"></a>6. 标签数据<code>label</code></h4><ul>
+<h4 id="标签数据label">6. 标签数据<code>label</code></h4>
+<ul>
 <li>要掌握的命令：为了创建一个完整的文件，要掌握下面的命令。</li>
 </ul>
-<div class="table-container">
 <table>
+
 <thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:center">命令解释</th>
-<th style="text-align:center">用法示例</th>
+<tr class="header">
+<th style="text-align: center;">命令</th>
+<th style="text-align: center;">命令解释</th>
+<th style="text-align: center;">用法示例</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">pwd</td>
-<td style="text-align:center">显示当前路径</td>
-<td style="text-align:center">pwd</td>
+<tr class="odd">
+<td style="text-align: center;">pwd</td>
+<td style="text-align: center;">显示当前路径</td>
+<td style="text-align: center;">pwd</td>
 </tr>
-<tr>
-<td style="text-align:center">dir</td>
-<td style="text-align:center">列示当前路径文件夹中的所有文件</td>
-<td style="text-align:center">dir</td>
+<tr class="even">
+<td style="text-align: center;">dir</td>
+<td style="text-align: center;">列示当前路径文件夹中的所有文件</td>
+<td style="text-align: center;">dir</td>
 </tr>
-<tr>
-<td style="text-align:center">mkdir</td>
-<td style="text-align:center">在当前路径下创建一个新的文件夹</td>
-<td style="text-align:center">mkdir d:/mydata</td>
+<tr class="odd">
+<td style="text-align: center;">mkdir</td>
+<td style="text-align: center;">在当前路径下创建一个新的文件夹</td>
+<td style="text-align: center;">mkdir d:/mydata</td>
 </tr>
-<tr>
-<td style="text-align:center">cd</td>
-<td style="text-align:center">将 cd 后面的路径设定为当前路径</td>
-<td style="text-align:center">cd d:/mydata</td>
+<tr class="even">
+<td style="text-align: center;">cd</td>
+<td style="text-align: center;">将 cd 后面的路径设定为当前路径</td>
+<td style="text-align: center;">cd d:/mydata</td>
 </tr>
-<tr>
-<td style="text-align:center">describe</td>
-<td style="text-align:center">显示整个数据集的信息</td>
-<td style="text-align:center">des</td>
+<tr class="odd">
+<td style="text-align: center;">describe</td>
+<td style="text-align: center;">显示整个数据集的信息</td>
+<td style="text-align: center;">des</td>
 </tr>
-<tr>
-<td style="text-align:center">rename</td>
-<td style="text-align:center">将现有变量名改为新的变量名</td>
-<td style="text-align:center">rename gender sex</td>
+<tr class="even">
+<td style="text-align: center;">rename</td>
+<td style="text-align: center;">将现有变量名改为新的变量名</td>
+<td style="text-align: center;">rename gender sex</td>
 </tr>
-<tr>
-<td style="text-align:center">label</td>
-<td style="text-align:center">给数据/变量/变量值加注标签说明</td>
-<td style="text-align:center"></td>
+<tr class="odd">
+<td style="text-align: center;">label</td>
+<td style="text-align: center;">给数据/变量/变量值加注标签说明</td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">label data</td>
-<td style="text-align:center">标签数据</td>
-<td style="text-align:center">label data “2004 级成绩表”</td>
+<tr class="even">
+<td style="text-align: center;">label data</td>
+<td style="text-align: center;">标签数据</td>
+<td style="text-align: center;">label data “2004 级成绩表”</td>
 </tr>
-<tr>
-<td style="text-align:center">label var</td>
-<td style="text-align:center">标签变量</td>
-<td style="text-align:center">label var name “姓名”</td>
+<tr class="odd">
+<td style="text-align: center;">label var</td>
+<td style="text-align: center;">标签变量</td>
+<td style="text-align: center;">label var name “姓名”</td>
 </tr>
-<tr>
-<td style="text-align:center">label value<br>label define</td>
-<td style="text-align:center">标签变量值</td>
-<td style="text-align:center">label values gender genderlb <br> label define genderlb 1 “男” 0 “女”</td>
+<tr class="even">
+<td style="text-align: center;">label value<br>label define</td>
+<td style="text-align: center;">标签变量值</td>
+<td style="text-align: center;">label values gender genderlb <br>
+label define genderlb 1 "男" 0 "女"</td>
 </tr>
-<tr>
-<td style="text-align:center">note</td>
-<td style="text-align:center">为数据加注额外说明</td>
-<td style="text-align:center">note: 9 月 10 日为数据加注说明</td>
+<tr class="odd">
+<td style="text-align: center;">note</td>
+<td style="text-align: center;">为数据加注额外说明</td>
+<td style="text-align: center;">note: 9 月 10 日为数据加注说明</td>
 </tr>
-<tr>
-<td style="text-align:center">list</td>
-<td style="text-align:center">列示内存中的数据</td>
-<td style="text-align:center">list id name</td>
+<tr class="even">
+<td style="text-align: center;">list</td>
+<td style="text-align: center;">列示内存中的数据</td>
+<td style="text-align: center;">list id name</td>
 </tr>
-<tr>
-<td style="text-align:center">save</td>
-<td style="text-align:center">保存数据</td>
-<td style="text-align:center">save mydata, replace</td>
+<tr class="odd">
+<td style="text-align: center;">save</td>
+<td style="text-align: center;">保存数据</td>
+<td style="text-align: center;">save mydata, replace</td>
 </tr>
-<tr>
-<td style="text-align:center">erase</td>
-<td style="text-align:center">删除数据文件</td>
-<td style="text-align:center">erase mydata1.dta,replace</td>
+<tr class="even">
+<td style="text-align: center;">erase</td>
+<td style="text-align: center;">删除数据文件</td>
+<td style="text-align: center;">erase mydata1.dta,replace</td>
 </tr>
 </tbody>
 </table>
-</div>
 <ul>
-<li>要完成的任务:创建一个文件（文件名为 mydata.dta）并将其放D：/mydata 文件夹下（如果没有该文件夹，请用 mkdir 命令创建）。标签该数据（用 label 命令）使得任何一个使用该数据的人都能明白该数据（包括整个数据/其中的变量及变量值）的含义。原始数据的内容如下：<code>3origin.xls</code></li>
+<li>要完成的任务:创建一个文件（文件名为 mydata.dta）并将其放D：/mydata
+文件夹下（如果没有该文件夹，请用 mkdir 命令创建）。标签该数据（用 label
+命令）使得任何一个使用该数据的人都能明白该数据（包括整个数据/其中的变量及变量值）的含义。原始数据的内容如下：<code>3origin.xls</code></li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span><br><span class="hljs-comment">*如果想在d盘创建一个新的文件夹mydata来存放数据文件，加上capture后，STATA会自动判断，如果mydata文件夹已存在，则跳过该命令；若不存在则创建一个命名为mydata的新文件夹</span><br><span class="hljs-keyword">capture</span> <span class="hljs-keyword">mkdir</span> <span class="hljs-keyword">d</span>:/mydata<br><span class="hljs-keyword">cd</span> <span class="hljs-keyword">d</span>:/mydata<br><span class="hljs-comment">*1. 导入3origin.xls的数据并保存在mydata</span><br><span class="hljs-keyword">save</span> 3origin, <span class="hljs-keyword">replace</span><br><span class="hljs-keyword">use</span> 3origin,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">d</span><br><span class="hljs-keyword">renpfix</span> <span class="hljs-keyword">var</span> v  <span class="hljs-comment">//renpfix可以将所有var开头的变量名修改为v开头(v+num)</span><br><span class="hljs-keyword">rename</span> v1 id<br><span class="hljs-keyword">rename</span> v2 name   <span class="hljs-comment">//将第二个变量v2重新命名为name</span><br><span class="hljs-keyword">rename</span> v3 gender<br><span class="hljs-keyword">rename</span> v4 minority <br><span class="hljs-keyword">rename</span> v5 economy <br><span class="hljs-keyword">rename</span> v6 math<br><span class="hljs-keyword">d</span><br><span class="hljs-comment">*2. 标签文件</span><br><span class="hljs-keyword">label</span> data <span class="hljs-string">"2022年经济学学习成绩单"</span><br><span class="hljs-keyword">note</span>: 2022-09-28由Devin创建<br><span class="hljs-keyword">note</span>   <br><span class="hljs-comment">*3. 标签变量</span><br><span class="hljs-keyword">label</span> <span class="hljs-keyword">var</span> id “学号”<br><span class="hljs-keyword">label</span> <span class="hljs-keyword">var</span> name “姓名”<br><span class="hljs-keyword">label</span> <span class="hljs-keyword">var</span> gender “性别 1=男 2=女” <br><span class="hljs-keyword">label</span> <span class="hljs-keyword">var</span> minority “民族”<br><span class="hljs-comment">*4. 保存和删除数据文件</span><br><span class="hljs-keyword">compress</span>    <span class="hljs-comment">//在保存文件前，在不损失任何信息的前提下压缩数据使占用空间最小</span><br><span class="hljs-keyword">save</span> mydata    <span class="hljs-comment">//保存数据，数据文件名为mydata。若mydata已存在，STATA会报错，可以修改新文件名为mydata1或者直接replace覆盖原文件mydata</span><br><span class="hljs-keyword">save</span> mydata1  <br><span class="hljs-keyword">save</span> mydata,<span class="hljs-keyword">replace</span><br><span class="hljs-keyword">erase</span> mydata1.dta   <span class="hljs-comment">//删除文件</span><br></code></pre></td></tr></table></figure>
 
