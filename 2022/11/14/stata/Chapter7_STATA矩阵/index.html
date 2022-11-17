@@ -17,12 +17,12 @@
   <meta name="author" content="Devin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Chapter7——STATA矩阵  STATA在9.0版本更新了矩阵组件，出现了与其他专门的矩阵运算软件功能一 样强大的新组件 MATA，用 MATA 可以完成除绘图以外的所有STATA数据处理和分析功能。以下是传统的STATA矩阵命令的教程。 0. 生成矩阵  输入新矩阵  1234567891011121314151617matrix A&#x3D;(1,0,1\2,1,0\-3">
+    <meta name="description" content="Chapter7——STATA矩阵  STATA在9.0版本更新了矩阵组件，出现了与其他专门的矩阵运算软件功能一 样强大的新组件 MATA，用 MATA 可以完成除绘图以外的所有STATA数据处理和分析功能。以下是传统的STATA矩阵命令的教程。 0. 生成矩阵 输入新矩阵  1234567891011121314151617matrix A&#x3D;(1,0,1\2,1,0\-3,2,-5)    &#x2F;&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chapter7——STATA矩阵">
 <meta property="og:url" content="http://example.com/2022/11/14/stata/Chapter7_STATA%E7%9F%A9%E9%98%B5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Chapter7——STATA矩阵  STATA在9.0版本更新了矩阵组件，出现了与其他专门的矩阵运算软件功能一 样强大的新组件 MATA，用 MATA 可以完成除绘图以外的所有STATA数据处理和分析功能。以下是传统的STATA矩阵命令的教程。 0. 生成矩阵  输入新矩阵  1234567891011121314151617matrix A&#x3D;(1,0,1\2,1,0\-3">
+<meta property="og:description" content="Chapter7——STATA矩阵  STATA在9.0版本更新了矩阵组件，出现了与其他专门的矩阵运算软件功能一 样强大的新组件 MATA，用 MATA 可以完成除绘图以外的所有STATA数据处理和分析功能。以下是传统的STATA矩阵命令的教程。 0. 生成矩阵 输入新矩阵  1234567891011121314151617matrix A&#x3D;(1,0,1\2,1,0\-3,2,-5)    &#x2F;&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221026223604538.png">
 <meta property="article:published_time" content="2022-11-14T09:11:00.000Z">
@@ -397,22 +397,18 @@ mjx-container[display="true"] + br {
             
             <div class="markdown-body">
               
-              <h1 align="center">
-Chapter7——STATA矩阵
-</h1>
-<p>STATA在9.0版本更新了矩阵组件，出现了与其他专门的矩阵运算软件功能一
-样强大的新组件 MATA，用 MATA
-可以完成除绘图以外的所有STATA数据处理和分析功能。以下是传统的STATA矩阵命令的教程。</p>
-<h4 id="生成矩阵">0. 生成矩阵</h4>
-<ol type="1">
+              <h1 align="center">Chapter7——STATA矩阵</h1>
+
+<p>STATA在9.0版本更新了矩阵组件，出现了与其他专门的矩阵运算软件功能一 样强大的新组件 MATA，用 MATA 可以完成除绘图以外的所有STATA数据处理和分析功能。以下是传统的STATA矩阵命令的教程。</p>
+<h4 id="0-生成矩阵"><a href="#0-生成矩阵" class="headerlink" title="0. 生成矩阵"></a>0. 生成矩阵</h4><ol>
 <li>输入新矩阵</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">matrix</span> A=(1,0,1\2,1,0\-3,2,-5)    <span class="hljs-comment">//手动录入矩阵A</span><br><span class="hljs-keyword">matrix</span> <span class="hljs-keyword">list</span> A      <span class="hljs-comment">//显示录入的矩阵A</span><br><span class="hljs-keyword">matlist</span> A         <span class="hljs-comment">//显示录入的矩阵A</span><br><span class="hljs-keyword">matrix</span> B=(1+2,2*3/4\5/2,3^2)<br><span class="hljs-keyword">matrix</span> <span class="hljs-keyword">list</span> B<br><span class="hljs-keyword">matrix</span> C=(2,3,4)     <span class="hljs-comment">//只有一行的矩阵</span><br><span class="hljs-keyword">matrix</span> <span class="hljs-keyword">E</span>=(1\2\3)     <span class="hljs-comment">//只有一列的矩阵</span><br><span class="hljs-keyword">matrix</span> F=(4)      <span class="hljs-comment">//只有一个数字的矩阵</span><br><span class="hljs-keyword">matrix</span> rownames A = sex edu marriage<br><span class="hljs-keyword">matrix</span> colnames A =obs1 obs2 obs3<br><span class="hljs-keyword">matrix</span> <span class="hljs-keyword">list</span> <br><span class="hljs-comment">/* rownames是生成行名字，colnames是生成列名字</span><br><span class="hljs-comment">             |      obs1       obs2       obs3 </span><br><span class="hljs-comment">-------------+---------------------------------</span><br><span class="hljs-comment">         sex |         1          0          1 </span><br><span class="hljs-comment">         edu |         2          1          0 </span><br><span class="hljs-comment">    marriage |        -3          2         -5 */</span><br></code></pre></td></tr></table></figure>
-<ol start="2" type="1">
+<ol>
 <li>生成特定格式矩阵</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*生成一个5行3列的矩阵A，矩阵中的元素均为0 </span><br><span class="hljs-keyword">matrix</span> A=<span class="hljs-built_in">J</span>(5,3,0)<br><br><span class="hljs-comment">*生成一个6阶单位阵I，只有对角位置值为1</span><br><span class="hljs-keyword">matrix</span> I=<span class="hljs-built_in">I</span>(6)<br><span class="hljs-comment">/*symmetric I[6,6]</span><br><span class="hljs-comment">    c1  c2  c3  c4  c5  c6</span><br><span class="hljs-comment">r1   1</span><br><span class="hljs-comment">r2   0   1</span><br><span class="hljs-comment">r3   0   0   1</span><br><span class="hljs-comment">r4   0   0   0   1</span><br><span class="hljs-comment">r5   0   0   0   0   1</span><br><span class="hljs-comment">r6   0   0   0   0   0   1*/</span><br><br><span class="hljs-comment">*生成一个 3 行 5 列的随机矩阵 R，每个随机元素均服从（0，1）均匀分布</span><br><span class="hljs-keyword">matrix</span> R=<span class="hljs-built_in">matuniform</span>(3,5)<br><span class="hljs-comment">/*R[3,5]</span><br><span class="hljs-comment">           c1         c2         c3         c4         c5</span><br><span class="hljs-comment">r1   .3488717  .26688571  .13664629  .02855687  .86893327</span><br><span class="hljs-comment">r2   .3508549  .07110509  .32336795  .55510316  .87599101</span><br><span class="hljs-comment">r3  .20470947  .89275869   .5844658  .36977914  .85063091*/</span><br><br><span class="hljs-comment">*以d中的元素为对角元素生成对角矩阵D</span><br><span class="hljs-keyword">matrix</span> <span class="hljs-keyword">d</span>=(1,4,9)<br><span class="hljs-keyword">matrix</span> <span class="hljs-keyword">D</span>=<span class="hljs-built_in">diag</span>(<span class="hljs-keyword">d</span>)<br><span class="hljs-keyword">matrix</span> <span class="hljs-keyword">list</span> <span class="hljs-keyword">D</span><br><span class="hljs-comment">/*symmetric D[3,3]</span><br><span class="hljs-comment">    c1  c2  c3</span><br><span class="hljs-comment">c1   1</span><br><span class="hljs-comment">c2   0   4</span><br><span class="hljs-comment">c3   0   0   9*/</span><br></code></pre></td></tr></table></figure>
-<ol start="3" type="1">
+<ol>
 <li>数据与矩阵之间的互相转化</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*Create matrix from variables</span><br><span class="hljs-keyword">mkmat</span> <span class="hljs-keyword">varlist</span> [<span class="hljs-keyword">if</span> exp][<span class="hljs-keyword">in</span> exp][<span class="hljs-keyword">matrix</span> (<span class="hljs-keyword">matname</span>) nomissing]<br><span class="hljs-comment">*Create variables from matrix</span><br><span class="hljs-keyword">svmat</span> [<span class="hljs-keyword">type</span>] A [, names(col|eqcol|matcol|string)]<br></code></pre></td></tr></table></figure>
@@ -424,199 +420,195 @@ Chapter7——STATA矩阵
 <li>矩阵转换成数据</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">matrix</span> A=(1,0,1\2,1,0\-3,2,-5) <br><span class="hljs-keyword">svmat</span> A    <span class="hljs-comment">//将矩阵 A 中的数据转化为数据，变量为 A1，A2，A3 </span><br><span class="hljs-keyword">list</span><br><span class="hljs-keyword">svmat</span> A,name(ccb) <span class="hljs-comment">//将矩阵 A 中的数据转化为新的变量 ccb1，ccb2，ccb3</span><br></code></pre></td></tr></table></figure>
-<h4 id="矩阵的四则运算">1. 矩阵的四则运算</h4>
+<h4 id="1-矩阵的四则运算"><a href="#1-矩阵的四则运算" class="headerlink" title="1. 矩阵的四则运算"></a>1. 矩阵的四则运算</h4><div class="table-container">
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: center;">运算</th>
-<th style="text-align: center;">STATA命令</th>
-<th style="text-align: center;">说明</th>
+<tr>
+<th style="text-align:center">运算</th>
+<th style="text-align:center">STATA命令</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">C=A±B</td>
-<td style="text-align: center;">mat c = a±b</td>
-<td style="text-align: center;">dim(a)=dim(b)</td>
+<tr>
+<td style="text-align:center">C=A±B</td>
+<td style="text-align:center">mat c = a±b</td>
+<td style="text-align:center">dim(a)=dim(b)</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">C=A*B</td>
-<td style="text-align: center;">mat c =a*b</td>
-<td style="text-align: center;">cols(a)=rows(b')</td>
+<tr>
+<td style="text-align:center">C=A*B</td>
+<td style="text-align:center">mat c =a*b</td>
+<td style="text-align:center">cols(a)=rows(b’)</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">C=A<sup>-1</sup></td>
-<td style="text-align: center;">mat c = inv(b)</td>
-<td style="text-align: center;">b为方阵，求b的逆矩阵</td>
+<tr>
+<td style="text-align:center">C=A^-1^</td>
+<td style="text-align:center">mat c = inv(b)</td>
+<td style="text-align:center">b为方阵，求b的逆矩阵</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">C=A/k</td>
-<td style="text-align: center;">mat c =a/k</td>
-<td style="text-align: center;">k为常数</td>
+<tr>
+<td style="text-align:center">C=A/k</td>
+<td style="text-align:center">mat c =a/k</td>
+<td style="text-align:center">k为常数</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">C=A×B</td>
-<td style="text-align: center;">mat c = a#b</td>
-<td style="text-align: center;">直乘运算</td>
+<tr>
+<td style="text-align:center">C=A×B</td>
+<td style="text-align:center">mat c = a#b</td>
+<td style="text-align:center">直乘运算</td>
 </tr>
 </tbody>
 </table>
-<ol type="1">
+</div>
+<ol>
 <li>矩阵扩展</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*相同行数的矩阵之间左右相加和并</span><br><span class="hljs-keyword">matrix</span> A=(1,0,1\2,1,0\-3,2,-5)<br><span class="hljs-keyword">matrix</span> B=(4\3\7)<br><span class="hljs-keyword">matrix</span> C=(A,B)     <span class="hljs-comment">//在矩阵A右边加单列矩阵B  </span><br><span class="hljs-keyword">matrix</span> <span class="hljs-keyword">list</span> C<br><span class="hljs-comment">/*C[3,4]</span><br><span class="hljs-comment">    c1  c2  c3  c1</span><br><span class="hljs-comment">r1   1   0   1   4</span><br><span class="hljs-comment">r2   2   1   0   3</span><br><span class="hljs-comment">r3  -3   2  -5   7*/</span><br><br><span class="hljs-comment">*列数相同的矩阵之间上下相加合并</span><br><span class="hljs-keyword">matrix</span> <span class="hljs-keyword">D</span>=(10,9,25) <br><span class="hljs-keyword">matrix</span> <span class="hljs-keyword">E</span>=(A\<span class="hljs-keyword">D</span>)    <span class="hljs-comment">//在矩阵A下面再加一行</span><br><span class="hljs-keyword">matrix</span> <span class="hljs-keyword">list</span> <span class="hljs-keyword">E</span>   <br><span class="hljs-comment">/*E[4,3]</span><br><span class="hljs-comment">    c1  c2  c3</span><br><span class="hljs-comment">r1   1   0   1</span><br><span class="hljs-comment">r2   2   1   0</span><br><span class="hljs-comment">r3  -3   2  -5</span><br><span class="hljs-comment">r1  10   9  25*/</span><br></code></pre></td></tr></table></figure>
-<ol start="2" type="1">
+<ol>
 <li>矩阵的加、减、数乘、除法</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*矩阵相加</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">e</span>=(3,5\2,0)<br><span class="hljs-keyword">mat</span> t=(1,3\2,1)<br><span class="hljs-comment">/*t[2,2]                 e[2,2]</span><br><span class="hljs-comment">    c1  c2                 c1  c2</span><br><span class="hljs-comment">r1   1   3             r1   3   5</span><br><span class="hljs-comment">r2   2   1             r2   2   0*/</span><br><br><span class="hljs-keyword">mat</span> r1=<span class="hljs-keyword">e</span>+t     <span class="hljs-comment">//本质：(3+1,5+3\2+2,0+1)</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> r1<br><span class="hljs-comment">*矩阵相减</span><br><span class="hljs-keyword">mat</span> r2=<span class="hljs-keyword">e</span>-t     <span class="hljs-comment">//本质：(3-1,5-3\2-2,0-1)</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> r2<br><span class="hljs-comment">*矩阵标量数乘</span><br><span class="hljs-keyword">mat</span> e2=<span class="hljs-keyword">e</span>*2   <span class="hljs-comment">//每个元素均乘标量2，本质：(3*2,5*2\2*2,0*2)</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> e2<br><span class="hljs-comment">*矩阵标量除法</span><br><span class="hljs-keyword">mat</span> e3=<span class="hljs-keyword">e</span>/10   <span class="hljs-comment">//每个元素均除以标量10</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> e3<br></code></pre></td></tr></table></figure>
-<ol start="3" type="1">
+<ol>
 <li>矩阵乘法、直乘及Kronecker乘积运算</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*矩阵间相乘</span><br><span class="hljs-keyword">mat</span> w=<span class="hljs-keyword">e</span>*t    <br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> w<br><span class="hljs-comment">*矩阵乘法不满足交换律，一般来说 a*b不等于b*a</span><br><span class="hljs-keyword">mat</span> a=(2,3\1,-2\3,1) <br><span class="hljs-keyword">mat</span> b=(1,-2,-3\2,-1,0)<br><span class="hljs-keyword">mat</span> ab=a*b<br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> ab<br><span class="hljs-keyword">mat</span> ba=b*a<br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> ba<br><span class="hljs-comment">*两个矩阵对应元素直接相乘，要求两个矩阵结构相同</span><br><span class="hljs-keyword">mat</span> A=(1,2\3,4\5,6) <br><span class="hljs-keyword">mat</span> B=(7,8\9,0\1,9) <br><span class="hljs-keyword">matrix</span> <span class="hljs-keyword">H</span>=<span class="hljs-built_in">hadamard</span>(A,B)     <span class="hljs-comment">//要求矩阵A和矩阵B的size是一样的，一一对应相乘</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> <span class="hljs-keyword">H</span>    <span class="hljs-comment">//其实就是两个规格一样的矩阵一一对应相乘</span><br><span class="hljs-comment">/*  c1  c2</span><br><span class="hljs-comment">r1   7  16</span><br><span class="hljs-comment">r2  27   0</span><br><span class="hljs-comment">r3   5  54*/</span><br></code></pre></td></tr></table></figure>
 <ul>
-<li>Kronecker乘积运算对A和B没有size的任何，要求矩阵的
-Kronecker乘积：</li>
+<li>Kronecker乘积运算对A和B没有size的任何，要求矩阵的 Kronecker乘积：</li>
 </ul>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221026223604538.png" srcset="/img/loading.gif" lazyload alt="image-20221026223604538" style="zoom:67%;"></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">mat</span> ab2=a#b<br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> ab2<br><span class="hljs-comment">/*ab2[6,6]</span><br><span class="hljs-comment">        c1:  c1:  c1:  c2:  c2:  c2:</span><br><span class="hljs-comment">        c1   c2   c3   c1   c2   c3</span><br><span class="hljs-comment">r1:r1    2   -4   -6    3   -6   -9</span><br><span class="hljs-comment">r1:r2    4   -2    0    6   -3    0</span><br><span class="hljs-comment">r2:r1    1   -2   -3   -2    4    6</span><br><span class="hljs-comment">r2:r2    2   -1    0   -4    2    0</span><br><span class="hljs-comment">r3:r1    3   -6   -9    1   -2   -3</span><br><span class="hljs-comment">r3:r2    6   -3    0    2   -1    0*/</span><br>-------------------------------------------------------------------------------------<br><span class="hljs-keyword">mat</span> ba2=b#a<br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> ba2<br><span class="hljs-comment">/*ba2[6,6]</span><br><span class="hljs-comment">        c1:  c1:  c2:  c2:  c3:  c3:</span><br><span class="hljs-comment">        c1   c2   c1   c2   c1   c2</span><br><span class="hljs-comment">r1:r1    2    3   -4   -6   -6   -9</span><br><span class="hljs-comment">r1:r2    1   -2   -2    4   -3    6</span><br><span class="hljs-comment">r1:r3    3    1   -6   -2   -9   -3</span><br><span class="hljs-comment">r2:r1    4    6   -2   -3    0    0</span><br><span class="hljs-comment">r2:r2    2   -4   -1    2    0    0</span><br><span class="hljs-comment">r2:r3    6    2   -3   -1    0    0*/</span><br></code></pre></td></tr></table></figure>
-<h4 id="矩阵函数">2. 矩阵函数</h4>
+<h4 id="2-矩阵函数"><a href="#2-矩阵函数" class="headerlink" title="2. 矩阵函数"></a>2. 矩阵函数</h4><div class="table-container">
 <table>
-
 <thead>
-<tr class="header">
-<th style="text-align: center;">函数名称</th>
-<th style="text-align: center;">说明</th>
+<tr>
+<th style="text-align:center">函数名称</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">cholesky(B)</td>
-<td style="text-align: center;">裘氏分解，返回P，使PP‘=B<sup>-1</sup>,B为对称、正定矩阵</td>
+<tr>
+<td style="text-align:center">cholesky(B)</td>
+<td style="text-align:center">裘氏分解，返回P，使PP‘=B^-1^,B为对称、正定矩阵</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">corr(B)</td>
-<td style="text-align: center;"></td>
+<tr>
+<td style="text-align:center">corr(B)</td>
+<td style="text-align:center"></td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">diag(V)</td>
-<td style="text-align: center;">若V为1×n或n×1，则返回对角元素为V的n×n矩阵</td>
+<tr>
+<td style="text-align:center">diag(V)</td>
+<td style="text-align:center">若V为1×n或n×1，则返回对角元素为V的n×n矩阵</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">get(name)</td>
-<td style="text-align: center;">return system matrix (see help
-get())</td>
+<tr>
+<td style="text-align:center">get(name)</td>
+<td style="text-align:center">return system matrix     (see help get())</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">hadamard(A,B)</td>
-<td style="text-align: center;">返回矩阵C，满足C[i,j]=A[i,j]*B[i,j]</td>
+<tr>
+<td style="text-align:center">hadamard(A,B)</td>
+<td style="text-align:center">返回矩阵C，满足C[i,j]=A[i,j]*B[i,j]</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">I(n)</td>
-<td style="text-align: center;">返回n×n单位矩阵</td>
+<tr>
+<td style="text-align:center">I(n)</td>
+<td style="text-align:center">返回n×n单位矩阵</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">inv(B)</td>
-<td style="text-align: center;">返回方阵B的逆矩阵B<sup>-1</sup></td>
+<tr>
+<td style="text-align:center">inv(B)</td>
+<td style="text-align:center">返回方阵B的逆矩阵B^-1^</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">J(r,c,z)</td>
-<td style="text-align: center;">返回r×c矩阵，矩阵中的所有元素都是常数z</td>
+<tr>
+<td style="text-align:center">J(r,c,z)</td>
+<td style="text-align:center">返回r×c矩阵，矩阵中的所有元素都是常数z</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">matuniform(r,c)</td>
-<td style="text-align: center;"></td>
+<tr>
+<td style="text-align:center">matuniform(r,c)</td>
+<td style="text-align:center"></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">nullmat(A)</td>
-<td style="text-align: center;">对于mat c
-=(nullmat(a),b)。若a不存在，c=b；否则，c=(a,b)</td>
+<tr>
+<td style="text-align:center">nullmat(A)</td>
+<td style="text-align:center">对于mat c =(nullmat(a),b)。若a不存在，c=b；否则，c=(a,b)</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">sweep(A,z)</td>
-<td style="text-align: center;">sweep of square matrix;return A with zth
-row/column swept</td>
+<tr>
+<td style="text-align:center">sweep(A,z)</td>
+<td style="text-align:center">sweep of square matrix;return A with zth row/column swept</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">syminv(B)</td>
-<td style="text-align: center;">inverse of symmetric matrix;if B is not
-positive definite</td>
+<tr>
+<td style="text-align:center">syminv(B)</td>
+<td style="text-align:center">inverse of symmetric  matrix;if B is not positive definite</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">vec(A)</td>
-<td style="text-align: center;">将矩阵A向量化后返回B，及所有列一次堆积<br>比如：A<sub>m×n</sub>，则B<sub>mn×1</sub></td>
+<tr>
+<td style="text-align:center">vec(A)</td>
+<td style="text-align:center">将矩阵A向量化后返回B，及所有列一次堆积<br>比如：A~m×n~，则B~mn×1~</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">vecdiag(B)</td>
-<td style="text-align: center;">返回一个行向量，包含方阵B的对角元素</td>
+<tr>
+<td style="text-align:center">vecdiag(B)</td>
+<td style="text-align:center">返回一个行向量，包含方阵B的对角元素</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>函数名称</strong></td>
-<td style="text-align: center;"><strong>返回值说明</strong></td>
+<tr>
+<td style="text-align:center"><strong>函数名称</strong></td>
+<td style="text-align:center"><strong>返回值说明</strong></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">colnumb(A,s)</td>
-<td style="text-align: center;">返回矩阵A中的第一个名称为字符串s的所在的列数</td>
+<tr>
+<td style="text-align:center">colnumb(A,s)</td>
+<td style="text-align:center">返回矩阵A中的第一个名称为字符串s的所在的列数</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">colsof(B)</td>
-<td style="text-align: center;">返回矩阵B的列数</td>
+<tr>
+<td style="text-align:center">colsof(B)</td>
+<td style="text-align:center">返回矩阵B的列数</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">det(B)</td>
-<td style="text-align: center;">返回矩阵B的行列式</td>
+<tr>
+<td style="text-align:center">det(B)</td>
+<td style="text-align:center">返回矩阵B的行列式</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">diag0cnt(B)</td>
-<td style="text-align: center;">返回矩阵B中对角线为零的元素的个数</td>
+<tr>
+<td style="text-align:center">diag0cnt(B)</td>
+<td style="text-align:center">返回矩阵B中对角线为零的元素的个数</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">el(A,i,j)</td>
-<td style="text-align: center;">返回矩阵A中第[i,j]个元素，等价于A[i,j]</td>
+<tr>
+<td style="text-align:center">el(A,i,j)</td>
+<td style="text-align:center">返回矩阵A中第[i,j]个元素，等价于A[i,j]</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">issym(A)</td>
-<td style="text-align: center;">判断矩阵A中是否为对称矩阵，是返回1，否返回0</td>
+<tr>
+<td style="text-align:center">issym(A)</td>
+<td style="text-align:center">判断矩阵A中是否为对称矩阵，是返回1，否返回0</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">matmissing(A)</td>
-<td style="text-align: center;">判断矩阵A中是否含有缺漏项，是返回1，否返回0</td>
+<tr>
+<td style="text-align:center">matmissing(A)</td>
+<td style="text-align:center">判断矩阵A中是否含有缺漏项，是返回1，否返回0</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">mreldif(B,C)</td>
-<td style="text-align: center;">返回矩阵B和C的相对差异</td>
+<tr>
+<td style="text-align:center">mreldif(B,C)</td>
+<td style="text-align:center">返回矩阵B和C的相对差异</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">rownumb(A,s)</td>
-<td style="text-align: center;">返回矩阵A中第一个名称为字符串s的行所在的行数</td>
+<tr>
+<td style="text-align:center">rownumb(A,s)</td>
+<td style="text-align:center">返回矩阵A中第一个名称为字符串s的行所在的行数</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">rowsof(B)</td>
-<td style="text-align: center;">返回矩阵B的行数</td>
+<tr>
+<td style="text-align:center">rowsof(B)</td>
+<td style="text-align:center">返回矩阵B的行数</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">trace(B)</td>
-<td style="text-align: center;">返回方阵B的秩</td>
+<tr>
+<td style="text-align:center">trace(B)</td>
+<td style="text-align:center">返回方阵B的秩</td>
 </tr>
 </tbody>
 </table>
-<ol type="1">
+</div>
+<ol>
 <li>装置、求迹</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">mat</span> b=(1,-2,-3\2,-1,0) <br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> b<br><span class="hljs-keyword">mat</span> b2=b'       <span class="hljs-comment">//b2为b的转置矩阵</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> b2 <br><span class="hljs-comment">*如果是"数据集"中的数据进行行列互换转置，可以用过xpose命令来实现，注意和矩阵转置区分</span><br><span class="hljs-keyword">use</span> math,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">xpose</span>,<span class="hljs-keyword">clear</span><br></code></pre></td></tr></table></figure>
-<ol start="2" type="1">
+<ol>
 <li>求逆矩阵、求行列式的值</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*=======求逆矩阵=======</span><br><span class="hljs-keyword">matrix</span> B=<span class="hljs-built_in">inv</span>(A)    <span class="hljs-comment">//B 为 A 的逆矩阵</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> B<br><span class="hljs-comment">*任务：解线性方程 Ax=b，其中：A=(1,-1,1,-2\2,0,-1,4\3,2,1,0\-1,2,-1,2)  b=(2\4\-1\-4) </span><br><span class="hljs-keyword">mat</span> A=(1,-1,1,-2\2,0,-1,4\3,2,1,0\-1,2,-1,2)<br><span class="hljs-keyword">mat</span> b=(2\4\-1\-4)<br><span class="hljs-comment">*生成A的逆矩阵a=A-1，然后得x=a*b</span><br><span class="hljs-keyword">matrix</span> a=<span class="hljs-built_in">inv</span>(A)<br><span class="hljs-keyword">mat</span> x=a*b<br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> x<br><span class="hljs-comment">*=======求行列式========</span><br><span class="hljs-keyword">mat</span> a=(1,0,1\2,1,0\-3,2,-5) <br><span class="hljs-keyword">mat</span> aa1=<span class="hljs-built_in">det</span>(a)  <span class="hljs-comment">//计算矩阵a的行列式，并且把该结果放到矩阵aa1中</span><br><span class="hljs-keyword">display</span> aa1<br><span class="hljs-keyword">scalar</span> aa2=<span class="hljs-built_in">det</span>(a)  <span class="hljs-comment">//计算矩阵a的行列式，并且把该结果以标量形式存储</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> aa2<br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">d</span>=(1,-1,1,-2,2\2,0,-1,4,4\3,2,1,0,-1\-1,2,-1,2,-4) <br><span class="hljs-keyword">mat</span> dd=<span class="hljs-built_in">det</span>(<span class="hljs-keyword">d</span>)<br><span class="hljs-keyword">scalar</span> <span class="hljs-keyword">list</span><br></code></pre></td></tr></table></figure>
-<ol start="3" type="1">
+<ol>
 <li>返回或者修改矩阵中的某个元素的值<code>el(A,i,j)=A[i,j]</code></li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*syntax:el(A,i,j)=A[i,j] 两种方法来索引返回矩阵中的某行某列的某个元素</span><br><span class="hljs-comment">*example:</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">d</span>=(1,-1,1,-2,2\2,100,-1,4,4\3,2,1,0,-1\-1,2,-1,2,-4) <br><span class="hljs-keyword">scalar</span> dd=<span class="hljs-keyword">d</span>[2,2]    <span class="hljs-comment">//函数1：返回第2行第2列的矩阵d元素</span><br><span class="hljs-keyword">scalar</span> ddd=<span class="hljs-built_in">el</span>(<span class="hljs-keyword">d</span>,2,2)    <span class="hljs-comment">//函数2：返回第2行第2列的矩阵d元素</span><br><span class="hljs-keyword">scalar</span> <span class="hljs-keyword">list</span> <br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">d</span>[1,3]=1000    <span class="hljs-comment">//把矩阵d的第一行第三列的数字修改成1000</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> <span class="hljs-keyword">d</span><br></code></pre></td></tr></table></figure>
-<ol start="4" type="1">
+<ol>
 <li>Nullmat命令</li>
 </ol>
 <p><code>nullmat</code>在矩阵中的函数运算有点像数据管理中的<code>merge</code>，可以实现两个矩阵的横向对接</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">mat</span> A=<span class="hljs-built_in">I</span>(3)<br><span class="hljs-keyword">mat</span> B=<span class="hljs-built_in">J</span>(3,3,9)<br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> C   <span class="hljs-comment">//matrix C not found</span><br><span class="hljs-keyword">mat</span> C=(<span class="hljs-built_in">nullmat</span>(C),A)  <span class="hljs-comment">//当C矩阵不存在时，将得到C=A</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> C            <span class="hljs-comment">//C=A </span><br><span class="hljs-keyword">mat</span> C=(<span class="hljs-built_in">nullmat</span>(B),A)  <span class="hljs-comment">//C变成由B和A两个矩阵横向对接</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> C            <span class="hljs-comment">//C=（B，A）</span><br><span class="hljs-keyword">mat</span> A=A/10<br><span class="hljs-keyword">mat</span> C=(<span class="hljs-built_in">nullmat</span>(C),A)  <span class="hljs-comment">//C在原来的基础上对接了A变成新的矩阵</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> C            <span class="hljs-comment">//C=（C，A</span><br></code></pre></td></tr></table></figure>
-<ol start="4" type="1">
+<ol>
 <li>其他矩阵函数</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*将矩阵转换为一维列矩阵</span><br><span class="hljs-keyword">matrix</span> A= (1,0,1\2,1,0\-3,2,-5)<br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">e</span>=<span class="hljs-built_in">vec</span>(A)    <span class="hljs-comment">//将矩阵A转化为一维列矩阵e </span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> <span class="hljs-keyword">e</span><br><span class="hljs-comment">*索引返回某个矩阵中的对角元素生成以该对角元素的一行向量</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">d</span>=<span class="hljs-built_in">vecdiag</span>(A)  <span class="hljs-comment">//返回矩阵A的对角元素为一行向量d</span><br><span class="hljs-keyword">mat</span> <span class="hljs-keyword">list</span> <span class="hljs-keyword">d</span><br><span class="hljs-keyword">mat</span> J=<span class="hljs-built_in">J</span>(10,2,.)    <span class="hljs-comment">//生成10×2的空白矩阵，矩阵内的元素全是.</span><br><span class="hljs-keyword">scalar</span> a=<span class="hljs-built_in">rowsof</span>(J)     <span class="hljs-comment">//生成矩阵J的行数的标量值a</span><br><span class="hljs-keyword">scalar</span> b=<span class="hljs-built_in">colsof</span>(J)     <span class="hljs-comment">//生成矩阵J的列数的标量值的d</span><br><span class="hljs-keyword">scalar</span> <span class="hljs-keyword">list</span><br><span class="hljs-comment">/* b =          2</span><br><span class="hljs-comment">   a =         10*/</span><br></code></pre></td></tr></table></figure>
