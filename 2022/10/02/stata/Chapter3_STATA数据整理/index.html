@@ -24,15 +24,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Chapter3——STATA数据整理  0. 数据整理关键命令     命令 命令解释 用法示例     drop 删除变量或观察值 drop math   keep 保留变量或观察值 keep math   append 将两个数据集拼接(观察值拼接) append using math   merge 将两个数据集合并（变量合并">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002212201513.png">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002224306422.png">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002224520106.png">
 <meta property="article:published_time" content="2022-10-02T15:06:26.000Z">
-<meta property="article:modified_time" content="2022-11-15T07:47:46.034Z">
+<meta property="article:modified_time" content="2022-11-17T04:44:14.059Z">
 <meta property="article:author" content="Devin">
 <meta property="article:tag" content="Econometric">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002212201513.png">
+<meta name="twitter:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002224306422.png">
   
   
   <title>Chapter3——STATA数据整理 - Hexo</title>
@@ -345,7 +344,7 @@ mjx-container[display="true"] + br {
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2k 字
+          2.1k 字
         
       </span>
     
@@ -357,7 +356,7 @@ mjx-container[display="true"] + br {
         
         
           <!-- compatible with older versions-->
-          17 分钟
+          18 分钟
         
       </span>
     
@@ -445,13 +444,18 @@ Chapter3——STATA数据整理
 </tr>
 <tr class="odd">
 <td style="text-align: center;">xpose</td>
-<td style="text-align: center;">数据转置</td>
+<td style="text-align: center;">数据转置<br></td>
 <td style="text-align: center;">xpose,clear</td>
 </tr>
 </tbody>
 </table>
 <p><em>流程图解释：</em></p>
-<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221002212201513.png" srcset="/img/loading.gif" lazyload alt="image-20221002212201513" style="zoom:50%;"></p>
+<pre><code class=" mermaid">graph TD
+数据A --&gt; 数据连接与拆分
+数据B --&gt; 数据连接与拆分
+数据连接与拆分 --&gt; append --&gt; 数据A和数据B上下纵向合并                          
+数据连接与拆分 --&gt; merge --&gt; 数据A和数据B左右横向合并
+</code></pre>
 <h4 id="拆分数据">1. 拆分数据</h4>
 <p>对于数据的拆分主要分成横向拆分和纵向拆分两种类型，横向拆分主要是通过保留和删除数据实现的，而纵向拆分主要是用过<code>append</code>和<code>merge</code>来实现不同纵向行间的合并与拆分。</p>
 <ol type="1">

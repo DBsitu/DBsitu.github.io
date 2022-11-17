@@ -24,14 +24,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="双重差分假设和基准回归 1. DID介绍 中文名“双重差分法”，英文名“Differences-in-Differences”，别名“倍差法”，小名“差中差”，双重差分法估计的本质简单理解其实就是面板数据固定效应估计，近年来由于DID具有良好的一些性质，很多人的使用于政策效应的评估。 使用DID的理由：   可以很大程度上避免内生性问题的困扰 传统方法下评估政策效应，主要是通过设置一">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/微信图片_20220613164939.png">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/DID image.png">
 <meta property="article:published_time" content="2022-07-09T02:55:12.000Z">
-<meta property="article:modified_time" content="2022-11-15T07:49:24.415Z">
+<meta property="article:modified_time" content="2022-11-17T04:37:43.028Z">
 <meta property="article:author" content="Devin">
 <meta property="article:tag" content="Econometric">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/微信图片_20220613164939.png">
+<meta name="twitter:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/DID image.png">
   
   
   <title>双重差分模型（一） - Hexo</title>
@@ -430,9 +429,36 @@ mjx-container[display="true"] + br {
 <ol start="3" type="1">
 <li>关于交互项的参数</li>
 </ol>
-<center>
-<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/微信图片_20220613164939.png" srcset="/img/loading.gif" lazyload alt="微信图片_20220613164939" style="zoom: 50%;">
-</center>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">政策实施前</th>
+<th style="text-align: center;">政策实施后</th>
+<th style="text-align: center;">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">处理组</td>
+<td style="text-align: center;">α<sub>0</sub>+α<sub>1</sub></td>
+<td style="text-align: center;">α<sub>0</sub>+α<sub>1</sub>+α<sub>2</sub>+α<sub>3</sub></td>
+<td style="text-align: center;">α<sub>0</sub>+α<sub>1</sub></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">对照组</td>
+<td style="text-align: center;">α<sub>0</sub></td>
+<td style="text-align: center;">α<sub>0</sub>+α<sub>2</sub></td>
+<td style="text-align: center;">α<sub>2</sub></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Difference</td>
+<td style="text-align: center;">α<sub>1</sub></td>
+<td style="text-align: center;">α<sub>0</sub>+α3~</td>
+<td style="text-align: center;">α<sub>3</sub>(D-in-D)</td>
+</tr>
+</tbody>
+</table>
 <p>很显然，是两次差分的结果，一次差分在时间维度，一次差分在个体维度。更直观地，可以用图形来表述上图以及DID的逻辑：</p>
 <center>
 <img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/DID image.png" srcset="/img/loading.gif" lazyload alt="DID image" style="zoom: 33%;">
