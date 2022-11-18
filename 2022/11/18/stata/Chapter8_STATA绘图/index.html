@@ -17,12 +17,12 @@
   <meta name="author" content="Devin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Chapter8——STATA绘图  STATA在10.0版本更新后绘画功能有了全新的升级，主要是提供了窗口化的图形处理能力，使得绘画的门槛大大降低了，可以通过鼠标来完成画图，但是绘图依靠代码来实现依旧非常重要。 0. 绘图命令一个完整的图应包括以下要素：曲线（点&#x2F;线&#x2F;面）、标题与副标题、图例、脚注、插文、 坐标轴。 12sysuse auto,cleartwoway (scatter mpg w">
+    <meta name="description" content="Chapter8——STATA绘图  STATA在10.0版本更新后绘画功能有了全新的升级，主要是提供了窗口化的图形处理能力，使得绘画的门槛大大降低了，可以通过鼠标来完成画图，但是绘图依靠代码来实现依旧非常重要。 0. 绘图命令 一个完整的图应包括以下要素：曲线（点&#x2F;线&#x2F;面）、标题与副标题、图例、脚注、插文、 坐标轴。 12sysuse auto,cleartwoway (scat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chapter8——STATA绘图">
 <meta property="og:url" content="http://example.com/2022/11/18/stata/Chapter8_STATA%E7%BB%98%E5%9B%BE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Chapter8——STATA绘图  STATA在10.0版本更新后绘画功能有了全新的升级，主要是提供了窗口化的图形处理能力，使得绘画的门槛大大降低了，可以通过鼠标来完成画图，但是绘图依靠代码来实现依旧非常重要。 0. 绘图命令一个完整的图应包括以下要素：曲线（点&#x2F;线&#x2F;面）、标题与副标题、图例、脚注、插文、 坐标轴。 12sysuse auto,cleartwoway (scatter mpg w">
+<meta property="og:description" content="Chapter8——STATA绘图  STATA在10.0版本更新后绘画功能有了全新的升级，主要是提供了窗口化的图形处理能力，使得绘画的门槛大大降低了，可以通过鼠标来完成画图，但是绘图依靠代码来实现依旧非常重要。 0. 绘图命令 一个完整的图应包括以下要素：曲线（点&#x2F;线&#x2F;面）、标题与副标题、图例、脚注、插文、 坐标轴。 12sysuse auto,cleartwoway (scat">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118161622333.png">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118161652420.png">
@@ -32,10 +32,10 @@
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221116170818006.png">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118160008216.png">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118161357458.png">
-<meta property="og:image" content="c:/Users/%E7%BD%AE%E4%B8%8A/AppData/Roaming/Typora/typora-user-images/image-20221118152612611.png">
+<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118163240350.png">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118153006123.png">
 <meta property="article:published_time" content="2022-11-18T08:24:38.000Z">
-<meta property="article:modified_time" content="2022-11-18T08:25:14.137Z">
+<meta property="article:modified_time" content="2022-11-18T08:33:41.015Z">
 <meta property="article:author" content="Devin">
 <meta property="article:tag" content="Econometric">
 <meta name="twitter:card" content="summary_large_image">
@@ -406,170 +406,137 @@ mjx-container[display="true"] + br {
             
             <div class="markdown-body">
               
-              <h1 align="center">Chapter8——STATA绘图</h1>
-
+              <h1 align="center">
+Chapter8——STATA绘图
+</h1>
 <p>STATA在10.0版本更新后绘画功能有了全新的升级，主要是提供了窗口化的图形处理能力，使得绘画的门槛大大降低了，可以通过鼠标来完成画图，但是绘图依靠代码来实现依旧非常重要。</p>
-<h4 id="0-绘图命令"><a href="#0-绘图命令" class="headerlink" title="0. 绘图命令"></a>0. 绘图命令</h4><p>一个完整的图应包括以下要素：曲线（点/线/面）、标题与副标题、图例、脚注、插文、 坐标轴。</p>
+<h4 id="绘图命令">0. 绘图命令</h4>
+<p>一个完整的图应包括以下要素：曲线（点/线/面）、标题与副标题、图例、脚注、插文、
+坐标轴。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">twoway</span> (<span class="hljs-keyword">scatter</span> mpg weight <span class="hljs-keyword">if</span> foreign==0) (<span class="hljs-keyword">scatter</span> mpg weight <span class="hljs-keyword">if</span> foreign==1 , msymbol(<span class="hljs-keyword">Sh</span>)) , title(标题：行驶里程与车重关系) subtitle(副标题：11574年美国的国产和进口汽车) ytitle(纵坐标标题：里程) xtitle(横坐标标题：重量) <span class="hljs-keyword">note</span>(注释：数据来自于美国汽车协会) text(35 3400 <span class="hljs-string">"曲线类型：散点图"</span>) legend(title(图例) <span class="hljs-keyword">label</span>(1 国产车) <span class="hljs-keyword">label</span>(2 进口车)) scheme(slrcolor)<br></code></pre></td></tr></table></figure>
-
-<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118161622333.png" srcset="/img/loading.gif" lazyload alt="image-20221118161622333" style="zoom: 67%;">
-
-<ol>
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118161622333.png" srcset="/img/loading.gif" lazyload alt="image-20221118161622333" style="zoom: 67%;"></p>
+<ol type="1">
 <li>绘图的命令结构</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata">Syntax1:<br><span class="hljs-keyword">graph</span>-command (<span class="hljs-keyword">plot</span>-command, <span class="hljs-keyword">plot</span>-options) (<span class="hljs-keyword">plot</span>-command , <span class="hljs-keyword">plot</span>-options) , <span class="hljs-keyword">graph</span>-options <br><span class="hljs-keyword">Syntax</span>:<br><span class="hljs-keyword">graph</span>-command <span class="hljs-keyword">plot</span>-command,<span class="hljs-keyword">plot</span>-options || <span class="hljs-keyword">plot</span>-command , <span class="hljs-keyword">plot</span>-options || , <span class="hljs-keyword">graph</span>-options <br></code></pre></td></tr></table></figure>
-
-<p><code>graph-command</code>定义图的类型，<code>plot-command </code>定义曲线类型,同一个图中如果有多条曲线可以用括号分开，也可以用<code>||</code>分开，曲线有其自身的选项，而整个图也有其选项。例如<code>twoway </code>为<code>graph-command</code>中的命令之一，一般是<code>graph-twoway</code>是二维作图的意思，而<code>scatter</code>为<code>plot-command</code>中的命令之一，是散点意思。</p>
+<p><code>graph-command</code>定义图的类型，<code>plot-command</code>定义曲线类型,同一个图中如果有多条曲线可以用括号分开，也可以用<code>||</code>分开，曲线有其自身的选项，而整个图也有其选项。例如<code>twoway</code>为<code>graph-command</code>中的命令之一，一般是<code>graph-twoway</code>是二维作图的意思，而<code>scatter</code>为<code>plot-command</code>中的命令之一，是散点意思。</p>
 <ul>
 <li>曲线选项和图选项，例如</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">twoway</span> (<span class="hljs-keyword">scatter</span> mpg weight), title(<span class="hljs-string">"美国汽车"</span>) <span class="hljs-comment">//图选项：标题，带标题的散点图</span><br><span class="hljs-keyword">twoway</span> (<span class="hljs-keyword">scatter</span> mpg weight, msymbol(Oh)) <span class="hljs-comment">//曲线选项，点的类型是空心圆</span><br><span class="hljs-keyword">twoway</span> (<span class="hljs-keyword">scatter</span> mpg weight, msymbol(Oh)) , title(<span class="hljs-string">"美国汽车"</span>) <span class="hljs-comment">//同时用图选项（散点，标题）与曲线选项（空心圆）</span><br></code></pre></td></tr></table></figure>
-
-<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118161652420.png" srcset="/img/loading.gif" lazyload alt="image-20221118161652420" style="zoom:67%;">
-
-
-
-<ol start="2">
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118161652420.png" srcset="/img/loading.gif" lazyload alt="image-20221118161652420" style="zoom:67%;"></p>
+<ol start="2" type="1">
 <li>曲线类型</li>
 </ol>
-<p>STATA 提供各种曲线类型，包括点（scatter）、线（line）、面（area），直方图（histogram）、 条形图（bar）、饼图（pie）、函数曲线（function）以及矩阵图（matrix）等。对时间序列数据有以 ts 开头的一系列特殊命令，如tsline。还有一类是对双变量的回归拟合图（lfit、qfit 、 lowess）等。可以用帮助命令查看。</p>
+<p>STATA
+提供各种曲线类型，包括点（scatter）、线（line）、面（area），直方图（histogram）、
+条形图（bar）、饼图（pie）、函数曲线（function）以及矩阵图（matrix）等。对时间序列数据有以
+ts
+开头的一系列特殊命令，如tsline。还有一类是对双变量的回归拟合图（lfit、qfit
+、 lowess）等。可以用帮助命令查看。</p>
 <ul>
 <li>曲线可以分为点线面</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> uslifeexp.dta,<span class="hljs-keyword">clear</span>   <span class="hljs-comment">//U.S. life expectancy, 1900-1999</span><br><span class="hljs-comment">*点图</span><br><span class="hljs-keyword">scatter</span> le year<br><span class="hljs-comment">*线图</span><br><span class="hljs-keyword">line</span> le year<br><span class="hljs-comment">*面图</span><br><span class="hljs-keyword">tw</span> area le year<br></code></pre></td></tr></table></figure>
-
-
-
 <ul>
 <li>几种基本的曲线类型</li>
 </ul>
-<p><strong>任务：</strong>使用美国 51 个州的人口(popk)、居住成本( propval100 )及普查分区 (division )等变量绘制各种图，数据文件为<code>allstates</code>。这些文件在网络上，首先要确保网络连接正常。</p>
+<p><strong>任务：</strong>使用美国 51 个州的人口(popk)、居住成本(
+propval100 )及普查分区 (division
+)等变量绘制各种图，数据文件为<code>allstates</code>。这些文件在网络上，首先要确保网络连接正常。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">net</span> from http:<span class="hljs-comment">//www.stata-press.com/data/vgsg2/</span><br><span class="hljs-keyword">net</span> install vgsg2,<span class="hljs-keyword">replace</span><br>vguse allstates,<span class="hljs-keyword">clear</span><br><span class="hljs-comment">//直方图：histogram</span><br><span class="hljs-keyword">twoway</span> <span class="hljs-keyword">histogram</span> popk<br><span class="hljs-comment">//核估计图：kdensity</span><br><span class="hljs-keyword">twoway</span> <span class="hljs-keyword">kdensity</span> popk<br><span class="hljs-comment">//条形图：bar和hbar</span><br><span class="hljs-keyword">graph</span> bar popk,over(division)   <span class="hljs-comment">//竖的条形图</span><br><span class="hljs-keyword">graph</span> hbar popk,over(division)  <span class="hljs-comment">//横的条形图</span><br><span class="hljs-comment">//箱型图：box和hbox</span><br><span class="hljs-keyword">graph</span> box popk,over(division)<br><span class="hljs-keyword">graph</span> hbox popk,over(division)<br><span class="hljs-comment">//饼图：pie</span><br><span class="hljs-keyword">graph</span> pie popk,over(region)    <span class="hljs-comment">//region是分类</span><br><span class="hljs-comment">//矩阵图：matrix</span><br><span class="hljs-keyword">graph</span> <span class="hljs-keyword">matrix</span> propval100 rent700 popden   <span class="hljs-comment">//这个贼有意思</span><br><span class="hljs-comment">//点阵图：dot</span><br><span class="hljs-keyword">graph</span> dot popk,over(division)<br></code></pre></td></tr></table></figure>
-
-
-
 <ul>
 <li>更多细分的曲线类型</li>
 </ul>
-<p><strong>任务：</strong>使用股价数据 spjanfeb2001 绘制各种图，其中 close 为收盘价，open 为开 盘价，tradeday 为交易日。</p>
+<p><strong>任务：</strong>使用股价数据 spjanfeb2001 绘制各种图，其中
+close 为收盘价，open 为开 盘价，tradeday 为交易日。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs stata">vguse spjanfeb2001, <span class="hljs-keyword">clear</span>   <span class="hljs-comment">//S&amp;P 500</span><br><span class="hljs-keyword">twoway</span> dropline <span class="hljs-keyword">close</span> tradeday<br><span class="hljs-keyword">tw</span> spike <span class="hljs-keyword">close</span> tradeday         <span class="hljs-comment">//针式图           </span><br><span class="hljs-keyword">tw</span> dot <span class="hljs-keyword">close</span> tradeday         <span class="hljs-comment">//点线图</span><br><span class="hljs-keyword">tw</span> connected <span class="hljs-keyword">close</span> tradeday, <span class="hljs-keyword">sort</span>     <span class="hljs-comment">//点连线图</span><br><span class="hljs-keyword">tw</span> area <span class="hljs-keyword">close</span> tradeday, <span class="hljs-keyword">sort</span>       <span class="hljs-comment">//和线图类似的，但是显示出线以下的面积</span><br><span class="hljs-keyword">tw</span> bar <span class="hljs-keyword">close</span> yradeday, <span class="hljs-keyword">sort</span><br><br><span class="hljs-keyword">twoway</span> rarea high low tradeday, <span class="hljs-keyword">sort</span>   <span class="hljs-comment">//显示最高与最低价，并填充两者之间的面积 </span><br><span class="hljs-keyword">tw</span> rline high low tradeday, <span class="hljs-keyword">sort</span>    <span class="hljs-comment">//显示最高与最低价，但不填充其间</span><br><span class="hljs-keyword">tw</span> rconnected high low tradeday, <span class="hljs-keyword">sort</span>    <span class="hljs-comment">//显示最低与最高为两点，并连接起来 </span><br><span class="hljs-keyword">tw</span> rscatter high low tradeday, <span class="hljs-keyword">sort</span>      <span class="hljs-comment">//显示最低与最高为两点，不连接</span><br><span class="hljs-keyword">tw</span> rcap high low tradeday, <span class="hljs-keyword">sort</span>        <span class="hljs-comment">//两端用小横线标示</span><br><span class="hljs-keyword">tw</span> rspike high low tradeway, <span class="hljs-keyword">sort</span>     <span class="hljs-comment">//两端用点标示</span><br><span class="hljs-keyword">tw</span> rcapsym high low tradeday, <span class="hljs-keyword">sort</span><br><br><span class="hljs-comment">*对于时间序列数据，可以先设定时期，再简化命令</span><br><span class="hljs-keyword">tsset</span> tradeday     <span class="hljs-comment">//X轴为时间，由tsset设定. </span><br><span class="hljs-keyword">twoway</span> <span class="hljs-keyword">tsline</span> <span class="hljs-keyword">close</span>, <span class="hljs-keyword">sort</span>     <span class="hljs-comment">//tsline用于时间序列数据，收盘价 </span><br><span class="hljs-keyword">tw</span> <span class="hljs-keyword">tsrline</span> high low, <span class="hljs-keyword">sort</span>    <span class="hljs-comment">//最高价与最低价</span><br></code></pre></td></tr></table></figure>
-
-
-
-<ol start="3">
+<ol start="3" type="1">
 <li>标题选项：<code>title()</code></li>
 </ol>
 <p>赋予整个图的标题：<code>title()</code></p>
 <p>赋予图的副标题：<code>subtitle()</code></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> uslifeexp.dta,<span class="hljs-keyword">clear</span> <br><span class="hljs-keyword">scatter</span> le year, title(<span class="hljs-keyword">U</span>.S. life expectancy) subtitle(1900-1999)<br></code></pre></td></tr></table></figure>
-
-<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221115165932680.png" srcset="/img/loading.gif" lazyload alt="image-20221115165932680" style="zoom:50%;">
-
-
-
-<ol start="4">
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221115165932680.png" srcset="/img/loading.gif" lazyload alt="image-20221115165932680" style="zoom:50%;"></p>
+<ol start="4" type="1">
 <li><strong>坐标轴格式</strong></li>
 </ol>
 <ul>
 <li>有坐标轴，有刻度可是（默认）</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> uslifeexp.dta,<span class="hljs-keyword">clear</span>  <br><span class="hljs-keyword">scatter</span> le year<br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>无坐标轴格式</li>
 </ul>
 <p>可以不标识y轴，命令为<code>yscale(off)</code>；也可以不标识x轴<code>xscale(off)</code>，还可以不显示图片中的暗格</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">scatter</span> le year, yscale(off) xscale(off) plotregion(style(none))<br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>无坐标轴，有刻度标记格式</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">scatter</span> le year, yscale(noline) xscale(noline)  plotregion(style(none))<br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>双坐标轴格式</li>
 </ul>
 <p>同时可以绘制出男人的平均寿命和女人的平均寿命的一张折线图，共同使用同一个坐标轴的刻度</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">line</span> le_male le_female year<br><span class="hljs-keyword">tw</span>(<span class="hljs-keyword">line</span> le_male year)(<span class="hljs-keyword">line</span> le_female year)  <span class="hljs-comment">//和上面line的命令等价</span><br></code></pre></td></tr></table></figure>
-
 <p>采用双坐标轴的这些图</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">tw</span>(<span class="hljs-keyword">line</span> le_male year,yaxis(1))(<span class="hljs-keyword">line</span> le_female year,yaxis(2))<br></code></pre></td></tr></table></figure>
-
-<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221115171137365.png" srcset="/img/loading.gif" lazyload alt="image-20221115171137365" style="zoom:50%;">
-
-
-
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221115171137365.png" srcset="/img/loading.gif" lazyload alt="image-20221115171137365" style="zoom:50%;"></p>
 <ul>
 <li>坐标轴标题</li>
 </ul>
 <p>纵坐标标题：<code>ytitle()</code></p>
 <p>横坐标标题：<code>xtitle()</code></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">tw</span>(<span class="hljs-keyword">line</span> le_male year,yaxis(1) ytitle(年龄) xtitle(年份))<br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>坐标轴刻度</li>
 </ul>
 <p>左纵坐标刻度：<code>ytick()</code></p>
 <p>下横坐标轴刻度：<code>xtick()</code></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">line</span> le year, xtick(1900(1)1999) ytick(40(4)80)<br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>坐标轴刻度值</li>
 </ul>
 <p>左纵坐标刻度及刻度值：<code>ylabel()</code></p>
 <p>下横坐标刻度及刻度值：<code>xlabel()</code></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">line</span> le year, xlabel(1900 1930 1960 1999) ylabel(40(4)80)<br></code></pre></td></tr></table></figure>
-
 <p>更多的关于坐标轴刻度和标注的方法，可以通过查找来获得帮助：<code>help axis label option</code></p>
 <p>绘制一个图，纵横比例是3：4</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">scatter</span> le year, ysize(3) xsize(4)<br></code></pre></td></tr></table></figure>
-
-<ol start="5">
+<ol start="5" type="1">
 <li>任意水平线和垂直线：<code>yline()</code>与<code>xline()</code></li>
 </ol>
 <p><strong>任务：</strong>在美国人均寿命的散点图中绘画出1900-1999年间的平均寿命</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> uslifeexp.dta,<span class="hljs-keyword">clear</span>  <br><span class="hljs-keyword">scatter</span> le year, xline<br></code></pre></td></tr></table></figure>
-
-<ol start="6">
+<ol start="6" type="1">
 <li>图例：<code>legend()</code></li>
 </ol>
 <ul>
 <li>自动插入图例</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">line</span> le_male le_female year<br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>关闭自动插入的图例</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">line</span> le_male le_female year, legend(off)<br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>定制图例内容<code>legend(label())</code></li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*将图例中的英文装换成自己定制的中文</span><br><span class="hljs-keyword">line</span> le_male le_female year, legend( <span class="hljs-keyword">label</span>(1 男人) <span class="hljs-keyword">label</span>(2 女人))<br><span class="hljs-comment">*也可以提前先将变量识别而后自动生成</span><br><span class="hljs-keyword">label</span> <span class="hljs-keyword">var</span> le_male 男人<br><span class="hljs-keyword">label</span> <span class="hljs-keyword">var</span> le_female 女人<br><span class="hljs-keyword">line</span> le_male le_female year<br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>定制图例位置：<code>legend(position())</code></li>
 </ul>
 <p>图例的位置可以自由被自己通过位置命令放置再绘制的图的12个位置（对应的是时钟的小时刻度方位位置），如正右边为<code>position(3)</code>，正上方是<code>position(12)</code></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">line</span> le_male le_female year, legend(position(12) <span class="hljs-keyword">label</span>(1 男人) <span class="hljs-keyword">label</span>(2 女人))<br></code></pre></td></tr></table></figure>
-
 <p>如果希望将图例放在图的中，命令为<code>ring(0)</code></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">line</span> le_male le_female year, legend(position(1) ring(0) <span class="hljs-keyword">label</span>(1 男人) <span class="hljs-keyword">label</span>(2 女人) col(1))<br><span class="hljs-comment">/*legend(position(1)：图例放在一点钟的位置</span><br><span class="hljs-comment">ring(0)：图例应该放置在图中</span><br><span class="hljs-comment">label(1 男人) label(2 女人)：一号位放男人，二号位放女人</span><br><span class="hljs-comment">col(1)：要求图例按上下一列来处理*/</span><br></code></pre></td></tr></table></figure>
-
-<ol start="7">
+<ol start="7" type="1">
 <li>脚注：<code>note()</code></li>
 </ol>
 <p>脚注主要用于标明数据的来源或者有关对整个图的说明</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">scatter</span> le year, <span class="hljs-keyword">note</span>(数据来源：美国国家统计局)<br></code></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h4 id="1-几种常见的图"><a href="#1-几种常见的图" class="headerlink" title="1. 几种常见的图"></a>1. 几种常见的图</h4><ol>
+<h4 id="几种常见的图">1. 几种常见的图</h4>
+<ol type="1">
 <li>散点图与连线图</li>
 </ol>
 <ul>
@@ -577,299 +544,288 @@ mjx-container[display="true"] + br {
 </ul>
 <table>
 <thead>
-<tr>
-<th align="center"></th>
-<th align="center">圆圈</th>
-<th align="center">菱形</th>
-<th align="center">正方形</th>
-<th align="center">三角形</th>
-<th align="center">+号</th>
-<th align="center">×号</th>
-<th align="center">小点</th>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">圆圈</th>
+<th style="text-align: center;">菱形</th>
+<th style="text-align: center;">正方形</th>
+<th style="text-align: center;">三角形</th>
+<th style="text-align: center;">+号</th>
+<th style="text-align: center;">×号</th>
+<th style="text-align: center;">小点</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">大、实心</td>
-<td align="center">O</td>
-<td align="center">D</td>
-<td align="center">S</td>
-<td align="center">T</td>
-<td align="center">+</td>
-<td align="center">X</td>
-<td align="center"></td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">大、实心</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td align="center">大、空心</td>
-<td align="center">Oh</td>
-<td align="center">Dh</td>
-<td align="center">Sh</td>
-<td align="center">Th</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<tr class="even">
+<td style="text-align: center;">大、空心</td>
+<td style="text-align: center;">Oh</td>
+<td style="text-align: center;">Dh</td>
+<td style="text-align: center;">Sh</td>
+<td style="text-align: center;">Th</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td align="center">小、实心</td>
-<td align="center">o</td>
-<td align="center">d</td>
-<td align="center">s</td>
-<td align="center">t</td>
-<td align="center"></td>
-<td align="center">x</td>
-<td align="center">p</td>
+<tr class="odd">
+<td style="text-align: center;">小、实心</td>
+<td style="text-align: center;">o</td>
+<td style="text-align: center;">d</td>
+<td style="text-align: center;">s</td>
+<td style="text-align: center;">t</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">p</td>
 </tr>
-<tr>
-<td align="center">小、空心</td>
-<td align="center">oh</td>
-<td align="center">dh</td>
-<td align="center">sh</td>
-<td align="center">th</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<tr class="even">
+<td style="text-align: center;">小、空心</td>
+<td style="text-align: center;">oh</td>
+<td style="text-align: center;">dh</td>
+<td style="text-align: center;">sh</td>
+<td style="text-align: center;">th</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><strong>任务1：</strong>绘制美国各州贫困发生率的散点图，用做人口数做权重</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata">vguse allstates, <span class="hljs-keyword">clear</span><br><span class="hljs-keyword">scatter</span> pov statefips [fw=pop], msymbol(oh)<br><span class="hljs-comment">//制定散点颜色</span><br><span class="hljs-keyword">scatter</span> pov statefips [fw=pop], msymbol(o) mfcolor(green) mlcolor(red)<br></code></pre></td></tr></table></figure>
-
 <p><strong>任务2：</strong>绘制出各州贫困发生率散点图，并标上州名</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">scatter</span> pov statefips, mlabel(stateab)<br><span class="hljs-keyword">twoway</span> (<span class="hljs-keyword">scatter</span> ownhome borninstate <span class="hljs-keyword">if</span> stateab==<span class="hljs-string">"DC"</span>, mlabel(stateab)) (<span class="hljs-keyword">scatter</span> ownhome borninstate), legend(off)<br><br></code></pre></td></tr></table></figure>
-
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">scatter</span> pov statefips, mlabel(stateab)<br><span class="hljs-keyword">twoway</span> (<span class="hljs-keyword">scatter</span> ownhome borninstate <span class="hljs-keyword">if</span> stateab==<span class="hljs-string">"DC"</span>, mlabel(stateab)) (<span class="hljs-keyword">scatter</span> ownhome borninstate), legend(off)<br></code></pre></td></tr></table></figure>
 <ul>
-<li>指定图形中散点的连接方式：<code>connect() </code></li>
+<li>指定图形中散点的连接方式：<code>connect()</code></li>
 </ul>
 <table>
 <thead>
-<tr>
-<th align="center">符号</th>
-<th align="center">说明</th>
+<tr class="header">
+<th style="text-align: center;">符号</th>
+<th style="text-align: center;">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">.</td>
-<td align="center">不连接</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">.</td>
+<td style="text-align: center;">不连接</td>
 </tr>
-<tr>
-<td align="center">l</td>
-<td align="center">用直线连接</td>
+<tr class="even">
+<td style="text-align: center;">l</td>
+<td style="text-align: center;">用直线连接</td>
 </tr>
-<tr>
-<td align="center">L</td>
-<td align="center">按 X 在数据库中的顺序用直线连接</td>
+<tr class="odd">
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">按 X 在数据库中的顺序用直线连接</td>
 </tr>
-<tr>
-<td align="center">m</td>
-<td align="center">用直线连接中位值</td>
+<tr class="even">
+<td style="text-align: center;">m</td>
+<td style="text-align: center;">用直线连接中位值</td>
 </tr>
-<tr>
-<td align="center">s</td>
-<td align="center">用三次平滑曲线连接</td>
+<tr class="odd">
+<td style="text-align: center;">s</td>
+<td style="text-align: center;">用三次平滑曲线连接</td>
 </tr>
-<tr>
-<td align="center">J</td>
-<td align="center">以阶梯式直线连接</td>
+<tr class="even">
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">以阶梯式直线连接</td>
 </tr>
-<tr>
-<td align="center">||</td>
-<td align="center">连接垂直方向上的两个点</td>
+<tr class="odd">
+<td style="text-align: center;">||</td>
+<td style="text-align: center;">连接垂直方向上的两个点</td>
 </tr>
-<tr>
-<td align="center">II</td>
-<td align="center">在顶及底部添加短横线</td>
+<tr class="even">
+<td style="text-align: center;">II</td>
+<td style="text-align: center;">在顶及底部添加短横线</td>
 </tr>
-</tbody></table>
-<p>对每种线条类型，可单独定义线条样式，如<code> c(l)</code>为实线相连，<code>c(l[-])</code>以虚线相连</p>
+</tbody>
+</table>
+<p>对每种线条类型，可单独定义线条样式，如<code>c(l)</code>为实线相连，<code>c(l[-])</code>以虚线相连</p>
 <table>
 <thead>
-<tr>
-<th align="center">符号</th>
-<th align="center">说明</th>
+<tr class="header">
+<th style="text-align: center;">符号</th>
+<th style="text-align: center;">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">l</td>
-<td align="center">实线</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">l</td>
+<td style="text-align: center;">实线</td>
 </tr>
-<tr>
-<td align="center">l[_]</td>
-<td align="center">长线段</td>
+<tr class="even">
+<td style="text-align: center;">l[_]</td>
+<td style="text-align: center;">长线段</td>
 </tr>
-<tr>
-<td align="center">l[-]</td>
-<td align="center">中等长线段</td>
+<tr class="odd">
+<td style="text-align: center;">l[-]</td>
+<td style="text-align: center;">中等长线段</td>
 </tr>
-<tr>
-<td align="center">l[.]</td>
-<td align="center">短线段</td>
+<tr class="even">
+<td style="text-align: center;">l[.]</td>
+<td style="text-align: center;">短线段</td>
 </tr>
-<tr>
-<td align="center">l[#]</td>
-<td align="center">空格</td>
+<tr class="odd">
+<td style="text-align: center;">l[#]</td>
+<td style="text-align: center;">空格</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> sp500,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">gen</span> <span class="hljs-keyword">n</span>=_n<br><span class="hljs-keyword">twoway</span> (<span class="hljs-keyword">line</span> <span class="hljs-keyword">open</span> <span class="hljs-keyword">close</span> <span class="hljs-keyword">n</span> <span class="hljs-keyword">in</span> 1/50 , <span class="hljs-keyword">sort</span> clpattern( -)), plotregion(margin(zero)) title(<span class="hljs-string">"twoway line"</span>) xtitle(<span class="hljs-string">"date"</span>) ytitle(<span class="hljs-string">"price"</span>) legend(<span class="hljs-keyword">label</span>(1 <span class="hljs-string">"open"</span>) <span class="hljs-keyword">label</span>(2 <span class="hljs-string">"close"</span>) <span class="hljs-keyword">order</span>(2 1) ring(0) position(8)) text(1300 25 <span class="hljs-string">"open"</span>)<br></code></pre></td></tr></table></figure>
-
-
-
-<ol start="2">
+<ol start="2" type="1">
 <li>条形图</li>
 </ol>
-<p>任务 9.7：以下是美国三大区域（nsw）9 个普查区域(division)住房平均成本(propval100)， 括号中为相应的变量名称，请使用数据 allstates.dta 绘出如下的条形图 </p>
+<p>任务 9.7：以下是美国三大区域（nsw）9
+个普查区域(division)住房平均成本(propval100)，
+括号中为相应的变量名称，请使用数据 allstates.dta 绘出如下的条形图</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs stata">vguse allstates, <span class="hljs-keyword">clear</span> <br><span class="hljs-keyword">gsort</span> nsw division <br><span class="hljs-keyword">list</span> propval100 nsw division <br><span class="hljs-keyword">graph</span> bar propval100, over(nsw) over(division)   <span class="hljs-comment">//over是分组绘制，由于分类变量存在缺失值，所以制作的图很难看</span><br><span class="hljs-comment">*nofill命令将分类变量中缺失值忽略掉（在前面将其做为一组来处理）</span><br><span class="hljs-keyword">graph</span> bar propval100, over(nsw) over(division) nofill<br><span class="hljs-comment">*命令选项asyvars将使得第一个分组变量变换成相应的若干y变量</span><br><span class="hljs-keyword">graph</span> bar propval100, over(nsw) over(division) nofill asyvars<br><span class="hljs-comment">*加上图例进行美化</span><br><span class="hljs-keyword">graph</span> bar propval100, over(nsw) over(division) nofill asyvars ytitle(平均居住成本) ylabel(0(10)80) b1title(Region) legend(rows(1) position(1) ring(0))<br><span class="hljs-comment">*将分组变量表示倾斜45度，并且给每个条形图加上数据并规定数据格式</span><br><span class="hljs-keyword">graph</span> bar propval100, over(nsw)  over(division, <span class="hljs-keyword">label</span>(angle(45))) nofill asyvars ytitle(<span class="hljs-string">"平均居住成本"</span>) ylabel(0(10)80, angle(0)) b1title(Region) legend(rows(1) position(1) ring(0)) blabel(bar, <span class="hljs-keyword">format</span>(%4.2f))<br></code></pre></td></tr></table></figure>
-
-<img src="C:/Users/%E7%BD%AE%E4%B8%8A/AppData/Roaming/Typora/typora-user-images/image-20221116170440816.png" srcset="/img/loading.gif" lazyload alt="image-20221116170440816" style="zoom:50%;">
-
-
-
+<p><img src="C:/Users/%E7%BD%AE%E4%B8%8A/AppData/Roaming/Typora/typora-user-images/image-20221116170440816.png" srcset="/img/loading.gif" lazyload alt="image-20221116170440816" style="zoom:50%;"></p>
 <p>例子：</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span> <br><span class="hljs-keyword">input</span> str5 age <span class="hljs-keyword">m</span> f <br>16-24 .9 .2 <br>25-44 .8 .8 <br>45-66 3.8 2.9 <br>67-79 8.2 5.4 <br>80+ 9.1 7.2 <br>end <br><span class="hljs-keyword">graph</span> bar <span class="hljs-keyword">m</span> f,over(age) title(不同年龄组发病率) b1title(<span class="hljs-string">"Age"</span>) ytitle(发病率)<br><span class="hljs-comment">*解释一下b1title()：因为</span><br></code></pre></td></tr></table></figure>
-
-<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221116170818006.png" srcset="/img/loading.gif" lazyload alt="image-20221116170818006" style="zoom:50%;">
-
-<ol start="3">
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221116170818006.png" srcset="/img/loading.gif" lazyload alt="image-20221116170818006" style="zoom:50%;"></p>
+<ol start="3" type="1">
 <li>直方图</li>
 </ol>
-<p>任务：绘制身高直方图，录入如下数据，将数据分为 10 组，统计落入每组的频数，然后绘制直方图。</p>
+<p>任务：绘制身高直方图，录入如下数据，将数据分为 10
+组，统计落入每组的频数，然后绘制直方图。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span> <br><span class="hljs-keyword">set</span> <span class="hljs-keyword">memory</span> 64m <br><span class="hljs-keyword">input</span> x1-x10 <br>142.3 156.6 142.7 145.7 138.2 141.6 142.5 130.5 134.5 148.8 <br>134.4 148.8 137.9 151.3 140.8 149.8 145.2 141.8 146.8 135.1 <br>150.3 133.1 142.7 143.9 151.1 144.0 145.4 146.2 143.3 156.3 <br>141.9 140.7 141.2 141.5 148.8 140.1 150.6 139.5 146.4 143.8 <br>143.5 139.2 144.7 139.3 141.9 147.8 140.5 138.9 134.7 147.3 <br>138.1 140.2 137.4 145.1 145.8 147.9 150.8 144.5 137.1 147.1 <br>142.9 134.9 143.6 142.3 125.9 132.7 152.9 147.9 141.8 141.4 <br>140.9 141.4 160.9 154.2 137.9 139.9 149.7 147.5 136.9 148.1 <br>134.7 138.5 138.9 137.7 138.5 139.6 143.5 142.9 129.4 142.5 <br>141.2 148.9 154.0 147.7 152.3 146.6 132.1 145.9 146.7 144.0 <br>135.5 144.4 143.4 137.4 143.6 150.0 143.3 146.5 149.0 142.1 <br>140.2 145.4 142.4 148.9 146.7 139.2 139.6 142.4 138.7 139.9 <br>end<br><span class="hljs-keyword">stack</span> x1-x10,into(y) <span class="hljs-keyword">clear</span> <br></code></pre></td></tr></table></figure>
-
-
-
-<ol start="4">
+<ol start="4" type="1">
 <li>箱图</li>
 </ol>
-<p>任务：绘制上学年级与工资收入的箱图，箱图将最低、最高、均值以及 95%分位数在同一个图中表现出来。</p>
+<p>任务：绘制上学年级与工资收入的箱图，箱图将最低、最高、均值以及
+95%分位数在同一个图中表现出来。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> nlsw88,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">graph</span> hbox wage, over(grade) asyvar nooutsides legend(rows(2))<br></code></pre></td></tr></table></figure>
-
-<ol start="5">
+<ol start="5" type="1">
 <li>函数图</li>
 </ol>
 <p>任务：绘制正态分布密度函数图。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">tw</span> (function y=normden(x), <span class="hljs-keyword">range</span>(-3.5 3.5) droplines(-1.96 -1 0 1 1.96)), title(<span class="hljs-keyword">tw</span> function) plotregion(margin(zero)) yscale(off) ylabel(,nogrid) xlabel(-3 -1.96 -1 0 1 1.96 3,<span class="hljs-keyword">format</span>(%4.2f)) xtitle(<span class="hljs-string">"Standard deviations from mean"</span>)<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-同时做多个图by-varname"><a href="#2-同时做多个图by-varname" class="headerlink" title="2. 同时做多个图by(varname)"></a>2. 同时做多个图<code>by(varname)</code></h4><p>通常我们可以绘制两个图（散点图和拟合图）来描述和反映两个变量之间的关系</p>
+<h4 id="同时做多个图byvarname">2.
+同时做多个图<code>by(varname)</code></h4>
+<p>通常我们可以绘制两个图（散点图和拟合图）来描述和反映两个变量之间的关系</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata">vguse allstates,<span class="hljs-keyword">clear</span>    <span class="hljs-comment">//改例子中每次命令只可以在画布绘制一个图</span><br><span class="hljs-keyword">tw</span>(<span class="hljs-keyword">scatter</span> propval100 popden)(<span class="hljs-keyword">lfit</span> propval100 popden)(qfit propval100 popden)<br><span class="hljs-keyword">tw</span>(<span class="hljs-keyword">scatter</span> propval100 popden)(mspline propval100 popden)(fpfit propval100 popden)(mband propval100 popden)(<span class="hljs-keyword">lowess</span> propval100 popden)<br><span class="hljs-keyword">tw</span>(lfitci propval100 popden)(<span class="hljs-keyword">scatter</span> propval100 popden)<br></code></pre></td></tr></table></figure>
-
-<p><code>by(varname)</code>功能适用于matrix 和 star 以外所有图形,该选项使<code>graph</code> 按照指定的分组变量分别绘制图形。一般情况下，对 bar 和 box，按指定变量分组的多个图共用一套坐标轴，对其它图形，将分别绘制独立的图形并列陈列。<code>Rescale </code>与<code> by()</code>合用，要求图形使用不同的刻度。默认为所有图形使用相同的刻度。</p>
+<p><code>by(varname)</code>功能适用于matrix 和 star
+以外所有图形,该选项使<code>graph</code>
+按照指定的分组变量分别绘制图形。一般情况下，对 bar 和
+box，按指定变量分组的多个图共用一套坐标轴，对其它图形，将分别绘制独立的图形并列陈列。<code>Rescale</code>与<code>by()</code>合用，要求图形使用不同的刻度。默认为所有图形使用相同的刻度。</p>
 <p><strong>任务：</strong>绘制出不同drug分类后的样本个体的学习时间（studytime）和年龄（age）之间的关系图，散点图和条形图、拟合图</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> cancer.dta<br><span class="hljs-keyword">twoway</span> (bar studytime age,yaxis(2)) (<span class="hljs-keyword">scatter</span> _t age,yaxis(1)) (<span class="hljs-keyword">lfit</span> _t age,yaxis(1)), <span class="hljs-keyword">by</span>(drug) legend(row(1))<br></code></pre></td></tr></table></figure>
-
-<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118160008216.png" srcset="/img/loading.gif" lazyload alt="image-20221118160008216" style="zoom:48%;">
-
-<p><strong>任务：</strong>绘制出U.S. life expectancy, 1900-1999的黑人男性和黑人女性的寿命差额，使用<code>rcapsym</code>命令实现</p>
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118160008216.png" srcset="/img/loading.gif" lazyload alt="image-20221118160008216" style="zoom:48%;"></p>
+<p><strong>任务：</strong>绘制出U.S. life expectancy,
+1900-1999的黑人男性和黑人女性的寿命差额，使用<code>rcapsym</code>命令实现</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> uslifeexp.dta<br><span class="hljs-keyword">twoway</span> rcapsym le_bmale le_bfemale year <br></code></pre></td></tr></table></figure>
-
-<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118161357458.png" srcset="/img/loading.gif" lazyload alt="image-20221118161357458" style="zoom:67%;">
-
-<h4 id="3-模板及图文件处理"><a href="#3-模板及图文件处理" class="headerlink" title="3. 模板及图文件处理"></a>3. 模板及图文件处理</h4><ol>
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118161357458.png" srcset="/img/loading.gif" lazyload alt="image-20221118161357458" style="zoom:67%;"></p>
+<h4 id="模板及图文件处理">3. 模板及图文件处理</h4>
+<ol type="1">
 <li>图模板</li>
 </ol>
 <p>图的各种设定可以组合成模板，当选定模板后，线性、颜色等各种参数设定相应固定</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">set</span> scheme s2color    <span class="hljs-comment">//需要提前定义图模板主题</span><br><span class="hljs-keyword">scatter</span> mpg weight<br><span class="hljs-keyword">line</span> mpg weight,scheme(s1rcolor)  <span class="hljs-comment">//如果需要更换图模板可以在graph command后面更改</span><br></code></pre></td></tr></table></figure>
-
-<img src="C:/Users/%E7%BD%AE%E4%B8%8A/AppData/Roaming/Typora/typora-user-images/image-20221118152612611.png" srcset="/img/loading.gif" lazyload alt="image-20221118152612611" style="zoom: 68%;">
-
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118163240350.png" srcset="/img/loading.gif" lazyload alt="image-20221118163240350" style="zoom: 67%;"></p>
 <p>图的模板设定分为几种：<code>s1</code>、<code>s2</code>、<code>sj</code>、<code>economist</code></p>
 <table>
+
 <thead>
-<tr>
-<th align="center">模板名</th>
-<th align="center">前景色</th>
-<th align="center">背景色</th>
-<th align="center">描述用途</th>
+<tr class="header">
+<th style="text-align: center;">模板名</th>
+<th style="text-align: center;">前景色</th>
+<th style="text-align: center;">背景色</th>
+<th style="text-align: center;">描述用途</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">s2color</td>
-<td align="center">color</td>
-<td align="center">white</td>
-<td align="center">factory setting（默认）</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">s2color</td>
+<td style="text-align: center;">color</td>
+<td style="text-align: center;">white</td>
+<td style="text-align: center;">factory setting（默认）</td>
 </tr>
-<tr>
-<td align="center">s2mono</td>
-<td align="center">monochrome （单色）</td>
-<td align="center">white</td>
-<td align="center">s2color in monochrome</td>
+<tr class="even">
+<td style="text-align: center;">s2mono</td>
+<td style="text-align: center;">monochrome （单色）</td>
+<td style="text-align: center;">white</td>
+<td style="text-align: center;">s2color in monochrome</td>
 </tr>
-<tr>
-<td align="center">s2gcolor</td>
-<td align="center">color</td>
-<td align="center">white</td>
-<td align="center">used in the Stata manuals</td>
+<tr class="odd">
+<td style="text-align: center;">s2gcolor</td>
+<td style="text-align: center;">color</td>
+<td style="text-align: center;">white</td>
+<td style="text-align: center;">used in the Stata manuals</td>
 </tr>
-<tr>
-<td align="center">s2manual</td>
-<td align="center">monochrome</td>
-<td align="center">white</td>
-<td align="center">s2gcolor in monochrome</td>
+<tr class="even">
+<td style="text-align: center;">s2manual</td>
+<td style="text-align: center;">monochrome</td>
+<td style="text-align: center;">white</td>
+<td style="text-align: center;">s2gcolor in monochrome</td>
 </tr>
-<tr>
-<td align="center">s2gmanual</td>
-<td align="center">monochrome</td>
-<td align="center">white</td>
-<td align="center">previously used in the [G] manual</td>
+<tr class="odd">
+<td style="text-align: center;">s2gmanual</td>
+<td style="text-align: center;">monochrome</td>
+<td style="text-align: center;">white</td>
+<td style="text-align: center;">previously used in the [G] manual</td>
 </tr>
-<tr>
-<td align="center">s1rcolor</td>
-<td align="center">color</td>
-<td align="center">black</td>
-<td align="center">color on black</td>
+<tr class="even">
+<td style="text-align: center;">s1rcolor</td>
+<td style="text-align: center;">color</td>
+<td style="text-align: center;">black</td>
+<td style="text-align: center;">color on black</td>
 </tr>
-<tr>
-<td align="center">s1color</td>
-<td align="center">color</td>
-<td align="center">white</td>
-<td align="center">color on white</td>
+<tr class="odd">
+<td style="text-align: center;">s1color</td>
+<td style="text-align: center;">color</td>
+<td style="text-align: center;">white</td>
+<td style="text-align: center;">color on white</td>
 </tr>
-<tr>
-<td align="center">s1mono</td>
-<td align="center">monochrome</td>
-<td align="center">white</td>
-<td align="center">gray on white</td>
+<tr class="even">
+<td style="text-align: center;">s1mono</td>
+<td style="text-align: center;">monochrome</td>
+<td style="text-align: center;">white</td>
+<td style="text-align: center;">gray on white</td>
 </tr>
-<tr>
-<td align="center">s1manual</td>
-<td align="center">monochrome</td>
-<td align="center">white</td>
-<td align="center">s1mono, but smaller</td>
+<tr class="odd">
+<td style="text-align: center;">s1manual</td>
+<td style="text-align: center;">monochrome</td>
+<td style="text-align: center;">white</td>
+<td style="text-align: center;">s1mono, but smaller</td>
 </tr>
-<tr>
-<td align="center">sj</td>
-<td align="center">monochrome</td>
-<td align="center">white</td>
-<td align="center">Stata Journal</td>
+<tr class="even">
+<td style="text-align: center;">sj</td>
+<td style="text-align: center;">monochrome</td>
+<td style="text-align: center;">white</td>
+<td style="text-align: center;">Stata Journal</td>
 </tr>
-<tr>
-<td align="center">economist</td>
-<td align="center">color</td>
-<td align="center">white</td>
-<td align="center">The Economist magazine</td>
+<tr class="odd">
+<td style="text-align: center;">economist</td>
+<td style="text-align: center;">color</td>
+<td style="text-align: center;">white</td>
+<td style="text-align: center;">The Economist magazine</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">line</span> mpg weight,scheme(economist)<br></code></pre></td></tr></table></figure>
-
-<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118153006123.png" srcset="/img/loading.gif" lazyload alt="image-20221118153006123" style="zoom: 67%;">
-
-<ol start="2">
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221118153006123.png" srcset="/img/loading.gif" lazyload alt="image-20221118153006123" style="zoom: 67%;"></p>
+<ol start="2" type="1">
 <li>保存图</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">graph</span> <span class="hljs-keyword">save</span> <span class="hljs-string">"c:\ex7\rf.gph"</span> <br><span class="hljs-keyword">graph</span> <span class="hljs-keyword">save</span> <span class="hljs-string">"c:\ex7\rf.gph"</span>, asis <span class="hljs-keyword">replace</span> <br></code></pre></td></tr></table></figure>
-
 <p><code>asis</code>将图存为不可再行改动的图，如果不用该选项，则图被存为可修改的图，可以改变其风格和图的大小，在同一文件目录下如果有同名文件，<code>replace</code>选项将其覆盖。</p>
-<ol start="3">
+<ol start="3" type="1">
 <li>打开已保存的图</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">graph</span> <span class="hljs-keyword">use</span> <span class="hljs-string">"c:\ex7\rf.gph"</span> [, scheme(s1)] <br></code></pre></td></tr></table></figure>
-
-<ol start="4">
+<ol start="4" type="1">
 <li>显示图</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">graph</span> <span class="hljs-keyword">display</span> [name] [, scale(1.2) ysize(3) xsize(5) scheme(s1)]<br><span class="hljs-comment">/*ysize(#)                 change height of graph (in inches)</span><br><span class="hljs-comment">xsize(#)                   change width of graph (in inches)</span><br><span class="hljs-comment">margins(marginstyle)       change outer margins</span><br><span class="hljs-comment">scale(#)                   resize text, markers, and line widths</span><br><span class="hljs-comment">scheme(schemename)         change overall look*/</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="4-SRTAT官方图例"><a href="#4-SRTAT官方图例" class="headerlink" title="4. SRTAT官方图例"></a>4. SRTAT官方图例</h4><p>STATA提供了若干图形示例及代码，这些图例见<a target="_blank" rel="noopener" href="http://www.ats.ucla.edu/stat/stata/Library/GraphExamples/default.htm">网址</a></p>
+<h4 id="srtat官方图例">4. SRTAT官方图例</h4>
+<p>STATA提供了若干图形示例及代码，这些图例见<a target="_blank" rel="noopener" href="http://www.ats.ucla.edu/stat/stata/Library/GraphExamples/default.htm">网址</a></p>
 
               
             </div>
