@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Chapter0——STATA前言</title>
+    <link href="/2022/11/18/stata/Chapter0_STATA%E5%89%8D%E8%A8%80/"/>
+    <url>/2022/11/18/stata/Chapter0_STATA%E5%89%8D%E8%A8%80/</url>
+    
+    <content type="html"><![CDATA[<h1 align="center">Chapter0——STATA前言</h1><p>最初开始做这个教程是因为我在学数学建模的时候偶然发现人大的陈传波老师的《stata十八讲》这本很适合小白入门的计量教程，在我们学院的张艺老师的<strong>learn by doing</strong>的计量实验课的授课方式，我切切实实的感受到了使用stata进行计量实验和实证分析的魅力，于此在课程上的项目和自己书中所学构成了这个stata教程的一部分内容，在接下来还会继续不断地更新这个教程的内容，并且会以中国工业经济期刊里面的论文作为计量项目进行练手。</p><p>最后，能够完成这个专栏的教程，很感谢张艺老师对我的谆谆教导，以及陈传波老师非常好的教材。</p><p><a href="https://dbsitu.github.io/2022/09/25/stata/Chapter1_STATA命令语句/">Chapter1——STATA命令语句</a></p><p><a href="https://dbsitu.github.io/2022/09/28/stata/Chapter2_STATA数据/">Chapter2——STATA数据</a></p><p><a href="https://dbsitu.github.io/2022/10/02/stata/Chapter3_STATA数据整理/">Chapter3——STATA数据整理</a></p><p><a href="https://dbsitu.github.io/2022/10/22/stata/Chapter4_STATA函数与运算符/">Chapter4——STATA函数与运算符</a></p><p><a href="https://dbsitu.github.io/2022/10/22/stata/Chapter5_STATA程序/">Chapter5——STATA程序</a></p><p><a href="https://dbsitu.github.io/2022/10/25/stata/Chapter6_STATA流程语句/">Chapter6——STATA流程语句</a></p><p><a href="https://dbsitu.github.io/2022/11/14/stata/Chapter7_STATA矩阵/">Chapter7——STATA矩阵</a></p><p><a href="https://dbsitu.github.io/2022/11/18/stata/Chapter8_STATA绘图/">Chapter8——STATA绘图</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>stata</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Econometric</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Chapter8——STATA绘图</title>
     <link href="/2022/11/18/stata/Chapter8_STATA%E7%BB%98%E5%9B%BE/"/>
     <url>/2022/11/18/stata/Chapter8_STATA%E7%BB%98%E5%9B%BE/</url>
