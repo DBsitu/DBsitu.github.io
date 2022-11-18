@@ -402,81 +402,122 @@ mjx-container[display="true"] + br {
 <p>stata中的循环语句有三类：<code>while</code>循环、<code>forvalues</code>循环、<code>foreach</code>循环</p>
 <h4 id="0-循环语句while"><a href="#0-循环语句while" class="headerlink" title="0. 循环语句while"></a>0. 循环语句<code>while</code></h4><p>用循环语句编写程序，依次列出 1，2，3，4，5 </p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">capture</span> <span class="hljs-keyword">drop</span> count5<br><span class="hljs-keyword">program</span> count5<br><span class="hljs-keyword">local</span> i=1       <span class="hljs-comment">//先将宏名为i的宏值设置为1</span><br><span class="hljs-keyword">while</span> <span class="hljs-symbol">`i'</span>&lt;=5{      <span class="hljs-comment">//判断如果宏值`i'不大于5，就执行{}中的命令，否则跳开</span><br>    <span class="hljs-keyword">display</span> <span class="hljs-symbol">`i'</span>    <span class="hljs-comment">//当执行时显示的宏值`i'</span><br>    <span class="hljs-keyword">local</span> i=<span class="hljs-symbol">`i'</span>+1    <span class="hljs-comment">//重新设定宏名为i的宏值，令其等于`i'+1</span><br>}<br>end<br>count5     <span class="hljs-comment">//运行出现结果</span><br></code></pre></td></tr></table></figure>
-<p>代码解释：当<code>`i'</code>最开始设定为1，但是因为1小于5，因此执行<code>{}</code>中的代码。即是显示<code>i</code>的内容。然后循环到6，不再小于等于5，跳出循环<code>{}</code>，执行end</p>
+
+<p>代码解释：当``i’<code>最开始设定为1，但是因为1小于5，因此执行</code>{}<code>中的代码。即是显示</code>i<code>的内容。然后循环到6，不再小于等于5，跳出循环</code>{}`，执行end</p>
 <p>但是其实用Python来写的话，会更加好理解</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">i=<span class="hljs-number">1</span>           <span class="hljs-comment">#local i=1</span><br><span class="hljs-keyword">while</span> i&lt;=<span class="hljs-number">5</span>:      <span class="hljs-comment">#while i&lt;=5:</span><br>    <span class="hljs-built_in">print</span>(i)     <span class="hljs-comment">#display `i'</span><br>    i=i+<span class="hljs-number">1</span>        <span class="hljs-comment">#local i=`i'+1</span><br><span class="hljs-comment">#output:1 2 3 4 5</span><br></code></pre></td></tr></table></figure>
+
+
+
 <h4 id="1-循环语句forvalues"><a href="#1-循环语句forvalues" class="headerlink" title="1. 循环语句forvalues"></a>1. 循环语句<code>forvalues</code></h4><ul>
 <li>用<code>forvalues</code>做循环时，其命令格式</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">forvalues</span> lname = <span class="hljs-keyword">range</span> {<br>        Stata commands referring to <span class="hljs-symbol">`lname'</span><br>}<br><br><span class="hljs-comment">/*where range is</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">#1(#d)#2      meaning #1 to #2 in steps of #d     循环从#1到#2，步长为d </span><br><span class="hljs-comment">#1/#2         meaning #1 to #2 in steps of 1      循环从#1到#2，步长为1</span><br><span class="hljs-comment">#1 #t to #2   meaning #1 to #2 in steps of #t - #1       循环从#1到#2，步长为#t-#1</span><br><span class="hljs-comment">#1 #t :  #2   meaning #1 to #2 in steps of #t - #1       循环从#1到#2，步长为#t-#1  */</span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>利用<code>forvalues</code>进行循环遍历展示从1到5</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">forvalues</span> i=1/5{        <span class="hljs-comment">//1/5是指5个数字：1，2，3，4，5</span><br>	<span class="hljs-keyword">display</span> <span class="hljs-symbol">`i'</span><br>}<br><span class="hljs-comment">*output:1 2 3 4 5</span><br><br><span class="hljs-keyword">forvalues</span> i=4(-0.2)0{    <span class="hljs-comment">//4(-0.2)0指的是初始值为4，步长为-0.2，终值是0的所有数</span><br>    <span class="hljs-keyword">display</span> <span class="hljs-symbol">`i'</span><br>}<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>用<code>forvalues</code>编写程序，计算1+2+3+4+5+……+100的总和</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*使用while循环来编写程序</span><br><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> sum100<br><span class="hljs-keyword">program</span> sum100<br><span class="hljs-keyword">local</span> <span class="hljs-keyword">d</span>=1<br><span class="hljs-keyword">local</span> s=0<br><span class="hljs-keyword">while</span> <span class="hljs-symbol">`d'</span>&lt;=100{<br>    <span class="hljs-keyword">local</span> s=<span class="hljs-symbol">`s'</span>+<span class="hljs-symbol">`d'</span><br>    <span class="hljs-keyword">local</span> <span class="hljs-keyword">d</span>=<span class="hljs-symbol">`d'</span>+1<br>}<br><span class="hljs-keyword">display</span> <span class="hljs-symbol">`s'</span><br>end<br>sum100<br><br><span class="hljs-comment">*使用forvalues循环来编写程序</span><br><span class="hljs-keyword">scalar</span> s=0<br><span class="hljs-keyword">forvalues</span> i=1/100{<br>    <span class="hljs-keyword">scalar</span> s=s+<span class="hljs-symbol">`i'</span><br>}<br><span class="hljs-keyword">display</span> s<br></code></pre></td></tr></table></figure>
+
+
+
+
+
 <h4 id="2-循环语句foreach"><a href="#2-循环语句foreach" class="headerlink" title="2. 循环语句foreach"></a>2. 循环语句<code>foreach</code></h4><ul>
 <li>用<code>foreach</code>做循环时，其命令格式为</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">foreach</span> lname {<span class="hljs-keyword">in</span>|of listtype} <span class="hljs-keyword">list</span> {<br>        commands referring to <span class="hljs-symbol">`lname'</span><br>}<br><span class="hljs-comment">/*Allowed are</span><br><span class="hljs-comment">        foreach lname in any_list {</span><br><span class="hljs-comment">        foreach lname of local    lmacname   {</span><br><span class="hljs-comment">        foreach lname of global   gmacname   {</span><br><span class="hljs-comment">        foreach lname of varlist  varlist    {</span><br><span class="hljs-comment">        foreach lname of newlist  newvarlist {</span><br><span class="hljs-comment">        foreach lname of numlist  numlist    {                            */</span><br></code></pre></td></tr></table></figure>
+
+
+
 <ul>
 <li>（按变量循环）将wage1数据集的变量从nonwhite 到servocc 分别使用<code>tab</code>求频数分布。</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> http:<span class="hljs-comment">//fmwww.bc.edu/ec-p/data/wooldridge/wage1, clear</span><br><span class="hljs-keyword">tab</span> nonwhite<br><span class="hljs-keyword">tab</span> female    <span class="hljs-comment">//需要一个个tab来输入</span><br><span class="hljs-comment">*使用foreach可以通过遍历循环来完成，会方便很多</span><br><span class="hljs-keyword">foreach</span> v of <span class="hljs-keyword">varlist</span> nonwhite-servocc{<br>    <span class="hljs-keyword">tab</span> <span class="hljs-symbol">`v'</span><br>}<br></code></pre></td></tr></table></figure>
+
+
+
 <ul>
 <li>将student.dta，economy.dta，math.dta的数据纵向拼接起来</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> student,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">foreach</span> <span class="hljs-keyword">file</span> <span class="hljs-keyword">in</span> economy math{<br>    <span class="hljs-keyword">append</span> using <span class="hljs-string">"`file'"</span><br>}<br></code></pre></td></tr></table></figure>
+
+
+
 <ul>
-<li>(按项循环)逐行显示粮食（rice wheat flax maize）和货币（Dollar Lira Pound RMB） </li>
+<li>(按项循环)逐行显示粮食（rice wheat flax maize）和货币（Dollar Lira Pound RMB）</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">local</span> grains <span class="hljs-string">"rice wheat flax maize"</span>     <span class="hljs-comment">//先定义所有粮食为一个新的局域暂元</span><br><span class="hljs-keyword">foreach</span> x of <span class="hljs-keyword">local</span> grains{<br>	<span class="hljs-keyword">display</span> <span class="hljs-string">"`x'"</span><br>}<br><br><span class="hljs-keyword">global</span> money <span class="hljs-string">"dollar lira pound rmb"</span>     <span class="hljs-comment">//先定义所有的货币为一个新全域的暂元</span><br><span class="hljs-keyword">foreach</span> y of <span class="hljs-keyword">global</span> money{<br>	<span class="hljs-keyword">display</span> <span class="hljs-string">"`y'"</span><br>}<br></code></pre></td></tr></table></figure>
+
+
+
 <ul>
 <li>(生成新变量)生成五个新变量 b1,b2,b3,b4,b5，每个变量都是均匀分布随机数</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span> <br><span class="hljs-keyword">set</span> obs 10       <span class="hljs-comment">//设置10个观察值</span><br><span class="hljs-keyword">foreach</span> v of newlist b1-b5{      <span class="hljs-comment">//定义b1-b5五个新的变量</span><br>	<span class="hljs-keyword">gen</span> <span class="hljs-symbol">`v'</span>=<span class="hljs-built_in">uniform</span>()            <span class="hljs-comment">//给5个变量的观察值分别赋值均匀分布随机数</span><br>}<br><span class="hljs-comment">//注意要区分好观察值obs和变量var的不同</span><br></code></pre></td></tr></table></figure>
+
+
+
 <ul>
-<li>(按数值循环)逐行显示 1 2 3 4 8 105 </li>
+<li>(按数值循环)逐行显示 1 2 3 4 8 105</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">foreach</span> num of <span class="hljs-keyword">numlist</span> 1/4 8 105{<br>	<span class="hljs-keyword">di</span> <span class="hljs-symbol">`num'</span><br>}<br></code></pre></td></tr></table></figure>
+
+
+
+
+
 <h4 id="3-嵌套循环"><a href="#3-嵌套循环" class="headerlink" title="3. 嵌套循环"></a>3. 嵌套循环</h4><ul>
 <li>生成 5 个变量，10 个观察值，使得第 i 个变量的第 j 个观察值等于i+j</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span><br><span class="hljs-keyword">set</span> obs 10<br><span class="hljs-keyword">forvalues</span> i=1/5{      <span class="hljs-comment">//i赋值为1,2,3,4,5</span><br>	<span class="hljs-keyword">gen</span> v<span class="hljs-symbol">`i'</span>=.       <span class="hljs-comment">//生成一个新的变量v1,v2</span><br>	<span class="hljs-keyword">forvalues</span> j=2(2)8{<br>		<span class="hljs-keyword">replace</span> v<span class="hljs-symbol">`i'</span>=<span class="hljs-symbol">`i'</span>+<span class="hljs-symbol">`j'</span> <span class="hljs-keyword">in</span> <span class="hljs-symbol">`j'</span><br>	}<br>}<br><span class="hljs-keyword">l</span><br></code></pre></td></tr></table></figure>
-<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221021170204775.png" srcset="/img/loading.gif" lazyload alt="image-20221021170204775" style="zoom: 67%;"></p>
+
+<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221021170204775.png" srcset="/img/loading.gif" lazyload alt="image-20221021170204775" style="zoom: 67%;">
+
 <h4 id="4-条件语句"><a href="#4-条件语句" class="headerlink" title="4. 条件语句"></a>4. 条件语句</h4><ol>
 <li>简单的条件语句</li>
 </ol>
 <p>如果是国产车，则价格降 100 元，如果是进口车，则价格提升 200 元</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">gen</span> p1=price-100 <span class="hljs-keyword">if</span> foreign==0<br><span class="hljs-keyword">replace</span> p1=price+100 <span class="hljs-keyword">if</span> foreign==1<br><span class="hljs-comment">*也可以用一行代码解决以上两行</span><br><span class="hljs-keyword">gen</span> p2=<span class="hljs-built_in">cond</span>(foreign==0,(price-100),(price+100))<br></code></pre></td></tr></table></figure>
-<ol>
+
+
+
+<ol start="2">
 <li>判断奇偶数</li>
 </ol>
 <ul>
 <li>采用<code>mod</code>函数来判别奇偶数，<code>mod(x,y) = x - y*floor(x/y)</code>，是x/y的余数，若除后的余数为1，则是偶数</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> odd<br><span class="hljs-keyword">program</span> odd<br><span class="hljs-keyword">args</span> num<br><span class="hljs-keyword">if</span> <span class="hljs-built_in">mod</span>(<span class="hljs-symbol">`num'</span>,2) != 1{     <span class="hljs-comment">//若num/2的余数不等于1，则执行</span><br>	<span class="hljs-keyword">di</span><span class="hljs-string">"`num' is NOT an odd number"</span><br>}<br><span class="hljs-keyword">else</span>{<br>	<span class="hljs-keyword">di</span><span class="hljs-string">"`num' IS an odd number"</span><br>}<br>end<br>odd 1<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li><code>int()</code>取整，不论后面的小数是什么，只取小数点前的数值</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> odd<br><span class="hljs-keyword">program</span> odd<br><span class="hljs-keyword">args</span> num <br><span class="hljs-keyword">if</span> int(<span class="hljs-symbol">`num'</span>/2)!=(<span class="hljs-symbol">`num'</span>-1/2){     <span class="hljs-comment">//若num/2不等于(num-1)/2</span><br>	<span class="hljs-keyword">di</span><span class="hljs-string">"`num' is NOT an odd number"</span><br>}<br><span class="hljs-keyword">else</span>{<br>	<span class="hljs-keyword">di</span><span class="hljs-string">"`num' IS an odd number"</span><br>}<br>end<br>odd 1<br></code></pre></td></tr></table></figure>
-<ol>
+
+<ol start="3">
 <li>检验数据文件中是否有某个变量</li>
 </ol>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> check<br><span class="hljs-keyword">program</span> check<br><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> variable <span class="hljs-symbol">`i'</span><br><span class="hljs-keyword">if</span> _rc!=0{<br>	<span class="hljs-keyword">di</span> <span class="hljs-string">"`i not found'"</span><br>	<span class="hljs-keyword">exit</span><br>}<br><span class="hljs-keyword">display</span> <span class="hljs-string">"the variable `1' exists."</span> <br>end<br><br><span class="hljs-keyword">use</span> hb97,<span class="hljs-keyword">clear</span><br>check inc<br>check exp<br></code></pre></td></tr></table></figure>
-<ol>
+
+<ol start="4">
 <li>循环语句嵌套条件语句</li>
 </ol>
 <ul>
 <li>求 6-500 之间能同时被 2，3，5 整除的数</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">forvalues</span> x=6/500{         <span class="hljs-comment">//先把6-500的数循环遍历</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">mod</span>(<span class="hljs-symbol">`x'</span>,2)==0 &amp; <span class="hljs-built_in">mod</span>(<span class="hljs-symbol">`x'</span>,3)==0 &amp; <span class="hljs-built_in">mod</span>(<span class="hljs-symbol">`x'</span>,5)==0{     <span class="hljs-comment">//在6-500的数中如果是能被2，3，5整除的就执行</span><br>        <span class="hljs-keyword">di</span><span class="hljs-string">"the ALL common multiple of 2,3,and 5 id `x'"</span><br>    }<br>}<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>求 6-500 之间能同时被 2，3，5 整除的最小的数</li>
 </ul>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">forvalues</span> x=6/500{<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">mod</span>(<span class="hljs-symbol">`x'</span>,2)==0 &amp; <span class="hljs-built_in">mod</span>(<span class="hljs-symbol">`x'</span>,3)==0 &amp; <span class="hljs-built_in">mod</span>(<span class="hljs-symbol">`x'</span>,5)==0{<br>        <span class="hljs-keyword">di</span><span class="hljs-string">"the LEAST common multiple of 2,3,and 5 is `x'"</span><br>        <span class="hljs-keyword">continue</span>,<span class="hljs-keyword">break</span><br>    }<br>}<br></code></pre></td></tr></table></figure>
+
 
               
             </div>
