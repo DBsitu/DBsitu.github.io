@@ -17,12 +17,12 @@
   <meta name="author" content="Devin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Chapter4——STATA函数与运算符  0. 运算符expSTATA 共有四种运算，分别是代数运算、字符运算、关系运算和逻辑运算。  运算的优先序：{！(或)，^，-（负号），&#x2F;，*，-（减），+，!&#x3D;(或&#x3D;),&gt;,&lt;,&lt;&#x3D;,&gt;&#x3D;,&#x3D;&#x3D;,&amp;,| } ，当忘记或者无法确定优先序的时候，最好用括号将优先序表达出来，在最里层括号中的表示式将被优先执行。  代数运算">
+    <meta name="description" content="Chapter4——STATA函数与运算符  0. 运算符exp STATA 共有四种运算，分别是代数运算、字符运算、关系运算和逻辑运算。   image-20221022170156517  运算的优先序：{！(或)，^，-（负号），&#x2F;，*，-（减），+，!&#x3D;(或&#x3D;),&gt;,&lt;,&lt;&#x3D;,&gt;&#x3D;,&#x3D;&#x3D;,&amp;,| } ，当忘记或者无法确定优先序的时候">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chapter4——STATA函数与运算符">
 <meta property="og:url" content="http://example.com/2022/10/22/stata/Chapter4_STATA%E5%87%BD%E6%95%B0%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Chapter4——STATA函数与运算符  0. 运算符expSTATA 共有四种运算，分别是代数运算、字符运算、关系运算和逻辑运算。  运算的优先序：{！(或)，^，-（负号），&#x2F;，*，-（减），+，!&#x3D;(或&#x3D;),&gt;,&lt;,&lt;&#x3D;,&gt;&#x3D;,&#x3D;&#x3D;,&amp;,| } ，当忘记或者无法确定优先序的时候，最好用括号将优先序表达出来，在最里层括号中的表示式将被优先执行。  代数运算">
+<meta property="og:description" content="Chapter4——STATA函数与运算符  0. 运算符exp STATA 共有四种运算，分别是代数运算、字符运算、关系运算和逻辑运算。   image-20221022170156517  运算的优先序：{！(或)，^，-（负号），&#x2F;，*，-（减），+，!&#x3D;(或&#x3D;),&gt;,&lt;,&lt;&#x3D;,&gt;&#x3D;,&#x3D;&#x3D;,&amp;,| } ，当忘记或者无法确定优先序的时候">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221022170156517.png">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221003104131377.png">
@@ -407,25 +407,35 @@ mjx-container[display="true"] + br {
             
             <div class="markdown-body">
               
-              <h1 align="center">Chapter4——STATA函数与运算符</h1>
-
-<h4 id="0-运算符exp"><a href="#0-运算符exp" class="headerlink" title="0. 运算符exp"></a>0. 运算符<code>exp</code></h4><p>STATA 共有四种运算，分别是代数运算、字符运算、关系运算和逻辑运算。</p>
-<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221022170156517.png" srcset="/img/loading.gif" lazyload alt="image-20221022170156517"></p>
-<p>运算的优先序：{！(或)，^，-（负号），/，*，-（减），+，!=(或=),&gt;,&lt;,&lt;=,&gt;=,==,&amp;,| } ，当忘记或者无法确定优先序的时候，最好用括号将优先序表达出来，在最里层括号中的表示式将被优先执行。</p>
-<ol>
+              <h1 align="center">
+Chapter4——STATA函数与运算符
+</h1>
+<h4 id="运算符exp">0. 运算符<code>exp</code></h4>
+<p>STATA
+共有四种运算，分别是代数运算、字符运算、关系运算和逻辑运算。</p>
+<figure>
+<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221022170156517.png" srcset="/img/loading.gif" lazyload alt="image-20221022170156517">
+<figcaption aria-hidden="true">image-20221022170156517</figcaption>
+</figure>
+<p>运算的优先序：{！(或)，^，-（负号），/，*，-（减），+，!=(或=),&gt;,&lt;,&lt;=,&gt;=,==,&amp;,|
+}
+，当忘记或者无法确定优先序的时候，最好用括号将优先序表达出来，在最里层括号中的表示式将被优先执行。</p>
+<ol type="1">
 <li>代数运算</li>
 </ol>
-<p>代数运算包括括加（+）、减（-）、乘（*）、除（/），幂（^）和负数（-），当遇到缺失值 或者运算不可行时（比如除数为零）均会得到缺失值。</p>
+<p>代数运算包括括加（+）、减（-）、乘（*）、除（/），幂（^）和负数（-），当遇到缺失值
+或者运算不可行时（比如除数为零）均会得到缺失值。</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">di</span> -(4+2^(4-2))/(2*4)
 <span class="hljs-keyword">di</span> -(2+3^(2-3))/<span class="hljs-built_in">sqrt</span>(2*3)</code></pre></div>
 <p>更多的情形是两个或多个变量的直接运算。比如，将进口车的价格都增加100元（可能是关税），而国产车不变。</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span>
 <span class="hljs-keyword">gen</span> nprice=price+foreign*100    <span class="hljs-comment">//由于foreign的取值为0和1，所以只有1的进口车价格增加100元</span>
 <span class="hljs-keyword">list</span> nprice price foreign</code></pre></div>
-<ol>
+<ol start="2" type="1">
 <li>字符运算</li>
 </ol>
-<p>加（+）号同样可用于字符运算，当加号出现在两个字符之间时，两个字符 将被连成一个字符。比如把”我爱” “STATA”合并在一起。</p>
+<p>加（+）号同样可用于字符运算，当加号出现在两个字符之间时，两个字符
+将被连成一个字符。比如把”我爱” “STATA”合并在一起。</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">scalar</span> a=<span class="hljs-string">"我爱"</span>+<span class="hljs-string">"STATA"</span>
 <span class="hljs-keyword">scalar</span> <span class="hljs-keyword">list</span> a 
 <span class="hljs-keyword">scalar</span> a=2+<span class="hljs-string">"3"</span></code></pre></div>
@@ -442,16 +452,20 @@ mjx-container[display="true"] + br {
 <span class="hljs-built_in">print</span>(a)</code></pre></div>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">scalar</span> a=<span class="hljs-string">"i am dbsitu"</span>
 <span class="hljs-keyword">display</span> a</code></pre></div>
-<ol>
+<ol start="3" type="1">
 <li>关系运算</li>
 </ol>
-<p>关系运算包括大于、小于、等于；不等于、不小于、不大于等多种比较关系。 特别要注意到 STATA 中的等于符号为“==”，是两个等号连写在一起，不同于赋 值时用的单个等号“=”。</p>
+<p>关系运算包括大于、小于、等于；不等于、不小于、不大于等多种比较关系。
+特别要注意到 STATA 中的等于符号为“==”，是两个等号连写在一起，不同于赋
+值时用的单个等号“=”。</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">di</span> 3&lt;5   <span class="hljs-comment">//输出结果为 1，意味着 3 小于 5 为真</span>
 <span class="hljs-keyword">di</span> 3&gt;5   <span class="hljs-comment">//输出的结果为 0，意味着 3 大于 5 为假</span>
 <span class="hljs-keyword">di</span> 3=5   <span class="hljs-comment">//输出的结果为 0，意味着 3 不等于 4 </span></code></pre></div>
-<p>当数据中含有缺失值的时候需要特别小心，因为系统缺失值大于任何一个数 据，利用这一点，我们可以使用条件语句排除缺失值。 </p>
+<p>当数据中含有缺失值的时候需要特别小心，因为系统缺失值大于任何一个数
+据，利用这一点，我们可以使用条件语句排除缺失值。</p>
 <ul>
-<li>案例：将年龄分组为 65 岁以下和 65 岁及以上两组，缺失值显然不能包括在任何 一组中。</li>
+<li>案例：将年龄分组为 65 岁以下和 65
+岁及以上两组，缺失值显然不能包括在任何 一组中。</li>
 </ul>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span>
 <span class="hljs-keyword">input</span> age
@@ -466,18 +480,20 @@ mjx-container[display="true"] + br {
 <span class="hljs-keyword">gen</span> agegrp3=(age==65) <span class="hljs-keyword">if</span> age&lt;.  <span class="hljs-comment">//仅仅判断是否恰好为65岁</span>
 <span class="hljs-keyword">list</span></code></pre></div>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221003104131377.png" srcset="/img/loading.gif" lazyload alt="image-20221003104131377" style="zoom:67%;"></p>
-<ol>
+<ol start="4" type="1">
 <li>逻辑运算</li>
 </ol>
 <p>逻辑运算包括非（！），和（&amp;）、或（|）三种，主要用于条件语句中。</p>
 <ul>
-<li>案例：列示出价格大于 10000 元的任何车，或者小于 4000 元的国产车。</li>
+<li>案例：列示出价格大于 10000 元的任何车，或者小于 4000
+元的国产车。</li>
 </ul>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span>
 <span class="hljs-keyword">list</span> price foreign <span class="hljs-keyword">if</span> price&gt;10000|price&lt;4000&amp;foreign==0
 <span class="hljs-keyword">list</span> price foreign <span class="hljs-keyword">if</span> price&gt;10000|(price&lt;4000&amp;foreign==0)
 <span class="hljs-keyword">list</span> price foreign <span class="hljs-keyword">if</span> (price&gt;10000|price&lt;4000)&amp;foreign==0</code></pre></div>
-<h4 id="1-函数概览function"><a href="#1-函数概览function" class="headerlink" title="1. 函数概览function"></a>1. 函数概览<code>function</code></h4><p>函数是一些STATA已经提前编写好的脚本小程序，这些小程序会对输入的数据按照一定的规则进行处理且报告结果。实际上由于STATA内嵌的函数较多，先学会查找函数<code>help function</code>，后逐渐掌握常用的函数命令，对于不熟练的函数，可以多加联系和查询加以巩固。</p>
+<h4 id="函数概览function">1. 函数概览<code>function</code></h4>
+<p>函数是一些STATA已经提前编写好的脚本小程序，这些小程序会对输入的数据按照一定的规则进行处理且报告结果。实际上由于STATA内嵌的函数较多，先学会查找函数<code>help function</code>，后逐渐掌握常用的函数命令，对于不熟练的函数，可以多加联系和查询加以巩固。</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">help</span> function
 <span class="hljs-comment">/*</span>
 <span class="hljs-comment">        +--------------------------------------------------------+</span>
@@ -504,135 +520,137 @@ mjx-container[display="true"] + br {
 <span class="hljs-comment">        +--------------------------------------------------------+ </span>
 <span class="hljs-comment"></span>
 <span class="hljs-comment">STATA共包含八类函数，分别是数学函数，分布函数，随机数函数，字符函数，程序函数，日期函数，时间序列函数和矩阵函数。*/</span></code></pre></div>
-<div class="table-container">
 <table>
+
 <thead>
-<tr>
-<th style="text-align:center">数值型函数</th>
-<th style="text-align:center">含义</th>
-<th style="text-align:center">举例</th>
+<tr class="header">
+<th style="text-align: center;">数值型函数</th>
+<th style="text-align: center;">含义</th>
+<th style="text-align: center;">举例</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">abs(x)</td>
-<td style="text-align:center">绝对值</td>
-<td style="text-align:center">abs(-9)=9</td>
+<tr class="odd">
+<td style="text-align: center;">abs(x)</td>
+<td style="text-align: center;">绝对值</td>
+<td style="text-align: center;">abs(-9)=9</td>
 </tr>
-<tr>
-<td style="text-align:center">comb(n,k)</td>
-<td style="text-align:center">从 n 中取 k 个的组合</td>
-<td style="text-align:center">comb(10,2)=45</td>
+<tr class="even">
+<td style="text-align: center;">comb(n,k)</td>
+<td style="text-align: center;">从 n 中取 k 个的组合</td>
+<td style="text-align: center;">comb(10,2)=45</td>
 </tr>
-<tr>
-<td style="text-align:center">exp(x)</td>
-<td style="text-align:center">指数</td>
-<td style="text-align:center">exp(0)=1</td>
+<tr class="odd">
+<td style="text-align: center;">exp(x)</td>
+<td style="text-align: center;">指数</td>
+<td style="text-align: center;">exp(0)=1</td>
 </tr>
-<tr>
-<td style="text-align:center">fill( )</td>
-<td style="text-align:center">自动填充数据</td>
-<td style="text-align:center"></td>
+<tr class="even">
+<td style="text-align: center;">fill( )</td>
+<td style="text-align: center;">自动填充数据</td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">int(x)</td>
-<td style="text-align:center">取整</td>
-<td style="text-align:center">int(5.6) = 5,<br> int(-5.2) = -5</td>
+<tr class="odd">
+<td style="text-align: center;">int(x)</td>
+<td style="text-align: center;">取整</td>
+<td style="text-align: center;">int(5.6) = 5,<br> int(-5.2) = -5</td>
 </tr>
-<tr>
-<td style="text-align:center">ln(x)</td>
-<td style="text-align:center">对数</td>
-<td style="text-align:center">ln(1)=0</td>
+<tr class="even">
+<td style="text-align: center;">ln(x)</td>
+<td style="text-align: center;">对数</td>
+<td style="text-align: center;">ln(1)=0</td>
 </tr>
-<tr>
-<td style="text-align:center">log(x)</td>
-<td style="text-align:center">以 10 为底的对数</td>
-<td style="text-align:center">log10(1000)=3</td>
+<tr class="odd">
+<td style="text-align: center;">log(x)</td>
+<td style="text-align: center;">以 10 为底的对数</td>
+<td style="text-align: center;">log10(1000)=3</td>
 </tr>
-<tr>
-<td style="text-align:center">mod(x,y)</td>
-<td style="text-align:center">x - y*int(x/y)</td>
-<td style="text-align:center">mod(9,2)=1</td>
+<tr class="even">
+<td style="text-align: center;">mod(x,y)</td>
+<td style="text-align: center;">x - y*int(x/y)</td>
+<td style="text-align: center;">mod(9,2)=1</td>
 </tr>
-<tr>
-<td style="text-align:center">round(x)</td>
-<td style="text-align:center">四舍五入</td>
-<td style="text-align:center">round(5.6)=6</td>
+<tr class="odd">
+<td style="text-align: center;">round(x)</td>
+<td style="text-align: center;">四舍五入</td>
+<td style="text-align: center;">round(5.6)=6</td>
 </tr>
-<tr>
-<td style="text-align:center">sqrt(x)</td>
-<td style="text-align:center">开方</td>
-<td style="text-align:center">sqrt(16)=4</td>
+<tr class="even">
+<td style="text-align: center;">sqrt(x)</td>
+<td style="text-align: center;">开方</td>
+<td style="text-align: center;">sqrt(16)=4</td>
 </tr>
-<tr>
-<td style="text-align:center">sum(x）</td>
-<td style="text-align:center">求和</td>
-<td style="text-align:center"></td>
+<tr class="odd">
+<td style="text-align: center;">sum(x）</td>
+<td style="text-align: center;">求和</td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center"><strong>随机函数</strong></td>
-<td style="text-align:center"><strong>含义</strong></td>
-<td style="text-align:center"><strong>举例</strong></td>
+<tr class="even">
+<td style="text-align: center;"><strong>随机函数</strong></td>
+<td style="text-align: center;"><strong>含义</strong></td>
+<td style="text-align: center;"><strong>举例</strong></td>
 </tr>
-<tr>
-<td style="text-align:center">uniform( )</td>
-<td style="text-align:center">均匀分布随机数</td>
-<td style="text-align:center">chapter10介绍</td>
+<tr class="odd">
+<td style="text-align: center;">uniform( )</td>
+<td style="text-align: center;">均匀分布随机数</td>
+<td style="text-align: center;">chapter10介绍</td>
 </tr>
-<tr>
-<td style="text-align:center">invnormal(uniform( ))</td>
-<td style="text-align:center">标准正态分布随机数</td>
-<td style="text-align:center">chapter10介绍</td>
+<tr class="even">
+<td style="text-align: center;">invnormal(uniform( ))</td>
+<td style="text-align: center;">标准正态分布随机数</td>
+<td style="text-align: center;">chapter10介绍</td>
 </tr>
-<tr>
-<td style="text-align:center"><strong>字符函数</strong></td>
-<td style="text-align:center"><strong>含义</strong></td>
-<td style="text-align:center"><strong>举例</strong></td>
+<tr class="odd">
+<td style="text-align: center;"><strong>字符函数</strong></td>
+<td style="text-align: center;"><strong>含义</strong></td>
+<td style="text-align: center;"><strong>举例</strong></td>
 </tr>
-<tr>
-<td style="text-align:center">real(s)</td>
-<td style="text-align:center">字符型转化为数值型</td>
-<td style="text-align:center"></td>
+<tr class="even">
+<td style="text-align: center;">real(s)</td>
+<td style="text-align: center;">字符型转化为数值型</td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">string(n)</td>
-<td style="text-align:center">数值型转化为字符型</td>
-<td style="text-align:center"></td>
+<tr class="odd">
+<td style="text-align: center;">string(n)</td>
+<td style="text-align: center;">数值型转化为字符型</td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">substr(s,n1,n2)</td>
-<td style="text-align:center">从 S 的第 n1 个字符开始， 截取 n2 个字符</td>
-<td style="text-align:center">Substr(“this”,2,2)=is</td>
+<tr class="even">
+<td style="text-align: center;">substr(s,n1,n2)</td>
+<td style="text-align: center;">从 S 的第 n1 个字符开始， 截取 n2
+个字符</td>
+<td style="text-align: center;">Substr(“this”,2,2)=is</td>
 </tr>
-<tr>
-<td style="text-align:center">word(s,n)</td>
-<td style="text-align:center">返回 s 的第 n 个字符</td>
-<td style="text-align:center">Work(“this”,3)=i</td>
+<tr class="odd">
+<td style="text-align: center;">word(s,n)</td>
+<td style="text-align: center;">返回 s 的第 n 个字符</td>
+<td style="text-align: center;">Work(“this”,3)=i</td>
 </tr>
-<tr>
-<td style="text-align:center"><strong>系统变量</strong></td>
-<td style="text-align:center"><strong>含义</strong></td>
-<td style="text-align:center"><strong>举例</strong></td>
+<tr class="even">
+<td style="text-align: center;"><strong>系统变量</strong></td>
+<td style="text-align: center;"><strong>含义</strong></td>
+<td style="text-align: center;"><strong>举例</strong></td>
 </tr>
-<tr>
-<td style="text-align:center">_n</td>
-<td style="text-align:center">当前观察值的序号</td>
-<td style="text-align:center"></td>
+<tr class="odd">
+<td style="text-align: center;">_n</td>
+<td style="text-align: center;">当前观察值的序号</td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">_N</td>
-<td style="text-align:center">共有多少观察值</td>
-<td style="text-align:center"></td>
+<tr class="even">
+<td style="text-align: center;">_N</td>
+<td style="text-align: center;">共有多少观察值</td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">_pi</td>
-<td style="text-align:center">π为圆周率</td>
-<td style="text-align:center">3.14159</td>
+<tr class="odd">
+<td style="text-align: center;">_pi</td>
+<td style="text-align: center;">π为圆周率</td>
+<td style="text-align: center;">3.14159</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="2-数学函数math-functions"><a href="#2-数学函数math-functions" class="headerlink" title="2. 数学函数math functions"></a>2. 数学函数<code>math functions</code></h4><ol>
+<h4 id="数学函数math-functions">2.
+数学函数<code>math functions</code></h4>
+<ol type="1">
 <li>三角函数，指数和对数函数</li>
 </ol>
 <ul>
@@ -656,7 +674,7 @@ mjx-container[display="true"] + br {
 <span class="hljs-keyword">gen</span> y3=<span class="hljs-built_in">sin</span>(<span class="hljs-built_in">exp</span>(x))+<span class="hljs-built_in">cos</span>(<span class="hljs-built_in">ln</span>(x))
 <span class="hljs-keyword">list</span></code></pre></div>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221003104746718.png" srcset="/img/loading.gif" lazyload alt="image-20221003104746718" style="zoom: 67%;"></p>
-<ol>
+<ol start="2" type="1">
 <li>取整和四舍五入</li>
 </ol>
 <ul>
@@ -688,7 +706,7 @@ mjx-container[display="true"] + br {
 <span class="hljs-keyword">gen</span> nprice1=price/10000
 <span class="hljs-keyword">gen</span> nprice2=<span class="hljs-built_in">round</span>(nprice1,0.01)
 <span class="hljs-keyword">list</span> nprice*    <span class="hljs-comment">//比较nprice和nprice1的结果差别，看百分位位数</span></code></pre></div>
-<ol>
+<ol start="3" type="1">
 <li>求和及求均值<code>gen</code>和<code>egen</code></li>
 </ol>
 <ul>
@@ -714,7 +732,7 @@ mjx-container[display="true"] + br {
 <span class="hljs-keyword">replace</span> y=3 <span class="hljs-keyword">in</span> 3
 <span class="hljs-keyword">egen</span> byte dxy=diff(x y)  <span class="hljs-comment">//当x与y相等时，differ取0，若不相等为1</span></code></pre></div>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221003111617596.png" srcset="/img/loading.gif" lazyload alt="image-20221003111617596" style="zoom:67%;"></p>
-<ol>
+<ol start="4" type="1">
 <li>其他</li>
 </ol>
 <ul>
@@ -754,8 +772,11 @@ end
 <span class="hljs-comment">*生成新的分组变量agegrp,当年龄age在3及以下时(min/3)取值为1，3到6(3/6)为2，6以上(6/max)为3</span>
 <span class="hljs-keyword">recode</span> age(min/3=1)(3/6=2)(6/max=3),<span class="hljs-keyword">gen</span>(agegrp)</code></pre></div>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221024125236681.png" srcset="/img/loading.gif" lazyload alt="image-20221024125236681" style="zoom: 80%;"></p>
-<h4 id="3-字符函数string-function"><a href="#3-字符函数string-function" class="headerlink" title="3. 字符函数string function"></a>3. 字符函数<code>string function</code></h4><ul>
-<li>案例1：将美国汽车数据中汽车商标变量值简化为取前三个字母，得到一个新的变 量make3。</li>
+<h4 id="字符函数string-function">3.
+字符函数<code>string function</code></h4>
+<ul>
+<li>案例1：将美国汽车数据中汽车商标变量值简化为取前三个字母，得到一个新的变
+量make3。</li>
 </ul>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span>
 <span class="hljs-keyword">gen</span> make 3=<span class="hljs-built_in">substr</span>(make,1,3)    <span class="hljs-comment">//取变量make的前三个字符赋给make3</span>
@@ -766,7 +787,10 @@ end
 <span class="hljs-keyword">list</span></code></pre></div>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221005094531690.png" srcset="/img/loading.gif" lazyload alt="image-20221005094531690" style="zoom:67%;"></p>
 <ul>
-<li>案例2：下表的数据是一个多选题，请把这道多选题转化为四个单选题，例如变量 a 表示“你今天早餐吃的是：1 稀饭 2 馒头 3 大饼 4 豆腐脑”。变量 a 不容易处理，可以用以下命令转化为四个 0-1 变量，分别为 na1=是否吃稀饭，na2=是否吃馒头，na3=是否吃大饼，na4=是否吃豆腐脑。</li>
+<li>案例2：下表的数据是一个多选题，请把这道多选题转化为四个单选题，例如变量
+a 表示“你今天早餐吃的是：1 稀饭 2 馒头 3 大饼 4 豆腐脑”。变量 a
+不容易处理，可以用以下命令转化为四个 0-1 变量，分别为
+na1=是否吃稀饭，na2=是否吃馒头，na3=是否吃大饼，na4=是否吃豆腐脑。</li>
 </ul>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span>
 <span class="hljs-keyword">edit</span>
@@ -794,7 +818,8 @@ end
 <span class="hljs-keyword">list</span> make*
 <span class="hljs-keyword">di</span> <span class="hljs-built_in">word</span>(<span class="hljs-string">"this is a dog"</span>,4)   <span class="hljs-comment">//显示的是第四个字母dog</span></code></pre></div>
 <p>[<code>word(s,n)</code>]：遍历字符串s的第n个单词</p>
-<h4 id="4-分类操作by"><a href="#4-分类操作by" class="headerlink" title="4. 分类操作by"></a>4. 分类操作<code>by</code></h4><div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span>
+<h4 id="分类操作by">4. 分类操作<code>by</code></h4>
+<div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span>
 <span class="hljs-keyword">input</span> x y 
 1 1.1 
 1 1.2 
@@ -811,7 +836,13 @@ end
 <span class="hljs-keyword">list</span></code></pre></div>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221024125335280.png" srcset="/img/loading.gif" lazyload alt="image-20221024125335280" style="zoom: 80%;"></p>
 <ul>
-<li>案例：下列数据为家庭成员数据 family.dta，其中 hhid 为家庭编码，age 为家 庭成员的年龄。要求：（1）生成一个新变量 hhsize，该变量表示共有多少个家庭成员。（2）给每个家庭成员一个编码 id。如第一个家庭的第一个成员编码为 11；（3）按家庭 生成一个全家成员平均年龄值mage。（4）对每个家庭，分别按年龄大小排序， 然后生成一个家庭成员代码，即家庭内年龄最小的成员代码为 1，年龄最大的家庭成员，代码为 nid。 </li>
+<li>案例：下列数据为家庭成员数据 family.dta，其中 hhid 为家庭编码，age
+为家 庭成员的年龄。要求：（1）生成一个新变量
+hhsize，该变量表示共有多少个家庭成员。（2）给每个家庭成员一个编码
+id。如第一个家庭的第一个成员编码为 11；（3）按家庭
+生成一个全家成员平均年龄值mage。（4）对每个家庭，分别按年龄大小排序，
+然后生成一个家庭成员代码，即家庭内年龄最小的成员代码为
+1，年龄最大的家庭成员，代码为 nid。</li>
 </ul>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20221003160715905.png" srcset="/img/loading.gif" lazyload alt="image-20221003160715905" style="zoom: 70%;"></p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> family,<span class="hljs-keyword">clear</span>
