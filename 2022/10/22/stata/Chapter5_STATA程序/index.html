@@ -17,12 +17,12 @@
   <meta name="author" content="Devin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Chapter5——STATA程序  0. 创造自己的命令：与STATA互致问候 我们可以自己创造一个叫 hello 的命令，当你运行这个命令的时候，STATA就会向你问好“你好 世界” 12345678910111213141516171819202122hello   &#x2F;&#x2F;报错command hello is unrecognizedcapture program drop h">
+    <meta name="description" content="Chapter5——STATA程序  0. 创造自己的命令：与STATA互致问候我们可以自己创造一个叫 hello 的命令，当你运行这个命令的时候，STATA就会向你问好“你好 世界” hello   &#x2F;&#x2F;报错command hello is unrecognized capture program drop hello   &#x2F;&#x2F;删去此前生成的hello程序 program hello">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chapter5——STATA程序">
 <meta property="og:url" content="http://example.com/2022/10/22/stata/Chapter5_STATA%E7%A8%8B%E5%BA%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Chapter5——STATA程序  0. 创造自己的命令：与STATA互致问候 我们可以自己创造一个叫 hello 的命令，当你运行这个命令的时候，STATA就会向你问好“你好 世界” 12345678910111213141516171819202122hello   &#x2F;&#x2F;报错command hello is unrecognizedcapture program drop h">
+<meta property="og:description" content="Chapter5——STATA程序  0. 创造自己的命令：与STATA互致问候我们可以自己创造一个叫 hello 的命令，当你运行这个命令的时候，STATA就会向你问好“你好 世界” hello   &#x2F;&#x2F;报错command hello is unrecognized capture program drop hello   &#x2F;&#x2F;删去此前生成的hello程序 program hello">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-22T07:43:00.000Z">
 <meta property="article:modified_time" content="2022-11-15T07:48:26.018Z">
@@ -341,7 +341,7 @@ mjx-container[display="true"] + br {
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          4.8k 字
+          4.6k 字
         
       </span>
     
@@ -353,7 +353,7 @@ mjx-container[display="true"] + br {
         
         
           <!-- compatible with older versions-->
-          41 分钟
+          39 分钟
         
       </span>
     
@@ -395,62 +395,214 @@ mjx-container[display="true"] + br {
             
             <div class="markdown-body">
               
-              <h1 align="center">
-Chapter5——STATA程序
-</h1>
-<h4 id="创造自己的命令与stata互致问候">0.
-创造自己的命令：与STATA互致问候</h4>
-<p>我们可以自己创造一个叫 hello
-的命令，当你运行这个命令的时候，STATA就会向你问好“你好 世界”</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs stata">hello   <span class="hljs-comment">//报错command hello is unrecognized</span><br><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> hello   <span class="hljs-comment">//删去此前生成的hello程序</span><br><span class="hljs-keyword">program</span> hello       <span class="hljs-comment">//建立hello程序</span><br><span class="hljs-keyword">display</span> <span class="hljs-string">"你好 世界"</span>     <span class="hljs-comment">//hello程序是展示“你好 世界”</span><br>end<br>hello<br><br><span class="hljs-comment">*如果想让hello程序说什么就在hello说什么</span><br><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> hello<br><span class="hljs-keyword">program</span> hello<br><span class="hljs-keyword">display</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">error</span> <span class="hljs-string">"`l'"</span><br>end<br>hello 吃了吗？<br>hello 吃了，你呢？<br>hello 我也吃了<br><span class="hljs-comment">*说hola</span><br><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> hola<br><span class="hljs-keyword">program</span> hola<br><span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">error</span> <span class="hljs-string">"`a'"</span><br>end<br>hola 写了没？<br>hola 读了没？<br></code></pre></td></tr></table></figure>
-<p>如果退出 stata 后还想执行这个程序，可以将这个文件存起来，最好是存在
-STATA 的默认路径下，文件名为 hello.do（注意后缀为.do），退出 STATA
-并重启: <code>do hello</code></p>
+              <h1 align="center">Chapter5——STATA程序</h1>
+
+<h4 id="0-创造自己的命令：与STATA互致问候"><a href="#0-创造自己的命令：与STATA互致问候" class="headerlink" title="0. 创造自己的命令：与STATA互致问候"></a>0. 创造自己的命令：与STATA互致问候</h4><p>我们可以自己创造一个叫 hello 的命令，当你运行这个命令的时候，STATA就会向你问好“你好 世界”</p>
+<div class="code-wrapper"><pre><code class="hljs stata">hello   <span class="hljs-comment">//报错command hello is unrecognized</span>
+<span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> hello   <span class="hljs-comment">//删去此前生成的hello程序</span>
+<span class="hljs-keyword">program</span> hello       <span class="hljs-comment">//建立hello程序</span>
+<span class="hljs-keyword">display</span> <span class="hljs-string">"你好 世界"</span>     <span class="hljs-comment">//hello程序是展示“你好 世界”</span>
+end
+hello
+
+<span class="hljs-comment">*如果想让hello程序说什么就在hello说什么</span>
+<span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> hello
+<span class="hljs-keyword">program</span> hello
+<span class="hljs-keyword">display</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">error</span> <span class="hljs-string">"`l'"</span>
+end
+hello 吃了吗？
+hello 吃了，你呢？
+hello 我也吃了
+<span class="hljs-comment">*说hola</span>
+<span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> hola
+<span class="hljs-keyword">program</span> hola
+<span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">error</span> <span class="hljs-string">"`a'"</span>
+end
+hola 写了没？
+hola 读了没？</code></pre></div>
+<p>如果退出 stata 后还想执行这个程序，可以将这个文件存起来，最好是存在 STATA 的默认路径下，文件名为 hello.do（注意后缀为.do），退出 STATA 并重启: <code>do hello</code></p>
 <ul>
 <li><code>capture</code>命令用法</li>
 </ul>
 <p>标准的程序中通常要加上一个灵活选择性命令<code>capture</code>。意思是，如果有<code>hello</code>这个命令，则执行删除命令，如果没有，则跳过这条命令，执行下一条命令。</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*当再次运行该程序时，系统马上会提醒</span><br><span class="hljs-keyword">program</span> hello   <span class="hljs-comment">//hello already defined</span><br><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> hello <br><span class="hljs-keyword">program</span> hello <br><span class="hljs-keyword">display</span> “你好,老兄” <br>end <br>hello<br></code></pre></td></tr></table></figure>
-<h4 id="暂元-macroslocalglobal">1. 暂元 Macros：local/global</h4>
-<p>Macro是程序中的临时变量，由Macro的名称和内容两部分组成，类似于变量名和变量值。Macro有局部宏和全局宏两种。局部宏只存在于定义它的程序之内，并且不能在其他程序中被引用；而全局宏一旦被定义，就会保留在当前Stata内存中，可以被当前STATA会话期间的其他程序所使用。</p>
-<p>宏的方便之处之一在于，你可以在宏里面加入多个内容。尤其是你需要多次输入同一内容时，定义和调用宏是最简单的方法。比如你要做多个回归进行比较，需要<code>reg Y X1 X2 X3 X4 Xa</code>，<code>reg X1 X2 X3 X4 Xb</code>
-， <code>reg X1 X2 X3 X4 Xc</code>。你可以定义X1 X2 X3
-X4为一个宏，定义宏以后，你回归的时候就可以不用多次输入。</p>
+<div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-comment">*当再次运行该程序时，系统马上会提醒</span>
+<span class="hljs-keyword">program</span> hello   <span class="hljs-comment">//hello already defined</span>
+<span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> hello 
+<span class="hljs-keyword">program</span> hello 
+<span class="hljs-keyword">display</span> “你好,老兄” 
+end 
+hello</code></pre></div>
+<h4 id="1-暂元-Macros：local-global"><a href="#1-暂元-Macros：local-global" class="headerlink" title="1. 暂元 Macros：local/global"></a>1. 暂元 Macros：local/global</h4><p>Macro是程序中的临时变量，由Macro的名称和内容两部分组成，类似于变量名和变量值。Macro有局部宏和全局宏两种。局部宏只存在于定义它的程序之内，并且不能在其他程序中被引用；而全局宏一旦被定义，就会保留在当前Stata内存中，可以被当前STATA会话期间的其他程序所使用。</p>
+<p>宏的方便之处之一在于，你可以在宏里面加入多个内容。尤其是你需要多次输入同一内容时，定义和调用宏是最简单的方法。比如你要做多个回归进行比较，需要<code>reg Y X1 X2 X3 X4 Xa</code>，<code>reg X1 X2 X3 X4 Xb</code> ， <code>reg X1 X2 X3 X4 Xc</code>。你可以定义X1 X2 X3 X4为一个宏，定义宏以后，你回归的时候就可以不用多次输入。</p>
 <ul>
 <li>使用<code>local</code>来定义暂元</li>
 </ul>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">list</span> price length weight <span class="hljs-keyword">in</span> 1/5<br><span class="hljs-keyword">local</span> v3 <span class="hljs-string">"price length weight"</span>  <span class="hljs-comment">//将price length weiht 这组字符赋给暂元名v3</span><br><span class="hljs-comment">*其实把"price length weight"看成一个变量，然后v3="price length weight"，之后就一直用v3</span><br><span class="hljs-keyword">list</span> <span class="hljs-symbol">`v3'</span> <span class="hljs-keyword">in</span> 1/5<br><span class="hljs-keyword">local</span> cmd <span class="hljs-string">"list"</span>     <span class="hljs-comment">//将list这组字符赋给暂元名cmd</span><br><span class="hljs-symbol">`cmd'</span> <span class="hljs-symbol">`v3'</span> <span class="hljs-keyword">in</span> 1/5    <span class="hljs-comment">//等价于list price length weight in 1/5</span><br><span class="hljs-keyword">local</span> pre <span class="hljs-string">"price"</span>    <span class="hljs-comment">//将price这组字符赋给暂元名pre</span><br><span class="hljs-keyword">local</span> suf <span class="hljs-string">"ce"</span><br><span class="hljs-symbol">`cmd'</span> <span class="hljs-symbol">`pre'</span> <span class="hljs-symbol">`suf'</span><br><span class="hljs-keyword">tab</span> rep`=26*3'  <span class="hljs-comment">//等价于tab rep78 ，78=26*3</span><br><span class="hljs-keyword">list</span> price <span class="hljs-keyword">in</span> 1/`=2*2'   <span class="hljs-comment">//等价于list price in 1/4</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span>
+<span class="hljs-keyword">list</span> price length weight <span class="hljs-keyword">in</span> 1/5
+<span class="hljs-keyword">local</span> v3 <span class="hljs-string">"price length weight"</span>  <span class="hljs-comment">//将price length weiht 这组字符赋给暂元名v3</span>
+<span class="hljs-comment">*其实把"price length weight"看成一个变量，然后v3="price length weight"，之后就一直用v3</span>
+<span class="hljs-keyword">list</span> <span class="hljs-symbol">`v3'</span> <span class="hljs-keyword">in</span> 1/5
+<span class="hljs-keyword">local</span> cmd <span class="hljs-string">"list"</span>     <span class="hljs-comment">//将list这组字符赋给暂元名cmd</span>
+<span class="hljs-symbol">`cmd'</span> <span class="hljs-symbol">`v3'</span> <span class="hljs-keyword">in</span> 1/5    <span class="hljs-comment">//等价于list price length weight in 1/5</span>
+<span class="hljs-keyword">local</span> pre <span class="hljs-string">"price"</span>    <span class="hljs-comment">//将price这组字符赋给暂元名pre</span>
+<span class="hljs-keyword">local</span> suf <span class="hljs-string">"ce"</span>
+<span class="hljs-symbol">`cmd'</span> <span class="hljs-symbol">`pre'</span> <span class="hljs-symbol">`suf'</span>
+<span class="hljs-keyword">tab</span> rep`=26*3'  <span class="hljs-comment">//等价于tab rep78 ，78=26*3</span>
+<span class="hljs-keyword">list</span> price <span class="hljs-keyword">in</span> 1/`=2*2'   <span class="hljs-comment">//等价于list price in 1/4</span></code></pre></div>
 <ul>
 <li>使用<code>global</code>来定义暂元</li>
 </ul>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">list</span> price length weight <span class="hljs-keyword">in</span> 1/5    <br><span class="hljs-keyword">global</span> v3 <span class="hljs-string">"price lenght weight"</span>    <span class="hljs-comment">//将price length weight这组字符赋给暂元名v3</span><br><span class="hljs-keyword">list</span> <span class="hljs-variable">$v3</span> <span class="hljs-keyword">in</span> 1/5    <span class="hljs-comment">//等价于list price length weight in 1/5</span><br><span class="hljs-keyword">global</span> cmd <span class="hljs-string">"list"</span>   <span class="hljs-comment">//将list这组字符赋给暂元名cmd</span><br><span class="hljs-variable">$cmd</span> <span class="hljs-variable">$v3</span> <span class="hljs-keyword">in</span> 1/5    <span class="hljs-comment">//等价于list price length weight in 1/5</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">/*暂元定义                    等价于</span><br><span class="hljs-comment">global a "myvar"      gen myvar=oldvar</span><br><span class="hljs-comment">gen $a=oldvar         gen a=oldvar</span><br><span class="hljs-comment">gen a=oldvar </span><br><span class="hljs-comment"></span><br><span class="hljs-comment">local a "myvar"       gen myvar=oldvar</span><br><span class="hljs-comment">gen `a'=oldvar        gen a=oldvar</span><br><span class="hljs-comment">gen a=oldvar</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">global a "newvar" 	  gen newvar2=oldvar</span><br><span class="hljs-comment">global i=2</span><br><span class="hljs-comment">gen $a$i=oldvar</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">local a "newvar"	  gen newvar2=oldvar</span><br><span class="hljs-comment">local i=2</span><br><span class="hljs-comment">gen ``a' i'= oldvar</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">global b1 "newvar"	  gen newvar=oldva</span><br><span class="hljs-comment">global i=1</span><br><span class="hljs-comment">gen ${b$i}=oldvar</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">local b1="newvar"	  gen newvar=oldvar</span><br><span class="hljs-comment">local i=1</span><br><span class="hljs-comment">gen `b`i''=oldvar</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">global b1 "newvar" 	  gen newvar=oldvar</span><br><span class="hljs-comment">global a "b"</span><br><span class="hljs-comment">global i=1&lt;br /&gt;gen ${$a$i}=oldvar</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">local b1 "newvar"	  gen newvar=oldvar</span><br><span class="hljs-comment">local a "b"&lt;br /&gt;local i=1</span><br><span class="hljs-comment">gen ``a'`i''=oldvar     */</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span>
+<span class="hljs-keyword">list</span> price length weight <span class="hljs-keyword">in</span> 1/5    
+<span class="hljs-keyword">global</span> v3 <span class="hljs-string">"price lenght weight"</span>    <span class="hljs-comment">//将price length weight这组字符赋给暂元名v3</span>
+<span class="hljs-keyword">list</span> <span class="hljs-variable">$v3</span> <span class="hljs-keyword">in</span> 1/5    <span class="hljs-comment">//等价于list price length weight in 1/5</span>
+<span class="hljs-keyword">global</span> cmd <span class="hljs-string">"list"</span>   <span class="hljs-comment">//将list这组字符赋给暂元名cmd</span>
+<span class="hljs-variable">$cmd</span> <span class="hljs-variable">$v3</span> <span class="hljs-keyword">in</span> 1/5    <span class="hljs-comment">//等价于list price length weight in 1/5</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-comment">/*暂元定义                    等价于</span>
+<span class="hljs-comment">global a "myvar"      gen myvar=oldvar</span>
+<span class="hljs-comment">gen $a=oldvar         gen a=oldvar</span>
+<span class="hljs-comment">gen a=oldvar </span>
+<span class="hljs-comment"></span>
+<span class="hljs-comment">local a "myvar"       gen myvar=oldvar</span>
+<span class="hljs-comment">gen `a'=oldvar        gen a=oldvar</span>
+<span class="hljs-comment">gen a=oldvar</span>
+<span class="hljs-comment"></span>
+<span class="hljs-comment">global a "newvar" 	  gen newvar2=oldvar</span>
+<span class="hljs-comment">global i=2</span>
+<span class="hljs-comment">gen $a$i=oldvar</span>
+<span class="hljs-comment"></span>
+<span class="hljs-comment">local a "newvar"	  gen newvar2=oldvar</span>
+<span class="hljs-comment">local i=2</span>
+<span class="hljs-comment">gen ``a' i'= oldvar</span>
+<span class="hljs-comment"></span>
+<span class="hljs-comment">global b1 "newvar"	  gen newvar=oldva</span>
+<span class="hljs-comment">global i=1</span>
+<span class="hljs-comment">gen ${b$i}=oldvar</span>
+<span class="hljs-comment"></span>
+<span class="hljs-comment">local b1="newvar"	  gen newvar=oldvar</span>
+<span class="hljs-comment">local i=1</span>
+<span class="hljs-comment">gen `b`i''=oldvar</span>
+<span class="hljs-comment"></span>
+<span class="hljs-comment">global b1 "newvar" 	  gen newvar=oldvar</span>
+<span class="hljs-comment">global a "b"</span>
+<span class="hljs-comment">global i=1&lt;br /&gt;gen ${$a$i}=oldvar</span>
+<span class="hljs-comment"></span>
+<span class="hljs-comment">local b1 "newvar"	  gen newvar=oldvar</span>
+<span class="hljs-comment">local a "b"&lt;br /&gt;local i=1</span>
+<span class="hljs-comment">gen ``a'`i''=oldvar     */</span></code></pre></div>
 <ul>
 <li><code>global</code>和<code>local</code>的区别</li>
 </ul>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> myprog<br><span class="hljs-keyword">program</span> myprog<br><span class="hljs-keyword">local</span> i=<span class="hljs-string">"主程序局域"</span><br><span class="hljs-keyword">global</span> i=<span class="hljs-string">"主程序全域"</span><br><span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> txt <span class="hljs-string">"`i'"</span><br><span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> txt <span class="hljs-string">"$j"</span><br>mysub<br><span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">error</span> <span class="hljs-string">"`i'"</span><br><span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">error</span> <span class="hljs-string">"$j"</span><br>end<br><br><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">as</span> mysub<br><span class="hljs-keyword">program</span> mysub<br><span class="hljs-keyword">local</span> i=<span class="hljs-string">"子程序局域"</span><br><span class="hljs-keyword">global</span> i=<span class="hljs-string">"子程序全域"</span><br><span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> result <span class="hljs-string">"`i'"</span><br><span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> result <span class="hljs-string">"$j"</span><br>end <br>myprog<br></code></pre></td></tr></table></figure>
-<p>在上述程序的执行过程中，首先显示主程序所定义的暂元内容。然后调用子程序，显示子程序中的命令规定的暂元内容。再回到主程序，此时在主程序中用<code>local</code>
-所定义的暂元并没有因为子程序的重新定义或调用而改变，仍然保持着在主程序中所定义的内容，即“主程序局域”，但是由
-<code>global</code>
-所定义的全局暂元却发生了改变，变为由子程序所更新定义后的“子程序全局暂元”。</p>
+<div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> myprog
+<span class="hljs-keyword">program</span> myprog
+<span class="hljs-keyword">local</span> i=<span class="hljs-string">"主程序局域"</span>
+<span class="hljs-keyword">global</span> i=<span class="hljs-string">"主程序全域"</span>
+<span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> txt <span class="hljs-string">"`i'"</span>
+<span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> txt <span class="hljs-string">"$j"</span>
+mysub
+<span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">error</span> <span class="hljs-string">"`i'"</span>
+<span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">error</span> <span class="hljs-string">"$j"</span>
+end
+
+<span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">as</span> mysub
+<span class="hljs-keyword">program</span> mysub
+<span class="hljs-keyword">local</span> i=<span class="hljs-string">"子程序局域"</span>
+<span class="hljs-keyword">global</span> i=<span class="hljs-string">"子程序全域"</span>
+<span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> result <span class="hljs-string">"`i'"</span>
+<span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> result <span class="hljs-string">"$j"</span>
+end 
+myprog</code></pre></div>
+<p>在上述程序的执行过程中，首先显示主程序所定义的暂元内容。然后调用子程序，显示子程序中的命令规定的暂元内容。再回到主程序，此时在主程序中用<code>local</code> 所定义的暂元并没有因为子程序的重新定义或调用而改变，仍然保持着在主程序中所定义的内容，即“主程序局域”，但是由 <code>global</code> 所定义的全局暂元却发生了改变，变为由子程序所更新定义后的“子程序全局暂元”。</p>
 <p>local是局部暂元，局部引用；global是全局暂元，贯穿整个代码都有效，局部暂元执行完一次命令后就失效了，而全局暂元保证stata关闭之前暂元一直存在</p>
-<h4 id="自带命令参数">2. 自带命令参数</h4>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">capture</span> <span class="hljs-keyword">prog</span> <span class="hljs-keyword">drop</span> listargs<br><span class="hljs-keyword">program</span> listargs<br><span class="hljs-keyword">di</span> <span class="hljs-string">"第一个参数为：`1'"</span><br><span class="hljs-keyword">di</span> <span class="hljs-string">"第二个参数为：`2'"</span><br><span class="hljs-keyword">di</span> <span class="hljs-string">"第三个参数为：`3'"</span><br><span class="hljs-keyword">di</span> <span class="hljs-string">"第四个参数为：`4'"</span><br>end<br><br>listargs <br>listargs I love stata <br>listargs <span class="hljs-string">"I love stata"</span> <br><span class="hljs-keyword">local</span> i <span class="hljs-string">"I love stata"</span> <br>listargs <span class="hljs-symbol">`i'</span> <br><br>listargs this is a <span class="hljs-keyword">test</span> <br>listargs <span class="hljs-string">"this is a test"</span><br>listargs <span class="hljs-string">"this is"</span> <span class="hljs-string">"a stata test"</span><br></code></pre></td></tr></table></figure>
+<h4 id="2-自带命令参数"><a href="#2-自带命令参数" class="headerlink" title="2. 自带命令参数"></a>2. 自带命令参数</h4><div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">capture</span> <span class="hljs-keyword">prog</span> <span class="hljs-keyword">drop</span> listargs
+<span class="hljs-keyword">program</span> listargs
+<span class="hljs-keyword">di</span> <span class="hljs-string">"第一个参数为：`1'"</span>
+<span class="hljs-keyword">di</span> <span class="hljs-string">"第二个参数为：`2'"</span>
+<span class="hljs-keyword">di</span> <span class="hljs-string">"第三个参数为：`3'"</span>
+<span class="hljs-keyword">di</span> <span class="hljs-string">"第四个参数为：`4'"</span>
+end
+
+listargs 
+listargs I love stata 
+listargs <span class="hljs-string">"I love stata"</span> 
+<span class="hljs-keyword">local</span> i <span class="hljs-string">"I love stata"</span> 
+listargs <span class="hljs-symbol">`i'</span> 
+
+listargs this is a <span class="hljs-keyword">test</span> 
+listargs <span class="hljs-string">"this is a test"</span>
+listargs <span class="hljs-string">"this is"</span> <span class="hljs-string">"a stata test"</span></code></pre></div>
 <ul>
 <li>通过参数申明的方式</li>
 </ul>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> listargs<br><span class="hljs-keyword">program</span> listargs<br><span class="hljs-keyword">args</span> a b c <span class="hljs-keyword">d</span><br><span class="hljs-keyword">di</span> <span class="hljs-string">"第一个参数为：`a'"</span><br><span class="hljs-keyword">di</span> <span class="hljs-string">"第二个参数为：`b'"</span><br><span class="hljs-keyword">di</span> <span class="hljs-string">"第三个参数为：`c'"</span><br><span class="hljs-keyword">di</span> <span class="hljs-string">"第四个参数为：`d'"</span><br>end<br>listargs this is a <span class="hljs-keyword">test</span><br>listargs <span class="hljs-string">"this is a test"</span><br></code></pre></td></tr></table></figure>
-<h4 id="scalar标量">3. <code>scalar</code>标量</h4>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">scalar</span> a=2<br><span class="hljs-keyword">dis</span> a+2<br><span class="hljs-keyword">scalar</span> b=a+3<br><span class="hljs-keyword">di</span> b<br><span class="hljs-keyword">scalar</span> s=<span class="hljs-string">"hello"</span><br><span class="hljs-keyword">di</span> s<br><br><span class="hljs-keyword">clear</span><br><span class="hljs-keyword">set</span> obs 3<br><span class="hljs-keyword">input</span> a<br>1<br>2<br>3<br>end<br><span class="hljs-keyword">scalar</span> b=3<br><span class="hljs-keyword">gen</span> v1=a*b       <span class="hljs-comment">//该命令相当于对 a 的每个值乘 b</span><br><span class="hljs-keyword">list</span> <br><span class="hljs-keyword">input</span> b<br>2<br>3<br>4<br>end<br><span class="hljs-keyword">gen</span> v2=a*b<br><span class="hljs-keyword">list</span><br><span class="hljs-keyword">gen</span> v3=a*<span class="hljs-built_in">scalar</span>(b)<br><span class="hljs-keyword">list</span><br></code></pre></td></tr></table></figure>
-<p>说明：当变量名和标量名相同时，STATA
-将优先使用变量名，如果要强制使用标题，需要用
-<code>scalar(varlist)</code>，为标量变量，即存储一个数字数据的变量。</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">sum</span> price<br><span class="hljs-keyword">return</span> <span class="hljs-keyword">list</span><br><span class="hljs-comment">/*scalars:</span><br><span class="hljs-comment">                  r(N) =  74</span><br><span class="hljs-comment">              r(sum_w) =  74</span><br><span class="hljs-comment">               r(mean) =  6165.256756756757</span><br><span class="hljs-comment">                r(Var) =  8699525.974268788</span><br><span class="hljs-comment">                 r(sd) =  2949.495884768919</span><br><span class="hljs-comment">                r(min) =  3291</span><br><span class="hljs-comment">                r(max) =  15906</span><br><span class="hljs-comment">                r(sum) =  456229*/</span><br><span class="hljs-keyword">local</span> <span class="hljs-keyword">mean</span>=<span class="hljs-built_in">r</span>(<span class="hljs-keyword">mean</span>)<br><span class="hljs-keyword">di</span> <span class="hljs-symbol">`mean'</span><br><span class="hljs-keyword">local</span> <span class="hljs-keyword">sum</span>=<span class="hljs-built_in">r</span>(<span class="hljs-keyword">sum</span>)<br><span class="hljs-keyword">local</span> max=<span class="hljs-built_in">r</span>(max)<br><span class="hljs-keyword">local</span> v0 <span class="hljs-string">"mean sum max"</span><br><span class="hljs-keyword">di</span> <span class="hljs-symbol">`v0'</span><br></code></pre></td></tr></table></figure>
-<h4 id="临时变量和临时数据文件tempvar和tempfile">4.
-临时变量和临时数据文件：<code>tempvar</code>和<code>tempfile</code></h4>
-<p>在我们的数据处理过程中，会产生一些中间的临时性变量，如果随着退出
-STATA，这些临时的中间性变量能自动消失，既不会破坏原始数据，也不会因为这些干扰变量妨碍我们查看结果性的变量。</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">preserve</span>      <span class="hljs-comment">//表明下面的代码操作将不会破坏当前数据中的文件</span><br><span class="hljs-keyword">keep</span> price weight<br><span class="hljs-keyword">save</span> master,<span class="hljs-keyword">replace</span>     <span class="hljs-comment">//把只有price和weight的新临时数据文件保存</span><br><span class="hljs-keyword">drop</span> weight<br><span class="hljs-keyword">save</span> part1,<span class="hljs-keyword">replace</span>      <span class="hljs-comment">//保存只有price的新临时数据文件</span><br><span class="hljs-keyword">sysuse</span> master,<span class="hljs-keyword">clear</span><br><span class="hljs-keyword">drop</span> price<br><span class="hljs-keyword">rename</span> weight price<br><span class="hljs-keyword">append</span> using part1<br><span class="hljs-keyword">erase</span> master.dta<br><span class="hljs-keyword">erase</span> part1.dta<br><span class="hljs-keyword">restore</span>   <span class="hljs-comment">//回到 preserve 命令之前的数据集，即 auto</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> listargs
+<span class="hljs-keyword">program</span> listargs
+<span class="hljs-keyword">args</span> a b c <span class="hljs-keyword">d</span>
+<span class="hljs-keyword">di</span> <span class="hljs-string">"第一个参数为：`a'"</span>
+<span class="hljs-keyword">di</span> <span class="hljs-string">"第二个参数为：`b'"</span>
+<span class="hljs-keyword">di</span> <span class="hljs-string">"第三个参数为：`c'"</span>
+<span class="hljs-keyword">di</span> <span class="hljs-string">"第四个参数为：`d'"</span>
+end
+listargs this is a <span class="hljs-keyword">test</span>
+listargs <span class="hljs-string">"this is a test"</span></code></pre></div>
+<h4 id="3-scalar标量"><a href="#3-scalar标量" class="headerlink" title="3. scalar标量"></a>3. <code>scalar</code>标量</h4><div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">scalar</span> a=2
+<span class="hljs-keyword">dis</span> a+2
+<span class="hljs-keyword">scalar</span> b=a+3
+<span class="hljs-keyword">di</span> b
+<span class="hljs-keyword">scalar</span> s=<span class="hljs-string">"hello"</span>
+<span class="hljs-keyword">di</span> s
+
+<span class="hljs-keyword">clear</span>
+<span class="hljs-keyword">set</span> obs 3
+<span class="hljs-keyword">input</span> a
+1
+2
+3
+end
+<span class="hljs-keyword">scalar</span> b=3
+<span class="hljs-keyword">gen</span> v1=a*b       <span class="hljs-comment">//该命令相当于对 a 的每个值乘 b</span>
+<span class="hljs-keyword">list</span> 
+<span class="hljs-keyword">input</span> b
+2
+3
+4
+end
+<span class="hljs-keyword">gen</span> v2=a*b
+<span class="hljs-keyword">list</span>
+<span class="hljs-keyword">gen</span> v3=a*<span class="hljs-built_in">scalar</span>(b)
+<span class="hljs-keyword">list</span></code></pre></div>
+<p>说明：当变量名和标量名相同时，STATA 将优先使用变量名，如果要强制使用标题，需要用 <code>scalar(varlist)</code>，为标量变量，即存储一个数字数据的变量。</p>
+<div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span>
+<span class="hljs-keyword">sum</span> price
+<span class="hljs-keyword">return</span> <span class="hljs-keyword">list</span>
+<span class="hljs-comment">/*scalars:</span>
+<span class="hljs-comment">                  r(N) =  74</span>
+<span class="hljs-comment">              r(sum_w) =  74</span>
+<span class="hljs-comment">               r(mean) =  6165.256756756757</span>
+<span class="hljs-comment">                r(Var) =  8699525.974268788</span>
+<span class="hljs-comment">                 r(sd) =  2949.495884768919</span>
+<span class="hljs-comment">                r(min) =  3291</span>
+<span class="hljs-comment">                r(max) =  15906</span>
+<span class="hljs-comment">                r(sum) =  456229*/</span>
+<span class="hljs-keyword">local</span> <span class="hljs-keyword">mean</span>=<span class="hljs-built_in">r</span>(<span class="hljs-keyword">mean</span>)
+<span class="hljs-keyword">di</span> <span class="hljs-symbol">`mean'</span>
+<span class="hljs-keyword">local</span> <span class="hljs-keyword">sum</span>=<span class="hljs-built_in">r</span>(<span class="hljs-keyword">sum</span>)
+<span class="hljs-keyword">local</span> max=<span class="hljs-built_in">r</span>(max)
+<span class="hljs-keyword">local</span> v0 <span class="hljs-string">"mean sum max"</span>
+<span class="hljs-keyword">di</span> <span class="hljs-symbol">`v0'</span></code></pre></div>
+<h4 id="4-临时变量和临时数据文件：tempvar和tempfile"><a href="#4-临时变量和临时数据文件：tempvar和tempfile" class="headerlink" title="4. 临时变量和临时数据文件：tempvar和tempfile"></a>4. 临时变量和临时数据文件：<code>tempvar</code>和<code>tempfile</code></h4><p>在我们的数据处理过程中，会产生一些中间的临时性变量，如果随着退出 STATA，这些临时的中间性变量能自动消失，既不会破坏原始数据，也不会因为这些干扰变量妨碍我们查看结果性的变量。</p>
+<div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span>
+<span class="hljs-keyword">preserve</span>      <span class="hljs-comment">//表明下面的代码操作将不会破坏当前数据中的文件</span>
+<span class="hljs-keyword">keep</span> price weight
+<span class="hljs-keyword">save</span> master,<span class="hljs-keyword">replace</span>     <span class="hljs-comment">//把只有price和weight的新临时数据文件保存</span>
+<span class="hljs-keyword">drop</span> weight
+<span class="hljs-keyword">save</span> part1,<span class="hljs-keyword">replace</span>      <span class="hljs-comment">//保存只有price的新临时数据文件</span>
+<span class="hljs-keyword">sysuse</span> master,<span class="hljs-keyword">clear</span>
+<span class="hljs-keyword">drop</span> price
+<span class="hljs-keyword">rename</span> weight price
+<span class="hljs-keyword">append</span> using part1
+<span class="hljs-keyword">erase</span> master.dta
+<span class="hljs-keyword">erase</span> part1.dta
+<span class="hljs-keyword">restore</span>   <span class="hljs-comment">//回到 preserve 命令之前的数据集，即 auto</span></code></pre></div>
 
               
             </div>
