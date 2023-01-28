@@ -228,7 +228,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          771 字
+          733 字
         
       </span>
     
@@ -282,30 +282,40 @@
             
             <div class="markdown-body">
               
-              <h4 id="一-解决stata安装外部命令报错"><a href="#一-解决stata安装外部命令报错" class="headerlink" title="一. 解决stata安装外部命令报错"></a>一. 解决stata安装外部命令报错</h4><p>cannot write in directory C:\Users\�ƿ���\ado\plus_</p>
+              <h4 id="一.-解决stata安装外部命令报错">一.
+解决stata安装外部命令报错</h4>
+<p>cannot write in directory C:�ƿ���_</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">ssc</span> install diff
 <span class="hljs-keyword">ssc</span> install estout</code></pre></div>
-<p>安装出现cannot write in directory C:\Users\����\ado\plus\d解决方案：</p>
+<p>安装出现cannot write in directory C:����：</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">sysdir</span> <span class="hljs-keyword">set</span> PLUS <span class="hljs-string">&quot;.\ado\plus&quot;</span>
 <span class="hljs-keyword">sysdir</span> <span class="hljs-keyword">set</span> <span class="hljs-keyword">PERSONAL</span> <span class="hljs-string">&quot;.\ado\personal&quot;</span></code></pre></div>
 <p>输入上述代码可以正常下载外部package</p>
-<h4 id="二-使用esttab命令报错"><a href="#二-使用esttab命令报错" class="headerlink" title="二. 使用esttab命令报错"></a>二. 使用<code>esttab</code>命令报错</h4><div class="code-wrapper"><pre><code class="hljs stata">command esttab is unrecognized</code></pre></div>
+<h4 id="二.-使用esttab命令报错">二. 使用<code>esttab</code>命令报错</h4>
+<div class="code-wrapper"><pre><code class="hljs stata">command esttab is unrecognized</code></pre></div>
 <p>通过下载package解决该问题</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">ssc</span> install estout</code></pre></div>
-<p>参考来源：<a target="_blank" rel="noopener" href="http://fmwww.bc.edu/repec/bocode/e/estout/installation.html">estout - Making Regression Tables in Stata (bc.edu)</a></p>
-<h4 id="三-使用vgues导入网络外部数据"><a href="#三-使用vgues导入网络外部数据" class="headerlink" title="三. 使用vgues导入网络外部数据"></a>三. 使用<code>vgues</code>导入网络外部数据</h4><p>想利用<code>vgues</code>导入<code>spjanfeb2001.dta</code>数据集，但是stata无法辨别<code>vgues</code></p>
+<p>参考来源：<a
+target="_blank" rel="noopener" href="http://fmwww.bc.edu/repec/bocode/e/estout/installation.html">estout
+- Making Regression Tables in Stata (bc.edu)</a></p>
+<h4 id="三.-使用vgues导入网络外部数据">三.
+使用<code>vgues</code>导入网络外部数据</h4>
+<p>想利用<code>vgues</code>导入<code>spjanfeb2001.dta</code>数据集，但是stata无法辨别<code>vgues</code></p>
 <div class="code-wrapper"><pre><code class="hljs stata">vguse spjanfeb2001, <span class="hljs-keyword">clear</span>
 <span class="hljs-comment">*报错：command vguse is unrecognized</span></code></pre></div>
 <p>通过下列命令来安装package解决：</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">net</span> from http:<span class="hljs-comment">//www.stata-press.com/data/vgsg2/</span>
 <span class="hljs-keyword">net</span> install vgsg2,<span class="hljs-keyword">replace</span>
 vguse spjanfeb2001, <span class="hljs-keyword">clear</span>   <span class="hljs-comment">//安装package后再导入</span></code></pre></div>
-<p>参考来源：<a target="_blank" rel="noopener" href="https://bbs.pinggu.org/thread-878891-1-1.html">vguse-package_download</a></p>
-<h4 id="四-下载外部命令搜索"><a href="#四-下载外部命令搜索" class="headerlink" title="四. 下载外部命令搜索"></a>四. 下载外部命令搜索</h4><p>通过在stata的命令行窗口对即将要下载的package进行搜索地址进行下载</p>
+<p>参考来源：<a
+target="_blank" rel="noopener" href="https://bbs.pinggu.org/thread-878891-1-1.html">vguse-package_download</a></p>
+<h4 id="四.-下载外部命令搜索">四. 下载外部命令搜索</h4>
+<p>通过在stata的命令行窗口对即将要下载的package进行搜索地址进行下载</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">findit</span> egenmore
 <span class="hljs-keyword">search</span> egenmore</code></pre></div>
 <p>点击click here to install</p>
-<p>参考来源：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/48703028">Stata: 外部命令的搜索、安装与使用 - 知乎 (zhihu.com)</a></p>
+<p>参考来源：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/48703028">Stata:
+外部命令的搜索、安装与使用 - 知乎 (zhihu.com)</a></p>
 
               
             </div>

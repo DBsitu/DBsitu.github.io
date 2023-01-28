@@ -17,12 +17,12 @@
   <meta name="author" content="Devin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Chapter2——STATA数据  0. 打开示例数据和网络数据use 当前路径下打开use  非当前路径下打开sysuse   sysuse auto.dta,clear  从网络获取数据webuse  use http:&#x2F;&#x2F;www.stata-press.com&#x2F;data&#x2F;r9&#x2F;nlswork webuse nlswork,clear 1. 数据类型STATA通常会把变量划分为三类，分别是数">
+    <meta name="description" content="Chapter2——STATA数据  0. 打开示例数据和网络数据use  当前路径下打开use 非当前路径下打开sysuse  sysuse auto.dta,clear  从网络获取数据webuse  use http:&#x2F;&#x2F;www.stata-press.com&#x2F;data&#x2F;r9&#x2F;nlswork webuse nlswork,clear 1. 数据类型 STATA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chapter2——STATA数据">
 <meta property="og:url" content="http://example.com/2022/09/28/stata/Chapter2_STATA%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Chapter2——STATA数据  0. 打开示例数据和网络数据use 当前路径下打开use  非当前路径下打开sysuse   sysuse auto.dta,clear  从网络获取数据webuse  use http:&#x2F;&#x2F;www.stata-press.com&#x2F;data&#x2F;r9&#x2F;nlswork webuse nlswork,clear 1. 数据类型STATA通常会把变量划分为三类，分别是数">
+<meta property="og:description" content="Chapter2——STATA数据  0. 打开示例数据和网络数据use  当前路径下打开use 非当前路径下打开sysuse  sysuse auto.dta,clear  从网络获取数据webuse  use http:&#x2F;&#x2F;www.stata-press.com&#x2F;data&#x2F;r9&#x2F;nlswork webuse nlswork,clear 1. 数据类型 STATA">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927203256955.png">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927154418535.png">
@@ -402,13 +402,14 @@ mjx-container[display="true"] + br {
             
             <div class="markdown-body">
               
-              <h1 align="center">Chapter2——STATA数据</h1>
-
-<h4 id="0-打开示例数据和网络数据use"><a href="#0-打开示例数据和网络数据use" class="headerlink" title="0. 打开示例数据和网络数据use"></a>0. 打开示例数据和网络数据<code>use</code></h4><ul>
-<li><p>当前路径下打开<code>use</code></p>
-</li>
-<li><p>非当前路径下打开<code>sysuse</code></p>
-</li>
+              <h1 align="center">
+Chapter2——STATA数据
+</h1>
+<h4 id="打开示例数据和网络数据use">0.
+打开示例数据和网络数据<code>use</code></h4>
+<ul>
+<li><p>当前路径下打开<code>use</code></p></li>
+<li><p>非当前路径下打开<code>sysuse</code></p></li>
 </ul>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto.dta,<span class="hljs-keyword">clear</span></code></pre></div>
 <ul>
@@ -416,61 +417,64 @@ mjx-container[display="true"] + br {
 </ul>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">use</span> http:<span class="hljs-comment">//www.stata-press.com/data/r9/nlswork</span>
 <span class="hljs-keyword">webuse</span> nlswork,<span class="hljs-keyword">clear</span></code></pre></div>
-<h4 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1. 数据类型"></a>1. 数据类型</h4><p>STATA通常会把变量划分为三类，分别是数值型，字符型和日期型</p>
-<ol>
+<h4 id="数据类型">1. 数据类型</h4>
+<p>STATA通常会把变量划分为三类，分别是数值型，字符型和日期型</p>
+<ol type="1">
 <li>数值变量</li>
 </ol>
-<div class="table-container">
-<table>
+<table style="width:100%;">
+
 <thead>
-<tr>
-<th style="text-align:center">存储类型</th>
-<th style="text-align:center">最小</th>
-<th style="text-align:center">最大</th>
-<th style="text-align:center">0-领域</th>
-<th style="text-align:center">字节</th>
+<tr class="header">
+<th style="text-align: center;">存储类型</th>
+<th style="text-align: center;">最小</th>
+<th style="text-align: center;">最大</th>
+<th style="text-align: center;">0-领域</th>
+<th style="text-align: center;">字节</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">byte</td>
-<td style="text-align:center">-127</td>
-<td style="text-align:center">100</td>
-<td style="text-align:center">+/-1</td>
-<td style="text-align:center">1</td>
+<tr class="odd">
+<td style="text-align: center;">byte</td>
+<td style="text-align: center;">-127</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">+/-1</td>
+<td style="text-align: center;">1</td>
 </tr>
-<tr>
-<td style="text-align:center">int</td>
-<td style="text-align:center">-32,767</td>
-<td style="text-align:center">32,740</td>
-<td style="text-align:center">+/-1</td>
-<td style="text-align:center">2</td>
+<tr class="even">
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-32,767</td>
+<td style="text-align: center;">32,740</td>
+<td style="text-align: center;">+/-1</td>
+<td style="text-align: center;">2</td>
 </tr>
-<tr>
-<td style="text-align:center">long</td>
-<td style="text-align:center">-2,147,483,647</td>
-<td style="text-align:center">2,147,483,620</td>
-<td style="text-align:center">+/-1</td>
-<td style="text-align:center">4</td>
+<tr class="odd">
+<td style="text-align: center;">long</td>
+<td style="text-align: center;">-2,147,483,647</td>
+<td style="text-align: center;">2,147,483,620</td>
+<td style="text-align: center;">+/-1</td>
+<td style="text-align: center;">4</td>
 </tr>
-<tr>
-<td style="text-align:center">float</td>
-<td style="text-align:center">-1.70141173319*10^38</td>
-<td style="text-align:center">1.70141173319*10^36</td>
-<td style="text-align:center">+/-10^-36</td>
-<td style="text-align:center">4</td>
+<tr class="even">
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">-1.70141173319*10^38</td>
+<td style="text-align: center;">1.70141173319*10^36</td>
+<td style="text-align: center;">+/-10^-36</td>
+<td style="text-align: center;">4</td>
 </tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center">-8.9884656743*10^307</td>
-<td style="text-align:center">8.9884656743*10^307</td>
-<td style="text-align:center">+/-10^-323</td>
-<td style="text-align:center">8</td>
+<tr class="odd">
+<td style="text-align: center;">double</td>
+<td style="text-align: center;">-8.9884656743*10^307</td>
+<td style="text-align: center;">8.9884656743*10^307</td>
+<td style="text-align: center;">+/-10^-323</td>
+<td style="text-align: center;">8</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>当运算时对于运算结果的精度要求很高，需要将变量设置成浮点型或者是双精度型，另注意 1 和 1.0000 的精度是不同的,前者在 (0.5,1.5) 区间内近似,而后者在 (0.99995,1.00005) 区间内近似。若多次运算反复取四舍五入，精度较低时将使计算误差迅速变大，然而，精度高时占用的内存资源较多。</p>
+<p>当运算时对于运算结果的精度要求很高，需要将变量设置成浮点型或者是双精度型，另注意
+1 和 1.0000 的精度是不同的,前者在 (0.5,1.5) 区间内近似,而后者在
+(0.99995,1.00005)
+区间内近似。若多次运算反复取四舍五入，精度较低时将使计算误差迅速变大，然而，精度高时占用的内存资源较多。</p>
 <p>以下例子有助于理解变量存贮类型变换：</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span>
 <span class="hljs-comment">*设置一个观察值单位，其实是生成了一个矩阵表格</span>
@@ -492,19 +496,23 @@ mjx-container[display="true"] + br {
 <span class="hljs-keyword">recast</span> double a  <span class="hljs-comment">//对a的储存内存修改为double</span>
 <span class="hljs-keyword">d</span></code></pre></div>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927203256955.png" srcset="/img/loading.gif" lazyload alt="image-20220927203256955" style="zoom:50%;"></p>
-<ol>
+<ol start="2" type="1">
 <li>字符串变量</li>
 </ol>
 <p>字符串变量由字母或一些特殊的符号组成（如地名〈籍贯〉变量，迁出地，住址，职业等等）。字符串变量也可以由数字来组成，但数字在这里仅代表一些符号而不再是数字。字符串变量通常以引号“”注标，而且引号一般不被视同为字符的一部分，注意这里的引号必须是英文输入状态下的引号。</p>
-<p>字符串最多可以达 244 个字符。一般用 <code>str#</code>来表示字符的多少，如 str20表示将有 20 个字符。一般三个中文字的姓名需要 6 个字符，即是一个汉字占2个字符。</p>
+<p>字符串最多可以达 244 个字符。一般用
+<code>str#</code>来表示字符的多少，如 str20表示将有 20
+个字符。一般三个中文字的姓名需要 6 个字符，即是一个汉字占2个字符。</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-comment">*在使用命令导入数据时,把字符型数据的字符规定为10个字符，一个汉字占2个字符</span>
 <span class="hljs-keyword">input</span> id str10 name economy</code></pre></div>
-<p>对于“125.27”这样的数值型的字符串，可以用<code>real()</code>函数或者 <code>destring</code> 命令转化成数值型变量。</p>
-<ol>
+<p>对于“125.27”这样的数值型的字符串，可以用<code>real()</code>函数或者
+<code>destring</code> 命令转化成数值型变量。</p>
+<ol start="3" type="1">
 <li>日期型变量</li>
 </ol>
-<p>在 STATA 中，1960 年 1 月 1 日被认为是第 0 天，因此 1959 年 12 月 31 日为第-1 天，2001 年 1 月 25 日为 15000 天。</p>
-<ol>
+<p>在 STATA 中，1960 年 1 月 1 日被认为是第 0 天，因此 1959 年 12 月 31
+日为第-1 天，2001 年 1 月 25 日为 15000 天。</p>
+<ol start="4" type="1">
 <li>缺失值</li>
 </ol>
 <p>没有意义的计算结果显示为”.”。在另外一种情况中，当数据集中含有缺失值，STATA不是采用默认的“.”表示，而是采用空来表示，或者是-9996等来表示。如果要将其全部缺失值替换为“.”的命令是：</p>
@@ -512,7 +520,8 @@ mjx-container[display="true"] + br {
 <span class="hljs-keyword">mvdecode</span> age,mv(1996)
 <span class="hljs-comment">*将缺失值表示为"."的转换成-9996</span>
 <span class="hljs-keyword">mvencode</span> age,mv(9996)</code></pre></div>
-<h4 id="2-数据类型的转换"><a href="#2-数据类型的转换" class="headerlink" title="2. 数据类型的转换"></a>2. 数据类型的转换</h4><ol>
+<h4 id="数据类型的转换">2. 数据类型的转换</h4>
+<ol type="1">
 <li>将字符型数字转换成数值型数据 <code>destring</code></li>
 </ol>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-comment">*将destring网络数据集中的全字符数据，转换程数值型数据进行运算和储存</span>
@@ -526,7 +535,8 @@ mjx-container[display="true"] + br {
 <span class="hljs-keyword">gen</span> nincom=income*1.3
 <span class="hljs-keyword">list</span> nincom income</code></pre></div>
 <ul>
-<li>对字符型数据进行数值型转换时，由于字符型数据存在各种的类型，比如说是date数据之间会存在空格(“ “)，price数据会有单位(“$”)，percent数据会有符号(“%”)。但是我们在对其进行数值型数据转换前需要把这些非数值性的符号去除</li>
+<li>对字符型数据进行数值型转换时，由于字符型数据存在各种的类型，比如说是date数据之间会存在空格("
+")，price数据会有单位("$")，percent数据会有符号("%")。但是我们在对其进行数值型数据转换前需要把这些非数值性的符号去除</li>
 </ul>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927154418535.png" srcset="/img/loading.gif" lazyload alt="image-20220927154418535" style="zoom: 50%;"></p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-comment">*当数据中的某个变量中有空格、符号等被识别为字符型数据时，需要剔除后destring转换成数值型数据</span>
@@ -549,7 +559,7 @@ mjx-container[display="true"] + br {
 <span class="hljs-keyword">destring</span> date price percent,<span class="hljs-keyword">replace</span> ignore(<span class="hljs-string">" ,$,%"</span>)
 <span class="hljs-keyword">list</span> 
 <span class="hljs-keyword">d</span></code></pre></div>
-<ol>
+<ol start="2" type="1">
 <li>将数值型转换为字符型<code>tostring</code></li>
 </ol>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-comment">*该数据中年月日的数据类型不一样，不能直接相加生成一个反映日期的新变量</span>
@@ -566,7 +576,9 @@ mjx-container[display="true"] + br {
 <span class="hljs-keyword">gen</span> date2=<span class="hljs-built_in">date</span>(date1,<span class="hljs-string">"MDY"</span>)    
 <span class="hljs-keyword">list</span>
 <span class="hljs-keyword">di</span> <span class="hljs-built_in">date</span>(<span class="hljs-string">"2001/09/30"</span>,<span class="hljs-string">"YMD"</span>)      <span class="hljs-comment">//计算出生日记距离今天日期一共过了多少天</span></code></pre></div>
-<h4 id="3-数据显示格式format"><a href="#3-数据显示格式format" class="headerlink" title="3. 数据显示格式format"></a>3. 数据显示格式<code>format</code></h4><p><code>format</code>只控制数据的显示格式(display format)，并不改变内存中数据的大小。以下以美国人口普查数据为例：</p>
+<h4 id="数据显示格式format">3. 数据显示格式<code>format</code></h4>
+<p><code>format</code>只控制数据的显示格式(display
+format)，并不改变内存中数据的大小。以下以美国人口普查数据为例：</p>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927202327188.png" srcset="/img/loading.gif" lazyload alt="image-20220927202327188" style="zoom: 50%;"></p>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927202407151.png" srcset="/img/loading.gif" lazyload alt="image-20220927202407151" style="zoom:50%;"></p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">webuse</span> census10,<span class="hljs-keyword">clear</span>
@@ -589,48 +601,48 @@ mjx-container[display="true"] + br {
 <span class="hljs-keyword">format</span> id %05.0f   <span class="hljs-comment">//对于id值，使得前面用零把位数对齐</span>
 <span class="hljs-keyword">list</span> <span class="hljs-keyword">in</span> 1/3</code></pre></div>
 <p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20220927203007094.png" srcset="/img/loading.gif" lazyload alt="image-20220927203007094" style="zoom:50%;"></p>
-<h4 id="4-在STATA中直接录入数据input"><a href="#4-在STATA中直接录入数据input" class="headerlink" title="4. 在STATA中直接录入数据input"></a>4. 在STATA中直接录入数据<code>input</code></h4><ol>
+<h4 id="在stata中直接录入数据input">4.
+在STATA中直接录入数据<code>input</code></h4>
+<ol type="1">
 <li>菜单式操作，打开数据编辑器，然后把数据复制黏贴</li>
 <li>命令操作</li>
 </ol>
-<div class="table-container">
 <table>
 <thead>
-<tr>
-<th style="text-align:center">id</th>
-<th style="text-align:center">name</th>
-<th style="text-align:center">economy</th>
+<tr class="header">
+<th style="text-align: center;">id</th>
+<th style="text-align: center;">name</th>
+<th style="text-align: center;">economy</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">John</td>
-<td style="text-align:center">40</td>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">John</td>
+<td style="text-align: center;">40</td>
 </tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Chris</td>
-<td style="text-align:center">80</td>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Chris</td>
+<td style="text-align: center;">80</td>
 </tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Jack</td>
-<td style="text-align:center">90</td>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Jack</td>
+<td style="text-align: center;">90</td>
 </tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Huang</td>
-<td style="text-align:center">43</td>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Huang</td>
+<td style="text-align: center;">43</td>
 </tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">Tom</td>
-<td style="text-align:center">70</td>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Tom</td>
+<td style="text-align: center;">70</td>
 </tr>
 </tbody>
 </table>
-</div>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span>
 <span class="hljs-keyword">input</span> id str10 name economy   <span class="hljs-comment">//输入变量名，注意姓名前的str10</span>
 1 John 40
@@ -640,99 +652,109 @@ mjx-container[display="true"] + br {
 5 Tom 53
 end
 <span class="hljs-keyword">save</span> economy</code></pre></div>
-<h4 id="5-导入其他数据格式insheet"><a href="#5-导入其他数据格式insheet" class="headerlink" title="5. 导入其他数据格式insheet"></a>5. 导入其他数据格式<code>insheet</code></h4><p>当我们有其他格式的数据，需要导入到 STATA 中进行分析，建议大家此时将其他格式数据复制到分析数据的文件目录下，然后直接用 STATA 的导入数据文件命令导入原始数据，用程序模式进行处理，然后导出处理结果。这样做的最大好处是：既不会破坏最原始的数据文件，又使我们的每一 步数据处理和分析过程都有迹可循。</p>
-<p>打开csv或者txt格式的数据时，可以使用<code>insheet</code>命令实现导入，当数据中某个变量的位数特别长或者对导入数据的精度要求很高的时候，需要在该命令后面加 double 选项。</p>
+<h4 id="导入其他数据格式insheet">5.
+导入其他数据格式<code>insheet</code></h4>
+<p>当我们有其他格式的数据，需要导入到 STATA
+中进行分析，建议大家此时将其他格式数据复制到分析数据的文件目录下，然后直接用
+STATA
+的导入数据文件命令导入原始数据，用程序模式进行处理，然后导出处理结果。这样做的最大好处是：既不会破坏最原始的数据文件，又使我们的每一
+步数据处理和分析过程都有迹可循。</p>
+<p>打开csv或者txt格式的数据时，可以使用<code>insheet</code>命令实现导入，当数据中某个变量的位数特别长或者对导入数据的精度要求很高的时候，需要在该命令后面加
+double 选项。</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">insheet</span> using 3origin.csv, <span class="hljs-keyword">clear</span> 
 <span class="hljs-keyword">insheet</span> using 3origin.txt, <span class="hljs-keyword">clear</span>
 <span class="hljs-keyword">insheet</span> using 3origin.txt, double <span class="hljs-keyword">clear</span></code></pre></div>
-<h4 id="6-标签数据label"><a href="#6-标签数据label" class="headerlink" title="6. 标签数据label"></a>6. 标签数据<code>label</code></h4><ul>
+<h4 id="标签数据label">6. 标签数据<code>label</code></h4>
+<ul>
 <li>要掌握的命令：为了创建一个完整的文件，要掌握下面的命令。</li>
 </ul>
-<div class="table-container">
 <table>
+
 <thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:center">命令解释</th>
-<th style="text-align:center">用法示例</th>
+<tr class="header">
+<th style="text-align: center;">命令</th>
+<th style="text-align: center;">命令解释</th>
+<th style="text-align: center;">用法示例</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">pwd</td>
-<td style="text-align:center">显示当前路径</td>
-<td style="text-align:center">pwd</td>
+<tr class="odd">
+<td style="text-align: center;">pwd</td>
+<td style="text-align: center;">显示当前路径</td>
+<td style="text-align: center;">pwd</td>
 </tr>
-<tr>
-<td style="text-align:center">dir</td>
-<td style="text-align:center">列示当前路径文件夹中的所有文件</td>
-<td style="text-align:center">dir</td>
+<tr class="even">
+<td style="text-align: center;">dir</td>
+<td style="text-align: center;">列示当前路径文件夹中的所有文件</td>
+<td style="text-align: center;">dir</td>
 </tr>
-<tr>
-<td style="text-align:center">mkdir</td>
-<td style="text-align:center">在当前路径下创建一个新的文件夹</td>
-<td style="text-align:center">mkdir d:/mydata</td>
+<tr class="odd">
+<td style="text-align: center;">mkdir</td>
+<td style="text-align: center;">在当前路径下创建一个新的文件夹</td>
+<td style="text-align: center;">mkdir d:/mydata</td>
 </tr>
-<tr>
-<td style="text-align:center">cd</td>
-<td style="text-align:center">将 cd 后面的路径设定为当前路径</td>
-<td style="text-align:center">cd d:/mydata</td>
+<tr class="even">
+<td style="text-align: center;">cd</td>
+<td style="text-align: center;">将 cd 后面的路径设定为当前路径</td>
+<td style="text-align: center;">cd d:/mydata</td>
 </tr>
-<tr>
-<td style="text-align:center">describe</td>
-<td style="text-align:center">显示整个数据集的信息</td>
-<td style="text-align:center">des</td>
+<tr class="odd">
+<td style="text-align: center;">describe</td>
+<td style="text-align: center;">显示整个数据集的信息</td>
+<td style="text-align: center;">des</td>
 </tr>
-<tr>
-<td style="text-align:center">rename</td>
-<td style="text-align:center">将现有变量名改为新的变量名</td>
-<td style="text-align:center">rename gender sex</td>
+<tr class="even">
+<td style="text-align: center;">rename</td>
+<td style="text-align: center;">将现有变量名改为新的变量名</td>
+<td style="text-align: center;">rename gender sex</td>
 </tr>
-<tr>
-<td style="text-align:center">label</td>
-<td style="text-align:center">给数据/变量/变量值加注标签说明</td>
-<td style="text-align:center"></td>
+<tr class="odd">
+<td style="text-align: center;">label</td>
+<td style="text-align: center;">给数据/变量/变量值加注标签说明</td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">label data</td>
-<td style="text-align:center">标签数据</td>
-<td style="text-align:center">label data “2004 级成绩表”</td>
+<tr class="even">
+<td style="text-align: center;">label data</td>
+<td style="text-align: center;">标签数据</td>
+<td style="text-align: center;">label data “2004 级成绩表”</td>
 </tr>
-<tr>
-<td style="text-align:center">label var</td>
-<td style="text-align:center">标签变量</td>
-<td style="text-align:center">label var name “姓名”</td>
+<tr class="odd">
+<td style="text-align: center;">label var</td>
+<td style="text-align: center;">标签变量</td>
+<td style="text-align: center;">label var name “姓名”</td>
 </tr>
-<tr>
-<td style="text-align:center">label value<br>label define</td>
-<td style="text-align:center">标签变量值</td>
-<td style="text-align:center">label values gender genderlb <br> label define genderlb 1 “男” 0 “女”</td>
+<tr class="even">
+<td style="text-align: center;">label value<br>label define</td>
+<td style="text-align: center;">标签变量值</td>
+<td style="text-align: center;">label values gender genderlb <br>
+label define genderlb 1 "男" 0 "女"</td>
 </tr>
-<tr>
-<td style="text-align:center">note</td>
-<td style="text-align:center">为数据加注额外说明</td>
-<td style="text-align:center">note: 9 月 10 日为数据加注说明</td>
+<tr class="odd">
+<td style="text-align: center;">note</td>
+<td style="text-align: center;">为数据加注额外说明</td>
+<td style="text-align: center;">note: 9 月 10 日为数据加注说明</td>
 </tr>
-<tr>
-<td style="text-align:center">list</td>
-<td style="text-align:center">列示内存中的数据</td>
-<td style="text-align:center">list id name</td>
+<tr class="even">
+<td style="text-align: center;">list</td>
+<td style="text-align: center;">列示内存中的数据</td>
+<td style="text-align: center;">list id name</td>
 </tr>
-<tr>
-<td style="text-align:center">save</td>
-<td style="text-align:center">保存数据</td>
-<td style="text-align:center">save mydata, replace</td>
+<tr class="odd">
+<td style="text-align: center;">save</td>
+<td style="text-align: center;">保存数据</td>
+<td style="text-align: center;">save mydata, replace</td>
 </tr>
-<tr>
-<td style="text-align:center">erase</td>
-<td style="text-align:center">删除数据文件</td>
-<td style="text-align:center">erase mydata1.dta,replace</td>
+<tr class="even">
+<td style="text-align: center;">erase</td>
+<td style="text-align: center;">删除数据文件</td>
+<td style="text-align: center;">erase mydata1.dta,replace</td>
 </tr>
 </tbody>
 </table>
-</div>
 <ul>
-<li>要完成的任务:创建一个文件（文件名为 mydata.dta）并将其放D：/mydata 文件夹下（如果没有该文件夹，请用 mkdir 命令创建）。标签该数据（用 label 命令）使得任何一个使用该数据的人都能明白该数据（包括整个数据/其中的变量及变量值）的含义。原始数据的内容如下：<code>3origin.xls</code></li>
+<li>要完成的任务:创建一个文件（文件名为 mydata.dta）并将其放D：/mydata
+文件夹下（如果没有该文件夹，请用 mkdir 命令创建）。标签该数据（用 label
+命令）使得任何一个使用该数据的人都能明白该数据（包括整个数据/其中的变量及变量值）的含义。原始数据的内容如下：<code>3origin.xls</code></li>
 </ul>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">clear</span>
 <span class="hljs-comment">*如果想在d盘创建一个新的文件夹mydata来存放数据文件，加上capture后，STATA会自动判断，如果mydata文件夹已存在，则跳过该命令；若不存在则创建一个命名为mydata的新文件夹</span>
