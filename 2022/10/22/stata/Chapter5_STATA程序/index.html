@@ -17,12 +17,12 @@
   <meta name="author" content="Devin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Chapter5——STATA程序  0. 创造自己的命令：与STATA互致问候我们可以自己创造一个叫 hello 的命令，当你运行这个命令的时候，STATA就会向你问好“你好 世界” hello   &#x2F;&#x2F;报错command hello is unrecognized capture program drop hello   &#x2F;&#x2F;删去此前生成的hello程序 program hello">
+    <meta name="description" content="Chapter5——STATA程序  0. 创造自己的命令：与STATA互致问候 我们可以自己创造一个叫 hello 的命令，当你运行这个命令的时候，STATA就会向你问好“你好 世界” hello   &#x2F;&#x2F;报错command hello is unrecognized capture program drop hello   &#x2F;&#x2F;删去此前生成的hello程序 program he">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chapter5——STATA程序">
 <meta property="og:url" content="http://example.com/2022/10/22/stata/Chapter5_STATA%E7%A8%8B%E5%BA%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Chapter5——STATA程序  0. 创造自己的命令：与STATA互致问候我们可以自己创造一个叫 hello 的命令，当你运行这个命令的时候，STATA就会向你问好“你好 世界” hello   &#x2F;&#x2F;报错command hello is unrecognized capture program drop hello   &#x2F;&#x2F;删去此前生成的hello程序 program hello">
+<meta property="og:description" content="Chapter5——STATA程序  0. 创造自己的命令：与STATA互致问候 我们可以自己创造一个叫 hello 的命令，当你运行这个命令的时候，STATA就会向你问好“你好 世界” hello   &#x2F;&#x2F;报错command hello is unrecognized capture program drop hello   &#x2F;&#x2F;删去此前生成的hello程序 program he">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-22T07:43:00.000Z">
 <meta property="article:modified_time" content="2022-11-28T06:36:26.231Z">
@@ -395,9 +395,13 @@ mjx-container[display="true"] + br {
             
             <div class="markdown-body">
               
-              <h1 align="center">Chapter5——STATA程序</h1>
-
-<h4 id="0-创造自己的命令：与STATA互致问候"><a href="#0-创造自己的命令：与STATA互致问候" class="headerlink" title="0. 创造自己的命令：与STATA互致问候"></a>0. 创造自己的命令：与STATA互致问候</h4><p>我们可以自己创造一个叫 hello 的命令，当你运行这个命令的时候，STATA就会向你问好“你好 世界”</p>
+              <h1 align="center">
+Chapter5——STATA程序
+</h1>
+<h4 id="创造自己的命令与stata互致问候">0.
+创造自己的命令：与STATA互致问候</h4>
+<p>我们可以自己创造一个叫 hello
+的命令，当你运行这个命令的时候，STATA就会向你问好“你好 世界”</p>
 <div class="code-wrapper"><pre><code class="hljs stata">hello   <span class="hljs-comment">//报错command hello is unrecognized</span>
 <span class="hljs-keyword">capture</span> <span class="hljs-keyword">program</span> <span class="hljs-keyword">drop</span> hello   <span class="hljs-comment">//删去此前生成的hello程序</span>
 <span class="hljs-keyword">program</span> hello       <span class="hljs-comment">//建立hello程序</span>
@@ -420,7 +424,9 @@ hello 我也吃了
 end
 hola 写了没？
 hola 读了没？</code></pre></div>
-<p>如果退出 stata 后还想执行这个程序，可以将这个文件存起来，最好是存在 STATA 的默认路径下，文件名为 hello.do（注意后缀为.do），退出 STATA 并重启: <code>do hello</code></p>
+<p>如果退出 stata 后还想执行这个程序，可以将这个文件存起来，最好是存在
+STATA 的默认路径下，文件名为 hello.do（注意后缀为.do），退出 STATA
+并重启: <code>do hello</code></p>
 <ul>
 <li><code>capture</code>命令用法</li>
 </ul>
@@ -432,8 +438,11 @@ hola 读了没？</code></pre></div>
 <span class="hljs-keyword">display</span> “你好,老兄” 
 end 
 hello</code></pre></div>
-<h4 id="1-暂元-Macros：local-global"><a href="#1-暂元-Macros：local-global" class="headerlink" title="1. 暂元 Macros：local/global"></a>1. 暂元 Macros：local/global</h4><p>Macro是程序中的临时变量，由Macro的名称和内容两部分组成，类似于变量名和变量值。Macro有局部宏和全局宏两种。局部宏只存在于定义它的程序之内，并且不能在其他程序中被引用；而全局宏一旦被定义，就会保留在当前Stata内存中，可以被当前STATA会话期间的其他程序所使用。</p>
-<p>宏的方便之处之一在于，你可以在宏里面加入多个内容。尤其是你需要多次输入同一内容时，定义和调用宏是最简单的方法。比如你要做多个回归进行比较，需要<code>reg Y X1 X2 X3 X4 Xa</code>，<code>reg X1 X2 X3 X4 Xb</code> ， <code>reg X1 X2 X3 X4 Xc</code>。你可以定义X1 X2 X3 X4为一个宏，定义宏以后，你回归的时候就可以不用多次输入。</p>
+<h4 id="暂元-macroslocalglobal">1. 暂元 Macros：local/global</h4>
+<p>Macro是程序中的临时变量，由Macro的名称和内容两部分组成，类似于变量名和变量值。Macro有局部宏和全局宏两种。局部宏只存在于定义它的程序之内，并且不能在其他程序中被引用；而全局宏一旦被定义，就会保留在当前Stata内存中，可以被当前STATA会话期间的其他程序所使用。</p>
+<p>宏的方便之处之一在于，你可以在宏里面加入多个内容。尤其是你需要多次输入同一内容时，定义和调用宏是最简单的方法。比如你要做多个回归进行比较，需要<code>reg Y X1 X2 X3 X4 Xa</code>，<code>reg X1 X2 X3 X4 Xb</code>
+， <code>reg X1 X2 X3 X4 Xc</code>。你可以定义X1 X2 X3
+X4为一个宏，定义宏以后，你回归的时候就可以不用多次输入。</p>
 <ul>
 <li>使用<code>local</code>来定义暂元</li>
 </ul>
@@ -512,9 +521,13 @@ end
 <span class="hljs-keyword">di</span> <span class="hljs-keyword">as</span> result <span class="hljs-string">"$j"</span>
 end 
 myprog</code></pre></div>
-<p>在上述程序的执行过程中，首先显示主程序所定义的暂元内容。然后调用子程序，显示子程序中的命令规定的暂元内容。再回到主程序，此时在主程序中用<code>local</code> 所定义的暂元并没有因为子程序的重新定义或调用而改变，仍然保持着在主程序中所定义的内容，即“主程序局域”，但是由 <code>global</code> 所定义的全局暂元却发生了改变，变为由子程序所更新定义后的“子程序全局暂元”。</p>
+<p>在上述程序的执行过程中，首先显示主程序所定义的暂元内容。然后调用子程序，显示子程序中的命令规定的暂元内容。再回到主程序，此时在主程序中用<code>local</code>
+所定义的暂元并没有因为子程序的重新定义或调用而改变，仍然保持着在主程序中所定义的内容，即“主程序局域”，但是由
+<code>global</code>
+所定义的全局暂元却发生了改变，变为由子程序所更新定义后的“子程序全局暂元”。</p>
 <p>local是局部暂元，局部引用；global是全局暂元，贯穿整个代码都有效，局部暂元执行完一次命令后就失效了，而全局暂元保证stata关闭之前暂元一直存在</p>
-<h4 id="2-自带命令参数"><a href="#2-自带命令参数" class="headerlink" title="2. 自带命令参数"></a>2. 自带命令参数</h4><div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">capture</span> <span class="hljs-keyword">prog</span> <span class="hljs-keyword">drop</span> listargs
+<h4 id="自带命令参数">2. 自带命令参数</h4>
+<div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">capture</span> <span class="hljs-keyword">prog</span> <span class="hljs-keyword">drop</span> listargs
 <span class="hljs-keyword">program</span> listargs
 <span class="hljs-keyword">di</span> <span class="hljs-string">"第一个参数为：`1'"</span>
 <span class="hljs-keyword">di</span> <span class="hljs-string">"第二个参数为：`2'"</span>
@@ -544,7 +557,8 @@ listargs <span class="hljs-string">"this is"</span> <span class="hljs-string">"a
 end
 listargs this is a <span class="hljs-keyword">test</span>
 listargs <span class="hljs-string">"this is a test"</span></code></pre></div>
-<h4 id="3-scalar标量"><a href="#3-scalar标量" class="headerlink" title="3. scalar标量"></a>3. <code>scalar</code>标量</h4><div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">scalar</span> a=2
+<h4 id="scalar标量">3. <code>scalar</code>标量</h4>
+<div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">scalar</span> a=2
 <span class="hljs-keyword">dis</span> a+2
 <span class="hljs-keyword">scalar</span> b=a+3
 <span class="hljs-keyword">di</span> b
@@ -570,7 +584,9 @@ end
 <span class="hljs-keyword">list</span>
 <span class="hljs-keyword">gen</span> v3=a*<span class="hljs-built_in">scalar</span>(b)
 <span class="hljs-keyword">list</span></code></pre></div>
-<p>说明：当变量名和标量名相同时，STATA 将优先使用变量名，如果要强制使用标题，需要用 <code>scalar(varlist)</code>，为标量变量，即存储一个数字数据的变量。</p>
+<p>说明：当变量名和标量名相同时，STATA
+将优先使用变量名，如果要强制使用标题，需要用
+<code>scalar(varlist)</code>，为标量变量，即存储一个数字数据的变量。</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span>
 <span class="hljs-keyword">sum</span> price
 <span class="hljs-keyword">return</span> <span class="hljs-keyword">list</span>
@@ -589,7 +605,10 @@ end
 <span class="hljs-keyword">local</span> max=<span class="hljs-built_in">r</span>(max)
 <span class="hljs-keyword">local</span> v0 <span class="hljs-string">"mean sum max"</span>
 <span class="hljs-keyword">di</span> <span class="hljs-symbol">`v0'</span></code></pre></div>
-<h4 id="4-临时变量和临时数据文件：tempvar和tempfile"><a href="#4-临时变量和临时数据文件：tempvar和tempfile" class="headerlink" title="4. 临时变量和临时数据文件：tempvar和tempfile"></a>4. 临时变量和临时数据文件：<code>tempvar</code>和<code>tempfile</code></h4><p>在我们的数据处理过程中，会产生一些中间的临时性变量，如果随着退出 STATA，这些临时的中间性变量能自动消失，既不会破坏原始数据，也不会因为这些干扰变量妨碍我们查看结果性的变量。</p>
+<h4 id="临时变量和临时数据文件tempvar和tempfile">4.
+临时变量和临时数据文件：<code>tempvar</code>和<code>tempfile</code></h4>
+<p>在我们的数据处理过程中，会产生一些中间的临时性变量，如果随着退出
+STATA，这些临时的中间性变量能自动消失，既不会破坏原始数据，也不会因为这些干扰变量妨碍我们查看结果性的变量。</p>
 <div class="code-wrapper"><pre><code class="hljs stata"><span class="hljs-keyword">sysuse</span> auto,<span class="hljs-keyword">clear</span>
 <span class="hljs-keyword">preserve</span>      <span class="hljs-comment">//表明下面的代码操作将不会破坏当前数据中的文件</span>
 <span class="hljs-keyword">keep</span> price weight
