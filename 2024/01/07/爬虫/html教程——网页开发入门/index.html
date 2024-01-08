@@ -30,8 +30,16 @@
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240107213325894.png">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240107213409121.png">
 <meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240107213421721.png">
+<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108101731914.png">
+<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108101756552.png">
+<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108102620091.png">
+<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108103258215.png">
+<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108174225001.png">
+<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108202240783.png">
+<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108202618004.png">
+<meta property="og:image" content="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108203839034.png">
 <meta property="article:published_time" content="2024-01-07T13:54:04.124Z">
-<meta property="article:modified_time" content="2024-01-07T14:03:11.364Z">
+<meta property="article:modified_time" content="2024-01-08T13:06:44.513Z">
 <meta property="article:author" content="Devin">
 <meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary_large_image">
@@ -348,7 +356,7 @@ mjx-container[display="true"] + br {
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          4.9k 字
+          10k 字
         
       </span>
     
@@ -360,7 +368,7 @@ mjx-container[display="true"] + br {
         
         
           <!-- compatible with older versions-->
-          41 分钟
+          87 分钟
         
       </span>
     
@@ -417,7 +425,7 @@ html教程——网页开发入门
 <div class="code-wrapper"><pre><code class="hljs html">&lt;标记&gt;内容&lt;/标记&gt;</code></pre></div>
 <p><code>&lt;标记&gt;内容&lt;/标记&gt;</code>
 分别指的是一个标记元素的开始和结束</p>
-<h5 id="常用html标记">1.2常用HTML标记</h5>
+<h5 id="常用html标记">1.2 常用HTML标记</h5>
 <table>
 
 <thead>
@@ -690,6 +698,197 @@ html教程——网页开发入门
 <li><code>&lt;input type="submit" value="登录"</code>为提交表单的按钮标记，当type属性为submit表示提交，为reset时表示清除表单已有输入，value用于显示行为事件的内容</li>
 </ol>
 </blockquote>
+<h5 id="section-2"></h5>
+<h4 id="网页开发进阶">4. 网页开发进阶</h4>
+<p>本节主要是对网页显示内容美观需求的解决方案及其实践，设定方法有以下集中：</p>
+<h5 id="样式一">4.1 样式一</h5>
+<p>直接在html标记中增加style属性，一般区域级标记都可以使用，如div标记、span标记。</p>
+<p><code>&lt;tag style="key:attrs"&gt;内容&lt;/tag&gt;</code>
+其中，key为样式名，attrs是对应的属性</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My Sixth Webpage<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>我的第六个网页<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color: red;font-size: 16px;"</span>&gt;</span>内容样式设定示例<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:550px;height: 200px;border:1px solid red;"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"gdut1.png"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">span</span>  <span class="hljs-attr">style</span>=<span class="hljs-string">"color:blue;font-size: 10px;"</span>&gt;</span>璀璨星光<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108101731914.png" srcset="/img/loading.gif" lazyload alt="image-20240108101731914" style="zoom:67%;"></p>
+<h5 id="样式二">4.2 样式二</h5>
+<p>直接给html标记添加样式属性，如表格标记、表单标记等。基本格式：</p>
+<p><code>&lt;tag key="attrs"&gt;内容&lt;/tag&gt;</code></p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My Seventh Webpage<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>我的第七个网页<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color: red;font-size: 16px;"</span>&gt;</span>表格样式设定示例<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"500px"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"80px"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"center"</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center;"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color:red"</span>&gt;</span>第一单元<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color: blue"</span>&gt;</span>第二单元<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<figure>
+<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108101756552.png" srcset="/img/loading.gif" lazyload alt="image-20240108101756552">
+<figcaption aria-hidden="true">image-20240108101756552</figcaption>
+</figure>
+<p>将html代码和样式设定代码css分开，以便代码看起来更加的整洁。解决方案是给每个HTML标记增加标识属性，标识方式为设定class类名或者设定id属性</p>
+<blockquote>
+<ul>
+<li>class类名：可以重复赋给多个html标记，常用于给一个或多个html标记设定相同的css样式</li>
+<li>id属性：建议一个html标记顶一个id属性，这样整个网页中该html标记拥有唯一的id属性，便于快速定位</li>
+</ul>
+</blockquote>
+<h5 id="样式三加入css">4.3 样式三（加入CSS）</h5>
+<p>html代码与样式设定代码css分开，给定html标记class名</p>
+<p>样式模板：</p>
+<div class="code-wrapper"><pre><code class="hljs html">#样式css代码存放在头部<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>文档<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-xml">标记内，用"."符号指定类名</span>
+<span class="language-xml">#css代码以key:value键值对存放，多个键值对采用";"分号分隔</span>
+<span class="language-xml"></span>
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span>
+<span class="language-xml">	<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span></span>
+<span class="language-css"><span class="language-xml">		<span class="hljs-selector-class">.boxName</span>{keys: attrs}</span></span>
+<span class="language-css"><span class="language-xml">	</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></code></pre></div>
+<p>案例：</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My Eighth Webpage<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">   #存放css代码</span>
+<span class="language-css">		<span class="hljs-selector-class">.title</span>{      </span>
+<span class="language-css">			<span class="hljs-attribute">color</span>: red;</span>
+<span class="language-css">			<span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;</span>
+<span class="language-css">		}   <span class="hljs-selector-id">#class</span>为title的<span class="hljs-selector-tag">html</span>标记设定样式</span>
+<span class="language-css">		<span class="hljs-selector-class">.box</span>{</span>
+<span class="language-css">			<span class="hljs-attribute">width</span>: <span class="hljs-number">800px</span>;</span>
+<span class="language-css">			<span class="hljs-attribute">height</span>: <span class="hljs-number">60px</span>;</span>
+<span class="language-css">			<span class="hljs-attribute">background</span>: <span class="hljs-number">#f0f0f0</span>;</span>
+<span class="language-css">			<span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid red;</span>
+<span class="language-css">			<span class="hljs-attribute">text-align</span>: center;</span>
+<span class="language-css">		}    <span class="hljs-selector-id">#class</span>为box 的<span class="hljs-selector-tag">html</span>标记设定样式</span>
+<span class="language-css">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>我的第八个网页<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"title"</span>&gt;</span>css设定示例<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"box"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>我喜欢爬虫<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108102620091.png" srcset="/img/loading.gif" lazyload alt="image-20240108102620091" style="zoom:67%;"></p>
+<p>如果还想更加的简洁，也可以将css设定放在该html文件路径下的一个css文件中，然后在头部引用该css样式，下面为代码：</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My Eighth Webpage<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"css/text"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"title-box.css"</span>&gt;</span>     #应用本文件路径下的css样式文件
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>我的第八个网页<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"title"</span>&gt;</span>css设定示例<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"box"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>我喜欢爬虫<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<h5 id="样式四加入js">4.4 样式四（加入JS）</h5>
+<p>JavaScript脚本添加网页的交互行为及其简单实践</p>
+<p>给HTML标记设定id属性，每个需要设定的HTML标记给定唯一的id名由此在定位HTML标记时就能直接锁定其在网页中的位置。实际上id属性也可以用来设定该HTMI标记的样式属性，不过因为id属性的唯一，不便于CSS代码的复用。而更多的时候id属性用于指定HTML标记，使用JavaScript脚本实现对HTML元素的交互事件，如点击弹窗、操作HTML元素等。</p>
+<p>在HTML页面中插人JavaScript，需要使用<code>&lt;script&gt;</code>标记。<code>&lt;script&gt; &lt;/script&gt;</code>标记对会告诉JavaScript
+在何处开始和结束。JavaScript脚本就包括在<code>&lt;script&gt;&lt;/script&gt;</code>标记对中，同时这个脚本般放置在网页代码的尾部区域，也可以放置到body或head标记区域。</p>
+<p>案例：插入JavaScript脚本以实现弹窗显示helloworld</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>my tenth webpage<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>我的第十个网页<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color: red;font-size: 16px;"</span>&gt;</span>javascript入门示例<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"box"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>本案例使用id来定位html标记，加入js代码<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"btn"</span>&gt;</span>点我测试<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span>
+<span class="language-javascript">	<span class="hljs-keyword">var</span> targetHTML=<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">"btn"</span>);</span>
+<span class="language-javascript">	targetHTML.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">"click"</span>,<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>){</span>
+<span class="language-javascript">		<span class="hljs-title function_">alert</span>(<span class="hljs-string">"helloworld"</span>);</span>
+<span class="language-javascript">	})</span>
+<span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<figure>
+<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108103258215.png" srcset="/img/loading.gif" lazyload alt="image-20240108103258215">
+<figcaption aria-hidden="true">image-20240108103258215</figcaption>
+</figure>
+<p>同样，也可以将js样式保存在该html路径下的js文件，并在最后<code>&lt;script&gt;</code>引用该js样式</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"myscript.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<h5 id="section-3"></h5>
+<h4 id="网站基础入门">5. 网站基础入门</h4>
+<h5 id="网页访问路径url">5.1 网页访问路径URL</h5>
+<p>根据网站目录路径，网页访问路径的构成方式为：</p>
+<blockquote>
+<p>http://网站域名 / 板块1 / 页面文件</p>
+<p>http://网站域名 / 板块2 / 子版块1 / 页面文件</p>
+<p>http://网站域名 / 板块3 / 页面文件</p>
+</blockquote>
+<figure>
+<img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108174225001.png" srcset="/img/loading.gif" lazyload alt="image-20240108174225001">
+<figcaption aria-hidden="true">image-20240108174225001</figcaption>
+</figure>
+<h5 id="网页dom结构">5.2 网页DOM结构</h5>
+<p>根据DOM模型，HTML文档中的每一个成分都是一个节点Node</p>
+<blockquote>
+<p>整个文档是一个文档节点</p>
+<p>每个HTML标签是一个元素节点</p>
+<p>包含在HTML元素中的文本是文本节点</p>
+<p>每一个HTML属性是一个属性节点</p>
+</blockquote>
+<p>因此，所有的html文档中的所有节点构成了一个文档数（节点树）。节点Node之间的关系是父子关系</p>
+<h5 id="网站访问http请求">5.3 网站访问HTTP请求</h5>
+<p>HTTP会话：</p>
+<p>（1）建立连接：客户端的浏览器向网站服务端发出建立连接的请求，服务端给出响应就可以建立连接了。</p>
+<p>（2）发送请求：客户端按照协议的要求通过连接向网站服务端发送自己的请求。</p>
+<p>（3）给出应答：网站服务端按照客户端的要求给出应答，把结果(HTML文件)返回给客户端</p>
+<p>（4）关闭连接：客户端接到应答后关闭连接。</p>
+<h5 id="http-get请求">5.4 HTTP get请求</h5>
+<p>get请求是指从服务器获取数据，显示在本地浏览器上。在浏览器地址栏里输入网站的地址后，按下回车键的过程就是在给网站服务器发送HTTP的get请求。一句话解释就是：浏览器给服务器发送请求，想要获得首页文本内容html页面，服务器通过请求将响应内容传输到浏览器端，浏览器进行渲染解析后显示出来，请求头和响应头都是对请求内容和响应内容的协议格式说明。</p>
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108202240783.png" srcset="/img/loading.gif" lazyload alt="image-20240108202240783" style="zoom:67%;"></p>
+<h5 id="http-post请求">5.5 HTTP post请求</h5>
+<p>post请求时往服务器端发送数据，与get请求正好相反，一般用于用于注册登录、表单提交、意见点评等场景。</p>
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108202618004.png" srcset="/img/loading.gif" lazyload alt="image-20240108202618004" style="zoom:50%;"></p>
+<h5 id="开发者工具">5.6 开发者工具</h5>
+<h6 id="elements选项">（1）Elements选项</h6>
+<p>开发者选项中，第一个选项就是Elements选项，Elements元素选项窗口主要展示当前页面的组织结构，其功能除了显示当前页面各种网页元素以及样式，还可以实现当前网页的实时调试。其实Elements选项其实是包含了当前某一网页所有内容的一张网</p>
+<p>精准锁定目标，可以单击网页元素监测器，激活网页元素监测工具，然后再网页显示区域单击任何网页元素，Elements选项代码区将显示该元素所在的html标记代码，同时定位到目标所在的html标记容器</p>
+<p><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240108203839034.png" srcset="/img/loading.gif" lazyload alt="image-20240108203839034" style="zoom: 50%;"></p>
+<h6 id="network选项">（2）Network选项</h6>
+<p>追踪XHR类型资源响应，AJAX异步刷新：每一次请求，页面的网页地址都没有发生变化</p>
+<p>XHR是一种专门用于与服务器实现AJAX请求资源的方法，XHR请求方式包含POST、GET请求。AJAX是一种网页内容局部更新的技术，在获得数据后通过js脚本来控制DOM实现局部更新。XHR请求返回的数据一般都是json格式，并且对页面局部的请求不改变当前页面的网页地址。</p>
 
               
             </div>
