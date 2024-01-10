@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Excel爬虫</title>
+    <link href="/2024/01/10/%E7%88%AC%E8%99%AB/Excel%E7%88%AC%E8%99%AB/"/>
+    <url>/2024/01/10/%E7%88%AC%E8%99%AB/Excel%E7%88%AC%E8%99%AB/</url>
+    
+    <content type="html"><![CDATA[<h1 align="center">Excel爬虫</h1><p>使用Excel爬虫仅仅可以实现简单的数据爬取，主要是分为两类：一是网页页面存在有表格形式的数据；二是网页页面存在json形式数据。往往前者比较容易爬取，后者会比较困难，因为涉及到一些网页开发工具，相对而言使用excel爬取网页json数据不如python便捷，所以一般可以通过excel爬取网页的表格类型数据。</p><h4 id="powerquery编辑器使用">1. PowerQuery编辑器使用</h4><p>需求：爬取淘宝天猫热销总榜销量，并使用PQ编辑数据</p><blockquote><p>url：https://tophub.today/n/yjvQDpjobg</p></blockquote><ul><li>Excel数据—新建查询—从其他源—自网站—输入上面的url—得到响应数据—将数据转换到PQ编辑器中</li></ul><figure><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240110210016704.png" alt="image-20240110210016704"><figcaption aria-hidden="true">image-20240110210016704</figcaption></figure><ul><li>第二列是爬取页面的数据，由于该爬取仅针对于表格文本，所以无法爬取图片。将第三行的文本信息提取得到商品原价和券后价：划分列—按分隔符—选择或输入分隔符为<strong>空格</strong></li></ul><figure><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240110210454354.png" alt="image-20240110210454354"><figcaption aria-hidden="true">image-20240110210454354</figcaption></figure><ul><li>去除原价￥和券后￥标识，并得到数值型数据的价格类型：添加列——提取——分隔符之后的文本——选择“券后¥”、“原价¥”——转换——数据类型——选择为小数</li></ul><figure><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240110211012139.png" alt="image-20240110211012139"><figcaption aria-hidden="true">image-20240110211012139</figcaption></figure><ul><li>将第四列的热销数据提取出销量件数：添加列——提取——分隔符之间的文本——开始为热销，结束为件</li></ul><figure><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240110211353289.png" alt="image-20240110211353289"><figcaption aria-hidden="true">image-20240110211353289</figcaption></figure><p>将分隔后得到的热销数据处理，将前面几个数据的单位万去掉，然后乘以10000，小于一万的不需要调整：转换——替换值——输入万，替换“”——转换为数值数据——添加列——条件列</p><figure><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240110211814701.png" alt="image-20240110211814701"><figcaption aria-hidden="true">image-20240110211814701</figcaption></figure><figure><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240110212103543.png" alt="image-20240110212103543"><figcaption aria-hidden="true">image-20240110212103543</figcaption></figure><ul><li>将PQ编辑器中的数据导出到excel表格中：主页——关闭并上载</li></ul><figure><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240110212241764.png" alt="image-20240110212241764"><figcaption aria-hidden="true">image-20240110212241764</figcaption></figure><h5 id="section"></h5><h4 id="excel实现分页爬取">2. excel实现分页爬取</h4><p>需求：爬取经管之家的最新主题</p><blockquote><p>url：https://bbs.pinggu.org/z_index.php?type=1&amp;page=1</p></blockquote><ul><li>将url放置excel的自网页获得响应数据（与上面案例一样操作），然后将数据转换进去PQ编辑器</li><li>点击视图——高级编辑器——将第一次爬取的代码修改为分页爬取代码</li></ul><div class="code-wrapper"><pre><code class="hljs reasonml">(page <span class="hljs-keyword">as</span> number) <span class="hljs-keyword">as</span><span class="hljs-function"> <span class="hljs-params">table</span> =&gt;</span><span class="hljs-keyword">let</span>    源 = Web.<span class="hljs-constructor">Page(Web.Contents(<span class="hljs-string">"https://bbs.pinggu.org/z_index.php?type=1&amp;page="</span>&amp;Number.ToText(<span class="hljs-params">page</span>)</span>)),    Data0 = 源{<span class="hljs-number">0</span>}<span class="hljs-literal">[D<span class="hljs-identifier">ata</span>]</span>,    更改的类型 = Table.<span class="hljs-constructor">TransformColumnTypes(Data0,{{<span class="hljs-string">""</span>, <span class="hljs-params">type</span> <span class="hljs-params">text</span>}, {<span class="hljs-string">"主题"</span>, <span class="hljs-params">type</span> <span class="hljs-params">text</span>}, {<span class="hljs-string">"版块"</span>, <span class="hljs-params">type</span> <span class="hljs-params">text</span>}, {<span class="hljs-string">"回复/查看"</span>, <span class="hljs-params">type</span> <span class="hljs-params">text</span>}, {<span class="hljs-string">"最后发帖"</span>, <span class="hljs-params">type</span> <span class="hljs-params">text</span>}})</span><span class="hljs-keyword">in</span>    更改的类型</code></pre></div><figure><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240110212928892.png" alt="image-20240110212928892"><figcaption aria-hidden="true">image-20240110212928892</figcaption></figure><p>然后得到一个需要输入参数的函数页面，此时输入对应页面页数参数（比如说：3，表示第三页）仅仅只可以爬取输入参数页面的数据</p><figure><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240110213158640.png" alt="image-20240110213158640"><figcaption aria-hidden="true">image-20240110213158640</figcaption></figure><ul><li>通过构建一个列表来获得全部页数页面的数据：主页——新建源——其他源——空查询——输入<code>={1..23}</code>，23是当前url下可以爬取到的最大页面页数——到表——确定</li></ul><figure><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240110213426545.png" alt="image-20240110213426545"><figcaption aria-hidden="true">image-20240110213426545</figcaption></figure><ul><li>将bbs所有页面的数据都导出到上一步生成的23个列表中：添加列——调用自定义函数——确定。功能查询选的是此前高级编辑器代码生成的函数table列</li></ul><figure><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240110213851675.png" alt="image-20240110213851675"><figcaption aria-hidden="true">image-20240110213851675</figcaption></figure><figure><img src="http://situdongbo-first.oss-cn-guangzhou.aliyuncs.com/img/image-20240110214015565.png" alt="image-20240110214015565"><figcaption aria-hidden="true">image-20240110214015565</figcaption></figure><ul><li>得到数据，并关闭PQ编辑器返回上载数据至excel表格</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>爬虫</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>爬虫</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>html教程——网页开发入门</title>
     <link href="/2024/01/07/%E7%88%AC%E8%99%AB/html%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/"/>
     <url>/2024/01/07/%E7%88%AC%E8%99%AB/html%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/</url>
